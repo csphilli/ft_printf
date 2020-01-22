@@ -6,7 +6,7 @@
 #    By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/17 15:59:38 by cphillip          #+#    #+#              #
-#    Updated: 2020/01/17 20:55:55 by cphillip         ###   ########.fr        #
+#    Updated: 2020/01/22 16:04:19 by cphillip         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ $(NAME): $(OBJ) $(O_DIR)
 	@cp $(LIB_DIR)$(LIBFT_A) $(NAME)
 	@ar rc $(NAME) $(addprefix $(O_DIR), $(O_FILES))
 	@ranlib $(NAME)
+	@rm -rf $(addprefix $(O_DIR), $(O_FILES))
 
 $(O_DIR):
 	@mkdir -p obj
@@ -47,9 +48,11 @@ $(O_FILES):
 	@$(COMP) $(O_DIR)$@ $(SRC_DIR)$(@:%.o=%.c)
 
 clean:
+	@echo "Cleaning Object Files..."
 	rm -rf $(addprefix $(O_DIR), $(O_FILES))
 
 fclean: clean
+	@echo "Deleting binary: $(NAME)"
 	rm -rf $(NAME)
 
 re: fclean all

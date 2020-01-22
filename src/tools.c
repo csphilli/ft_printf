@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 20:55:36 by cphillip          #+#    #+#             */
-/*   Updated: 2020/01/22 12:51:57 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/01/22 15:52:54 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,66 +45,52 @@ int		update_len(t_struct *csp, int padding, int s_len)
 	return (s_len);
 }
 
-
 char	*convert_nbr(long unsigned int nbr, int base)
 {
-	char 				*str;
-	char				*symbols;
-	char		res;
-	int					i;
-	int					mod;
-	long unsigned int	tmp;
-	tmp = nbr;
-	symbols = "0123456789abcde";
-	if (!(str = (char *)malloc(sizeof(nbr))))
+	char			*str;
+	char			*symbols;
+	unsigned int	i;
+	int				j;
+
+	j = 0;
+	symbols = "0123456789abcdef";
+	if (!(str = (char *)malloc(sizeof(ft_nbr_size_base(nbr, base) * (char) + 1))))
 		exit (-1);
-	while (tmp != 0)
+	while (nbr != 0)
 	{
-		mod = tmp % base;
-		printf("mod: %d\n", mod);
 		i = 0;
 		while (symbols[i])
 		{
-			if (i == mod)
+			if (i == nbr % base)
 			{
-				res = symbols[i];
+				str[j] = symbols[i];
+				j++;
 				break;
 			}
 			i++;
 		}
-		str = ft_strjoin(str, &res);
-		printf("str: %s\n\n", str);
-		//printf("symbol: %c\n", symbols[mod]);
-		//printf("string: %s\n", str);
-		tmp /= base;
-	}
-	printf("%s\n", str);
-	return (0);
-}
-
-/*
-
-char	*ft_itoa_base(int n, unsigned int base)
-{
-	char			*new;
-	unsigned int	nbr;
-	int				len;
-	int				sign;
-
-	sign = n < 0;
-	len = ft_nbr_size(n);
-	if (!(new = ft_strnew(len + 1)))
-		return (NULL);
-	nbr = n < 0 ? -n : n;
-	new[len] = '\0';
-	while (nbr >= base)
-	{
-		new[len--] = (char)(nbr % base + 48);
 		nbr /= base;
 	}
-	new[len--] = (char)(nbr % base + 48);
-	if (sign == 1)
-		new[len] = '-';
-	return (new);
+	return (str);
 }
-*/
+
+char	*rev_str(char *str)
+{
+	char 	*tmp;
+	int		i;
+	int		len;
+
+	i = 0;
+	len = ft_strlen(str);
+
+	if (!(tmp = (char *)malloc(sizeof(len * (char) + 1))))
+		return (NULL);
+	tmp[len] = '\0';
+	while (len--)
+	{
+		tmp[len] = str[i];
+		i++;
+	}
+	return (tmp);
+
+}

@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:55 by cphillip          #+#    #+#             */
-/*   Updated: 2020/01/21 20:18:22 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/01/22 16:08:19 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	main()
 	line();
 	printf("VALID STRINGS\n");
 	printf("ENSURING FT_PRINTF MATCHES PRINTF\n");
+	printf("FT_PRINTF IS THE FIRST OUTPUT\n");
 	line();
 	setvbuf(stdout, NULL, _IONBF, 0);
 /*
@@ -44,8 +45,6 @@ printf(":%-20.5s:and :%5.3s:\n\n", str, str);
 printf("[2]\n");
 ft_printf(":%-14.5s :\n", str);
 printf(":%-14.5s :\n\n", str);
-
-
 printf("[3]\n");
 ft_printf(":%-4.24s:\n", str);
 printf(":%-4.24s:\n\n", str);
@@ -435,7 +434,7 @@ line();
 char *p;
 p = "t";
 
-printf(":%3p:\n", p);
+printf("[132]\n");
 printf(":%-10p:\n", (void *)p);
 ft_printf(":%p:\n", p);
 }

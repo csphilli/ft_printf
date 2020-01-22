@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:19:47 by cphillip          #+#    #+#             */
-/*   Updated: 2020/01/22 12:16:36 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/01/22 16:05:27 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,19 @@ t_struct	*staging(t_struct *csp)
 	return (csp);
 }
 
-uintmax_t 	print_p(t_struct *csp)
+t_struct 	*print_p(t_struct *csp)
 {
-	char *t;
+	char 	*tmp;
+	int		base;
 
+	base = 16;
 	uintmax_t nbr;
 	nbr = (unsigned long)va_arg(csp->args, unsigned long int);
 	nbr = (uintmax_t)nbr;
-	printf("%ld\n", nbr);
-	t = ft_itoa_base(nbr, 16);
-	printf("nbr: %s\n", t);
-	return (0);
+	tmp = convert_nbr(nbr, base);
+	tmp = rev_str(tmp);
+	write(1, "0x", 2);
+	csp->len += ft_strlen(tmp) + 2;
+	ft_putstr(tmp);
+	return (csp);
 }
