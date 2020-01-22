@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:19:47 by cphillip          #+#    #+#             */
-/*   Updated: 2020/01/21 19:39:04 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/01/22 08:32:31 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,3 @@ uintmax_t 	print_p(t_struct *csp)
 	printf("%ld\n", nbr);
 	return (0);
 }
-
-
-
