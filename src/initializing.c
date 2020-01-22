@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:10:49 by cphillip          #+#    #+#             */
-/*   Updated: 2020/01/18 23:45:04 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/01/22 10:04:00 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_struct	*re_init(t_struct *csp)
 	csp->conv_flags[2] = '\0';
 	csp->conv_flags[3] = '\0';
 	csp->conv_flags[4] = '\0';
-	csp->conv_flags[5] = '\0';
+	//csp->conv_flags[5] = '\0';
 	csp->len_flags[0] = '\0';
 	csp->len_flags[1] = '\0';
 	return (csp);

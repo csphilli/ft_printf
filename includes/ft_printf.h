@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 09:44:30 by cphillip          #+#    #+#             */
-/*   Updated: 2020/01/21 19:38:05 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/01/22 12:14:35 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void		print_s_la_no_p(int padding, char *tmp);
 void		print_s_ra_no_p(int padding, char *tmp);
 int			update_len(t_struct *csp, int padding, int s_len);
 uintmax_t 	print_p(t_struct *csp);
+char		*ft_itoa_base(int n, unsigned int base);
 
 
 #endif
