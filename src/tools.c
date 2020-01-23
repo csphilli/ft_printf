@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 20:55:36 by cphillip          #+#    #+#             */
-/*   Updated: 2020/01/22 16:17:46 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/01/23 15:47:15 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,25 +71,5 @@ char	*convert_nbr(long unsigned int nbr, int base)
 		}
 		nbr /= base;
 	}
-	return (str);
-}
-
-char	*rev_str(char *str)
-{
-	char 	*tmp;
-	int		i;
-	int		len;
-
-	i = 0;
-	len = ft_strlen(str);
-	if (!(tmp = (char *)malloc(sizeof(len * (char) + 1))))
-		return (NULL);
-	tmp[len] = '\0';
-	while (len--)
-	{
-		tmp[len] = str[i];
-		i++;
-	}
-	return (tmp);
-
+	return (rev_str(str));
 }

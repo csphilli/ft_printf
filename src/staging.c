@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:19:47 by cphillip          #+#    #+#             */
-/*   Updated: 2020/01/22 16:05:27 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/01/23 15:38:15 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,25 +50,8 @@ t_struct	*staging(t_struct *csp)
 	if (*spec == 'c')
 		print_c(csp);
 	if (*spec == 's')
-		print_s_staging(csp);
+		print_s(csp);
 	if (*spec == 'p')
 		print_p(csp);
-	return (csp);
-}
-
-t_struct 	*print_p(t_struct *csp)
-{
-	char 	*tmp;
-	int		base;
-
-	base = 16;
-	uintmax_t nbr;
-	nbr = (unsigned long)va_arg(csp->args, unsigned long int);
-	nbr = (uintmax_t)nbr;
-	tmp = convert_nbr(nbr, base);
-	tmp = rev_str(tmp);
-	write(1, "0x", 2);
-	csp->len += ft_strlen(tmp) + 2;
-	ft_putstr(tmp);
 	return (csp);
 }

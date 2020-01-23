@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_s_stage.c                                    :+:      :+:    :+:   */
+/*   print_p.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/17 14:08:21 by cphillip          #+#    #+#             */
-/*   Updated: 2020/01/23 15:37:44 by cphillip         ###   ########.fr       */
+/*   Created: 2020/01/23 14:58:08 by cphillip          #+#    #+#             */
+/*   Updated: 2020/01/23 15:42:30 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-t_struct	*print_s(t_struct *csp)
+t_struct 	*print_p(t_struct *csp)
 {
 	char 	*tmp;
+	int		base;
 	int		s_len;
 	int		padding;
 
-	tmp = ft_strdup(va_arg(csp->args, char *));
+	base = 16;
+	uintmax_t nbr;
+	nbr = (unsigned long)va_arg(csp->args, unsigned long int);
+	nbr = (uintmax_t)nbr;
+	tmp = convert_nbr(nbr, base);
+	tmp = ft_strjoin("0x", tmp);
 	s_len = ft_strlen(tmp);
 	padding = get_padding(csp, s_len);
-	update_len(csp, padding, s_len);
+	csp->len += ft_strlen(tmp);
 	final_print(csp, padding, tmp);
 	return (csp);
 }

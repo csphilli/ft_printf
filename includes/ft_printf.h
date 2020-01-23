@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 09:44:30 by cphillip          #+#    #+#             */
-/*   Updated: 2020/01/22 15:52:51 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/01/23 15:42:57 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,16 +55,17 @@ int			parse(t_struct *csp);
 int			pre_staging(t_struct *csp);
 t_struct	*staging(t_struct *csp);
 t_struct	*print_c(t_struct *csp);
-t_struct	*print_s_staging(t_struct *csp);
+t_struct	*print_s(t_struct *csp);
+t_struct 	*print_p(t_struct *csp);
 int			get_padding(t_struct *csp, int s_len);
 void		print_s_la_p(t_struct *csp, int padding, char *tmp);
 void		print_s_ra_p(t_struct *csp, int padding, char *tmp);
 void		print_s_la_no_p(int padding, char *tmp);
 void		print_s_ra_no_p(int padding, char *tmp);
 int			update_len(t_struct *csp, int padding, int s_len);
-t_struct 	*print_p(t_struct *csp);
 char		*convert_nbr(long unsigned int nbr, int base);
 char		*rev_str(char *str);
+t_struct	*final_print(t_struct *csp, int padding, char *str);
 
 
 #endif
