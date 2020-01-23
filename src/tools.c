@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 20:55:36 by cphillip          #+#    #+#             */
-/*   Updated: 2020/01/22 15:52:54 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/01/22 16:17:46 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ char	*rev_str(char *str)
 
 	i = 0;
 	len = ft_strlen(str);
-
 	if (!(tmp = (char *)malloc(sizeof(len * (char) + 1))))
 		return (NULL);
 	tmp[len] = '\0';
