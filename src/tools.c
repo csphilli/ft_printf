@@ -6,14 +6,11 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 20:55:36 by cphillip          #+#    #+#             */
-/*   Updated: 2020/01/23 15:47:15 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/01/24 13:18:23 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-
-// s_len = 9;
-// :%-20.25s:
 
 int		get_padding(t_struct *csp, int s_len)
 {
@@ -54,8 +51,8 @@ char	*convert_nbr(long unsigned int nbr, int base)
 
 	j = 0;
 	symbols = "0123456789abcdef";
-	if (!(str = (char *)malloc(sizeof(ft_nbr_size_base(nbr, base) * (char) + 1))))
-		exit (-1);
+	if (!(str = (char*)malloc(sizeof(ft_nbr_size_base(nbr, base) * (char)+1))))
+		exit(-1);
 	while (nbr != 0)
 	{
 		i = 0;
@@ -65,7 +62,7 @@ char	*convert_nbr(long unsigned int nbr, int base)
 			{
 				str[j] = symbols[i];
 				j++;
-				break;
+				break ;
 			}
 			i++;
 		}

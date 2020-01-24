@@ -6,16 +6,15 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:19:47 by cphillip          #+#    #+#             */
-/*   Updated: 2020/01/23 15:38:15 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/01/24 13:18:44 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 #include <stdint.h>
 
-int		pre_staging(t_struct *csp)
+int			pre_staging(t_struct *csp)
 {
-
 	csp->i++;
 	chk_conv_flags(csp);
 	chk_width(csp);
@@ -26,9 +25,9 @@ int		pre_staging(t_struct *csp)
 	return (csp->len);
 }
 
-/*		REMOVE BEFORE SUBMITTING       */
+/*		REMOVE  PRINT_SPECIFIERS BEFORE SUBMITTING       */
 
-void	print_specifiers(t_struct *csp)
+void		print_specifiers(t_struct *csp)
 {
 	printf("width: '%ld'\n", csp->width);
 	printf("len flag[0]: '%c'\n", csp->len_flags[0]);
@@ -45,7 +44,7 @@ void	print_specifiers(t_struct *csp)
 t_struct	*staging(t_struct *csp)
 {
 	char	*spec;
-	//print_specifiers(csp);
+
 	spec = &csp->specifier;
 	if (*spec == 'c')
 		print_c(csp);

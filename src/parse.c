@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:05 by cphillip          #+#    #+#             */
-/*   Updated: 2020/01/18 17:06:34 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/01/24 13:10:43 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int	parse(t_struct *csp)
 		}
 		else if (csp->c_fmt[csp->i] == '%')
 		{
-
 			re_init(csp);
 			pre_staging(csp);
 		}
