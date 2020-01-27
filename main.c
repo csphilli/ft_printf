@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:55 by cphillip          #+#    #+#             */
-/*   Updated: 2020/01/23 15:43:50 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/01/27 21:36:37 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -432,10 +432,29 @@ printf("ENSURING FT_PRINTF MATCHES PRINTF\n");
 line();
 
 char *p;
-p = "t";
+p = "";
 
-printf("[132]\n");
+printf("[133]\n");
 ft_printf(":%-25p:\n", (void *)p);
 printf(":%-25p:\n\n", (void *)p);
+
+
+printf("[134]\n");
+ft_printf("%lx", -55432);
+printf("printf %%x: %X", 10);
+printf("\n");
+//printf("final: %d\n", t);
+
+/*
+printf("1 . %c %s %p %0x %%\n", 'a', "Hello!", "~", -55432);
+printf("1 . %c %s %p %#0x %%\n", 'a', "Hello!", "~", -55432);
+printf("1 . %c %s %p %5.10x %%\n", 'a', "Hello!", "~", -55432);
+printf("1 . %c %s %p %#5.30x %%\n", 'a', "Hello!", "~", -55432);
+printf("1 . %c %s %p %hhx %%\n", 'a', "Hello!", "~", -55432);
+printf("1 . %c %s %p %hx %%\n", 'a', "Hello!", "~", -55432);
+printf("1 . %c %s %p %hhx sizeof:%d %%\n", 'a', "Hello!", "~", -55432, -55432);
+*/
+
+
 }
 

@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:16:22 by cphillip          #+#    #+#             */
-/*   Updated: 2020/01/24 13:09:38 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/01/26 11:41:24 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,16 +65,16 @@ t_struct	*chk_precision(t_struct *csp)
 	return (csp);
 }
 
-t_struct	*chk_len_flags(t_struct *csp)
+t_struct	*chk_arg_flags(t_struct *csp)
 {
 	size_t i;
 	size_t j;
 
 	i = 0;
 	j = 0;
-	while (csp->l_flags[i] != '\0')
+	while (csp->a_flags[i] != '\0')
 	{
-		while (csp->l_flags[i] == csp->srch_fmt[csp->i])
+		while (csp->a_flags[i] == csp->srch_fmt[csp->i])
 		{
 			csp->len_flags[j] = csp->srch_fmt[csp->i];
 			csp->len_flags[j + 1] = '\0';

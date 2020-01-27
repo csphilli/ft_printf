@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:19:47 by cphillip          #+#    #+#             */
-/*   Updated: 2020/01/24 13:18:44 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/01/26 12:08:15 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int			pre_staging(t_struct *csp)
 	chk_conv_flags(csp);
 	chk_width(csp);
 	chk_precision(csp);
-	chk_len_flags(csp);
+	chk_arg_flags(csp);
 	chk_specifier(csp);
 	staging(csp);
 	return (csp->len);
@@ -52,5 +52,7 @@ t_struct	*staging(t_struct *csp)
 		print_s(csp);
 	if (*spec == 'p')
 		print_p(csp);
+	if (*spec == 'x' || *spec == 'X')
+		print_xX(csp);
 	return (csp);
 }

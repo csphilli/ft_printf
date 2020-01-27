@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 20:55:36 by cphillip          #+#    #+#             */
-/*   Updated: 2020/01/24 13:18:23 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/01/26 22:35:11 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int		update_len(t_struct *csp, int padding, int s_len)
 	return (s_len);
 }
 
-char	*convert_nbr(long unsigned int nbr, int base)
+char	*convert_nbr(long long unsigned int nbr, int base)
 {
 	char			*str;
 	char			*symbols;
@@ -68,5 +68,5 @@ char	*convert_nbr(long unsigned int nbr, int base)
 		}
 		nbr /= base;
 	}
-	return (rev_str(str));
+	return (ft_revstr(str));
 }
