@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 20:55:36 by cphillip          #+#    #+#             */
-/*   Updated: 2020/01/29 15:39:11 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/01/29 19:10:59 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,10 @@ char	*convert_nbr(long long unsigned int nbr, int base)
 	char			*symbols;
 	unsigned int	i;
 	int				j;
-	int				sign;
 
-	//sign = nbr < 0 ? 2 : 1;
 	j = 0;
 	symbols = "0123456789abcdef";
-	if (!(str = (char*)malloc(sizeof(ft_nbr_size_base(nbr, base) * (char)+sign))))
+	if (!(str = (char*)malloc(sizeof(ft_nbr_size_base(nbr, base) * (char)+1))))
 		exit(-1);
 	while (nbr != 0)
 	{
@@ -67,8 +65,8 @@ char	*convert_nbr(long long unsigned int nbr, int base)
 				break ;
 			}
 			i++;
-		}		
-		nbr /= base;		
+		}
+		nbr /= base;
 	}
 	str[j] = '\0';
 	return (ft_revstr(str));
