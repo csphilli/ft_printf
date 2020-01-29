@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:55 by cphillip          #+#    #+#             */
-/*   Updated: 2020/01/27 21:36:37 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/01/29 15:56:07 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -440,8 +440,9 @@ printf(":%-25p:\n\n", (void *)p);
 
 
 printf("[134]\n");
-ft_printf("%lx", -55432);
-printf("printf %%x: %X", 10);
+ft_printf("%x", 232);
+printf("%x", 232);
+//printf("printf %%x: %X", 10);
 printf("\n");
 //printf("final: %d\n", t);
 

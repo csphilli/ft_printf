@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 11:49:10 by cphillip          #+#    #+#             */
-/*   Updated: 2020/01/29 15:57:13 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/01/29 15:55:03 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,36 @@ t_struct	*print_xX(t_struct *csp)
 	test = dec_2_bin(nbr);
 	
 	
+	//len = ft_strlen(tmp);
+	//tmp = binary_to_dec(test);
+	
+
+	//tmp = dec_to_binary(nbr, sizeof(nbr));
+
+	//printf("b:%s\n", tmp);
+	//tmp = twos_compliment(tmp, len);
+
+	//tmp = switch_bits(tmp, len);
+	//printf("s:%s\n", tmp);
+	//printf("printf %%lx:%lx\n", nbr);
+	//tmp = binary_to_dec(tmp);
+	//printf("decimal: %s\n", tmp);
+	//printf("size of tmp: %s\n", tmp);
+
+//0000 0000 0000 0000 0010 0111 0111 1000 -55432 into 32 bit binary
+//11111111111111111101100010000111	two's compliment of that.
+//converting the two's compliment to HEX is the output I want.
+// convert the two's compliment back to decimal and then convert
+// the decimal into hex.
+
+
+	//printf("number:%ld\n", nbr);
+	/*
+	s_len = ft_strlen(tmp);
+	padding = get_padding(csp, s_len);
+	csp->len += ft_strlen(tmp);
+	final_print(csp, padding, tmp);
+	*/
 	return (csp);
 }
 
@@ -72,7 +102,45 @@ char *twos_compliment(char *nbr, int len)
 	return (0);
 
 }
+// issue on return.
+char	*binary_to_dec(char *nbr)
+{
+	//good to create a t_struct to house all of these variables. and then make function
 
+	long int len;
+	int pow;
+	int i;
+	long int res;
+	long int value;
+	void	*vp;
+	vp = &value;
+	value = 0;
+	len = ft_strlen(nbr);
+	pow = 0;
+	len--;
+	while (len >= 0)
+	{
+		res = 1;
+		i = pow;
+		if (*(nbr + len) == '1' && i != 0)
+		{
+			while (i <= pow && i > 0)
+			{
+				res *= 2;
+				i--;
+			}
+		}
+		if (*(nbr + len) == '1' && i == 0)
+		{
+			res *= 1;
+			value += res;
+		}
+		pow++;
+		len--;
+	}
+	//printf("%ld\n", value);
+	return (vp);
+}
 
 int *dec_2_bin(int nbr)
 {
