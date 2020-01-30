@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:55 by cphillip          #+#    #+#             */
-/*   Updated: 2020/01/30 08:24:29 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/01/30 13:21:26 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ int	main()
 ** ------------  START STRING TESTING (VALID PRINTF CONVERSIONS)---------------
 */
 printf("[1]\n");
-ft_printf(":%-20.5s:and :%5.3s:\n", str, str);
-printf(":%-20.5s:and :%5.3s:\n\n", str, str);
+ft_printf("%-10.8s", str);
+printf("%-10.8s", str);
 printf("[2]\n");
 ft_printf(":%-14.5s :\n", str);
 printf(":%-14.5s :\n\n", str);
@@ -259,8 +259,8 @@ printf("[73]\n");
 ft_printf(":%14s:\n", str);
 printf(":%14s:\n\n", str);
 printf("[74]\n");
-ft_printf(":%8s:\n", str);
-printf(":%8s:\n\n", str);
+ft_printf(":%-10.8s:\n", str);
+printf(":%-10.8s:\n\n", str);
 
 /*
 ** ------------  START STRING TESTING (IN-VALID PRINTF CONVERSIONS)---------------

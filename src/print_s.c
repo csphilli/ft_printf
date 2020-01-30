@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 14:08:21 by cphillip          #+#    #+#             */
-/*   Updated: 2020/01/24 13:13:40 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/01/30 13:11:39 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,3 +25,5 @@ t_struct	*print_s(t_struct *csp)
 	final_print(csp, padding, tmp);
 	return (csp);
 }
+
+// print non printable characters as hex
