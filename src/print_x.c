@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 11:49:10 by cphillip          #+#    #+#             */
-/*   Updated: 2020/01/29 19:10:48 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/01/30 08:24:31 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ t_struct	*print_x(t_struct *csp)
 	//int *test;
 	//int i;
 	//i = 0;
+
+	// # just prefixes the output with 0x. The size of the x depends on the specifier.
 
 	nbr = get_nbr(csp);
 	tmp = convert_nbr(nbr, 16);
