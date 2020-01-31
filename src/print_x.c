@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 11:49:10 by cphillip          #+#    #+#             */
-/*   Updated: 2020/01/30 08:24:31 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/01/31 13:44:24 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,34 +54,25 @@ static uintmax_t	get_nbr(t_struct *csp)
 t_struct	*print_x(t_struct *csp)
 {
 	char		*tmp;
+	int			s_len;
+	int			padding;
+	uintmax_t	nbr;
 
-	//int			padding;
 
-	//int	len;
-	uintmax_t nbr;
-	//int *test;
-	//int i;
-	//i = 0;
+	// correct s_len size?
+	// need another function to handle the signed ints.
 
-	// # just prefixes the output with 0x. The size of the x depends on the specifier.
-
+	s_len = 0;
 	nbr = get_nbr(csp);
 	tmp = convert_nbr(nbr, 16);
+	if (csp->conv_flags[3] == '#')
+		tmp = ft_strjoin("0x", tmp);
+	if (csp->specifier == 'X')
+		tmp = ft_s_toupper(tmp);
+	s_len = ft_strlen(tmp);
+	padding = get_padding(csp, s_len);
+	update_len(csp, padding, s_len);
 	ft_putstr(tmp);
-	/*
-	printf("number:\n");
-	printf("%ld", nbr);
-	printf("\n");
-	 there are 8 bits per byte. 1 char = 1 byte. So a single char has 8 bits.
-	printf("sizeof nbr: %ld\n", sizeof(nbr));
-	printf("sizeof unsigned short %ld\n", sizeof(unsigned short));
-	printf("sizeof unsigned char %ld\n", sizeof(unsigned char));
-	printf("sizeof unsigned long %ld\n", sizeof(unsigned long));
-	printf("sizeof unsigned long long %ld\n", sizeof(unsigned long long));
-
-	//dec_2_bin(nbr);
-	//printf("%ld\n", nbr);
-*/
 	return (csp);
 }
 
