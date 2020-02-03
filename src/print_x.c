@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 11:49:10 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/03 14:23:59 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/03 16:15:18 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,8 @@ t_struct	*print_x(t_struct *csp)
 	int			s_len;
 	int			padding;
 	uintmax_t	nbr;
-
-
 	// correct s_len size?
 	// need another function to handle the signed ints.
-
 	s_len = 0;
 	nbr = get_nbr(csp);
 	tmp = convert_nbr(nbr, 16);
@@ -65,7 +62,6 @@ t_struct	*print_x(t_struct *csp)
 	padding = get_padding(csp, s_len);
 	align_print(csp, padding, tmp);
 	update_len(csp, padding, s_len);
-	//ft_putstr(tmp);
 	return (csp);
 }
 

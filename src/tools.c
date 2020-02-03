@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 20:55:36 by cphillip          #+#    #+#             */
-/*   Updated: 2020/01/29 19:10:59 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/03 16:20:45 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int		get_padding(t_struct *csp, int s_len)
 	stp = '\0';
 	if (csp->precision == -1)
 		stp = s_len;
+	if (csp->conv_flags[3] == '#')
+		stp = s_len + 2;
 	else if (csp->precision != -1 && csp->precision > s_len)
 		stp = s_len;
 	else if (csp->precision != -1 && csp->precision <= s_len)
@@ -71,3 +73,17 @@ char	*convert_nbr(long long unsigned int nbr, int base)
 	str[j] = '\0';
 	return (ft_revstr(str));
 }
+
+t_struct	*align_print(t_struct *csp, int padding, char *str)
+{
+	if (csp->conv_flags[0] == '-' && csp->precision != -1)
+		print_s_la_p(csp, padding, str);
+	else if (csp->conv_flags[0] == '-' && csp->precision == -1)
+		print_s_la_no_p(csp, padding, str);
+	else if (csp->conv_flags[0] != '-' && csp->precision == -1)
+		print_s_ra_no_p(csp, padding, str);
+	else
+		print_s_ra_p(csp, padding, str);
+	return (csp);
+}
+
