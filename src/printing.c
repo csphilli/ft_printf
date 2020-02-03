@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 20:36:59 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/03 16:39:02 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/03 21:21:32 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,4 +92,10 @@ void		print_s_ra_no_p(t_struct *csp, int padding, char *tmp)
 		ft_putstr(mod);
 	while (*tmp)
 		ft_putchar(*(tmp++));
+}
+
+void	print_blank_s(int padding)
+{
+	while ((padding--) > 0)
+		ft_putchar(32);
 }

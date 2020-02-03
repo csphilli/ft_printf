@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:55 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/03 16:40:04 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/03 21:29:15 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main()
 {
 	setvbuf(stdout, NULL, _IONBF, 0);
 	char	*str;
-	str = "HelloHell";
+	str = "";
 	printf("FT_PRINTF TESTING\n");
 	line();
 	printf("VALID STRINGS\n");
@@ -457,28 +457,36 @@ printf("\n");
 printf(":%10.5x:, :%#017X:, :%#-10X:, :%#20X:", -55432, -55432, -55432, -55432);
 printf("\n\n");
 
-printf("[137]\n");
-ft_printf("%#16X", -55432);
-printf("\n");
-printf("%#16X", -55432);
-printf("\n\n");
-
 printf("[138]\n");
 ft_printf("%#016X", -55432);
 printf("\n");
 printf("%#016X", -55432);
 printf("\n\n");
-//printf("final: %d\n", t);
-/*
-printf("1 . %c %s %p %0x %%\n", 'a', "Hello!", "~", -55432);
-printf("1 . %c %s %p %#0x %%\n", 'a', "Hello!", "~", -55432);
-printf("1 . %c %s %p %5.10x %%\n", 'a', "Hello!", "~", -55432);
-printf("1 . %c %s %p %#5.30x %%\n", 'a', "Hello!", "~", -55432);
-printf("1 . %c %s %p %hhx %%\n", 'a', "Hello!", "~", -55432);
-printf("1 . %c %s %p %hx %%\n", 'a', "Hello!", "~", -55432);
-printf("1 . %c %s %p %hhx sizeof:%d %%\n", 'a', "Hello!", "~", -55432, -55432);
-*/
 
+printf("[139]\n");
+ft_printf("%lx %lX", 3000000000, 4000000000);
+printf("\n");
+printf("%lx %lX", 3000000000, 4000000000);
+printf("\n\n");
+
+printf("[140]\n");
+ft_printf("24. %p %.p %.2p %.x X %.X\n", NULL, NULL, NULL, 0 , 0);
+printf("\n");
+printf("24. %p %.p %.2p %.x X %.X\n", NULL, NULL, NULL, 0, 0);
+printf("\n\n");
+
+
+printf("[141]\n");
+ft_printf("%6X %-6x %-20x %20x", -55432, -55432, -55432, -55432);
+printf("\n");
+printf("%6X %-6x %-20x %20x", -55432, -55432, -55432, -55432);
+printf("\n\n");
+
+printf("[142]\n");
+ft_printf(":%10.5x: :%#-17X: :%#-10X: :%#20X: :%#017X:", -55432, -55432, -55432, -55432, -55432);
+printf("\n");
+printf(":%10.5x: :%#-17X: :%#-10X: :%#20X: :%#017X:", -55432, -55432, -55432, -55432, -55432);
+printf("\n\n");
 
 }
 

@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 20:55:36 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/03 16:20:45 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/03 21:24:22 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		update_len(t_struct *csp, int padding, int s_len)
 {
 	if (csp->width < s_len)
 		csp->len += csp->width;
-	else if (csp->precision != -1)
+	else if (csp->precision != -1 && s_len != 0)
 		csp->len += (csp->precision % s_len) + padding;
 	else
 		csp->len += s_len + padding;
@@ -76,12 +76,14 @@ char	*convert_nbr(long long unsigned int nbr, int base)
 
 t_struct	*align_print(t_struct *csp, int padding, char *str)
 {
-	if (csp->conv_flags[0] == '-' && csp->precision != -1)
+	if (csp->conv_flags[0] == '-' && csp->precision != -1 && str)
 		print_s_la_p(csp, padding, str);
-	else if (csp->conv_flags[0] == '-' && csp->precision == -1)
+	else if (csp->conv_flags[0] == '-' && csp->precision == -1 && str)
 		print_s_la_no_p(csp, padding, str);
-	else if (csp->conv_flags[0] != '-' && csp->precision == -1)
+	else if (csp->conv_flags[0] != '-' && csp->precision == -1 && str)
 		print_s_ra_no_p(csp, padding, str);
+	else if (!str)
+		print_blank_s(padding);
 	else
 		print_s_ra_p(csp, padding, str);
 	return (csp);

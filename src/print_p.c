@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 14:58:08 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/03 16:15:43 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/03 21:36:16 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ t_struct	*print_p(t_struct *csp)
 	int			s_len;
 	int			padding;
 	uintmax_t	nbr;
+
+// need to have if/else statement here in case value is NULL. TMP will then be '(nil)'
 
 	base = 16;
 	nbr = (unsigned long)va_arg(csp->args, unsigned long int);
