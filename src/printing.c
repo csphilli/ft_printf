@@ -1,58 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printing.c                                         :+:      :+:    :+:   */
+/*   printing_s.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 20:36:59 by cphillip          #+#    #+#             */
-/*   Updated: 2020/01/24 13:14:41 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/03 14:23:16 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-t_struct	*final_print(t_struct *csp, int padding, char *str)
-{
-	if (csp->conv_flags[0] == '-' && csp->precision != -1)
-		print_s_la_p(csp, padding, str);
-	else if (csp->conv_flags[0] == '-' && csp->precision == -1)
-		print_s_la_no_p(padding, str);
-	else if (csp->conv_flags[0] != '-' && csp->precision == -1)
-		print_s_ra_no_p(padding, str);
-	else
-		print_s_ra_p(csp, padding, str);
-	return (csp);
-}
-
 void		print_s_la_p(t_struct *csp, int padding, char *tmp)
 {
+	printf("padding %d\n", padding);
 	while (csp->precision--)
 		ft_putchar(*(tmp++));
 	while ((padding--) > 0)
-		ft_putchar(' ');
+		ft_putchar(32);
 }
 
 void		print_s_ra_p(t_struct *csp, int padding, char *tmp)
 {
+	printf("padding %d\n", padding);
 	while ((padding--) > 0)
-		ft_putchar(' ');
+		ft_putchar(32);
 	while (csp->precision--)
 		ft_putchar(*(tmp++));
 }
 
 void		print_s_la_no_p(int padding, char *tmp)
 {
+	printf("padding %d\n", padding);
 	while (*tmp)
 		ft_putchar(*(tmp++));
 	while ((padding--) > 0)
-		ft_putchar(' ');
+		ft_putchar(32);
 }
 
 void		print_s_ra_no_p(int padding, char *tmp)
 {
+	printf("padding %d\n", padding);
 	while ((padding--) > 0)
-		ft_putchar(' ');
+		ft_putchar(32);
 	while (*tmp)
 		ft_putchar(*(tmp++));
 }

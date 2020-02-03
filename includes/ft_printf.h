@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 09:44:30 by cphillip          #+#    #+#             */
-/*   Updated: 2020/01/29 17:49:18 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/03 14:21:57 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ t_struct		*print_c(t_struct *csp);
 t_struct		*print_s(t_struct *csp);
 t_struct		*print_p(t_struct *csp);
 t_struct		*print_x(t_struct *csp);
-t_struct		*final_print(t_struct *csp, int padding, char *str);
+t_struct		*align_print(t_struct *csp, int padding, char *str);
 int				ft_printf(const char *format, ...);
 int				parse(t_struct *csp);
 int				pre_staging(t_struct *csp);
