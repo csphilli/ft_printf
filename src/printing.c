@@ -6,13 +6,15 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 20:36:59 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/03 21:21:32 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/04 14:39:07 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
 // So far this printing file handles strings and pointers.
+
+// I need to include the length to print in each of these. otherwise it'll print the whole string? I'm currently printing all precision even if s_len < prec which shouldn't be the case. Simply add in a number to count down from instead of using precision.
 
 void		print_s_la_p(t_struct *csp, int padding, char *tmp)
 {
@@ -97,5 +99,5 @@ void		print_s_ra_no_p(t_struct *csp, int padding, char *tmp)
 void	print_blank_s(int padding)
 {
 	while ((padding--) > 0)
-		ft_putchar(32);
+		ft_putchar(0);
 }

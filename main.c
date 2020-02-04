@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:55 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/03 21:29:15 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/04 14:33:20 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ int	main()
 {
 	setvbuf(stdout, NULL, _IONBF, 0);
 	char	*str;
-	str = "";
+	str = "hi low  ";
+	int		p_len;
+	p_len = 0;
+
 	printf("FT_PRINTF TESTING\n");
 	line();
 	printf("VALID STRINGS\n");
@@ -36,18 +39,27 @@ int	main()
 	printf("FT_PRINTF IS THE FIRST OUTPUT\n");
 	line();
 	setvbuf(stdout, NULL, _IONBF, 0);
-/*
-** ------------  START STRING TESTING (VALID PRINTF CONVERSIONS)---------------
-*/
+
+//------------  START STRING TESTING (VALID PRINTF CONVERSIONS)---------------
+
 printf("[1]\n");
-ft_printf("%-10.8s", str);
-printf("%-10.8s", str);
+ft_printf("%-10.8s", NULL);
+printf("\n");
+printf("%-10.8s", NULL);
+printf("\n\n");
+
 printf("[2]\n");
-ft_printf(":%-14.5s :\n", str);
-printf(":%-14.5s :\n\n", str);
+ft_printf(":%-14.15s:", str);
+printf("\n");
+printf(":%-14.15s:", str);
+printf("\n\n");
+
 printf("[3]\n");
-ft_printf(":%-4.24s:\n", str);
-printf(":%-4.24s:\n\n", str);
+ft_printf(":%-4.2s:", str);
+printf("\n");
+printf(":%-4.2s:", str);
+printf("\n\n");
+
 printf("[4]\n");
 ft_printf(":%s:\n", str);
 printf(":%s:\n\n", str);
@@ -78,6 +90,8 @@ printf(":%6s:\n\n", str);
 printf("[13]\n");
 ft_printf(":%-2s:\n", str);
 printf(":%-2s:\n\n", str);
+/*
+
 printf("[14]\n");
 ft_printf(":%-.5s:\n", str);
 printf(":%-.5s:\n\n", str);
@@ -262,9 +276,9 @@ printf("[74]\n");
 ft_printf(":%-10.8s:\n", str);
 printf(":%-10.8s:\n\n", str);
 
-/*
-** ------------  START STRING TESTING (IN-VALID PRINTF CONVERSIONS)---------------
-*/
+
+//----------  START STRING TESTING (IN-VALID PRINTF CONVERSIONS)---------------
+
 
 
 	line();
@@ -375,9 +389,9 @@ ft_printf(":%#24.6s:\n\n", str);
 printf("[124]\n");
 ft_printf("0\n", str);
 
-/*
-** ------------  START CHAR TESTING (VALID PRINTF CONVERSIONS)---------------
 */
+//----------  START CHAR TESTING (VALID PRINTF CONVERSIONS)---------------
+
 
 line();
 printf("TESTING CHAR\n");
@@ -387,12 +401,16 @@ line();
 char c;
 c = 'a';
 printf("[125]\n");
-ft_printf(":testing %3c:\n", c);
-printf(":testing %3c:\n\n:", c);
+ft_printf("!%34lc!", c);
+printf("\n");
+printf("!%34lc!", c);
+printf("\n\n");
 
 printf("[126]\n");
-ft_printf(":testing %-3c and %s:\n", c, str);
-printf(":testing %-3c and %s:\n\n:", c, str);
+ft_printf("^.^/%40lc^.^/", '`');
+printf("\n");
+printf("^.^/%40lc^.^/", '`');
+printf("\n\n");
 
 printf("[127]\n");
 ft_printf(":testing %25c and %s:\n", c, str);
@@ -402,9 +420,8 @@ printf("[128]\n");
 ft_printf(":testing %%25s and %%5c:\n", str, c);
 printf(":testing %%25s and %%5c:\n\n:");
 
-/*
-** ------------  START CHAR TESTING (IN-VALID PRINTF CONVERSIONS)---------------
-*/
+ //----------  START CHAR TESTING (IN-VALID PRINTF CONVERSIONS)---------------
+
 
 line();
 printf("TESTING INVALID CHAR MODIFIERS\n");
@@ -423,9 +440,9 @@ ft_printf(":testing %##25c and %s:\n\n", c, str);
 printf("[132]\n");
 ft_printf(":testing %-25s and %0#-5.5c:\n\n", str, c);
 
-/*
-** ------------  START POINTER TESTING (VALID PRINTF CONVERSIONS)---------------
-*/
+
+//----------  START POINTER TESTING (VALID PRINTF CONVERSIONS)---------------
+
 line();
 printf("TESTING POINTERS\n");
 printf("ENSURING FT_PRINTF MATCHES PRINTF\n");
@@ -472,7 +489,7 @@ printf("\n\n");
 printf("[140]\n");
 ft_printf("24. %p %.p %.2p %.x X %.X\n", NULL, NULL, NULL, 0 , 0);
 printf("\n");
-printf("24. %p %.p %.2p %.x X %.X\n", NULL, NULL, NULL, 0, 0);
+//printf("24. %p %.p %.2p %.x X %.X\n", NULL, NULL, NULL, 0, 0);
 printf("\n\n");
 
 
@@ -488,5 +505,11 @@ printf("\n");
 printf(":%10.5x: :%#-17X: :%#-10X: :%#20X: :%#017X:", -55432, -55432, -55432, -55432, -55432);
 printf("\n\n");
 
+
+printf("[143]\n");
+ft_printf("%-3.1s", NULL);
+printf("\n");
+printf("%-3.1s", NULL);
+printf("\n\n");
 }
 

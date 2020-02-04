@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 09:44:30 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/03 21:22:26 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/04 12:47:07 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ t_struct		*align_print(t_struct *csp, int padding, char *str);
 int				ft_printf(const char *format, ...);
 int				parse(t_struct *csp);
 int				pre_staging(t_struct *csp);
-int				get_padding(t_struct *csp, int s_len);
+int				get_padding(t_struct *csp, long int s_len);
 int				update_len(t_struct *csp, int padding, int s_len);
 char			*convert_nbr(long long unsigned int nbr, int base);
 char			*rev_str(char *str);
