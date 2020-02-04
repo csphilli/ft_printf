@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 14:08:21 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/04 14:41:15 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/04 18:27:23 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,16 @@ t_struct	*print_s(t_struct *csp)
 		tmp = ft_strndup("(null)\0", csp->precision);
 		//printf("tmp:%s\n", tmp);
 	}
-	
 
-	
+
+
 	/*
 	if (*s == '\0')
 	{
 		tmp = 0;
 		printf("1\n");
 	}
-	
+
 	else if (s == NULL)
 	{
 		printf("2nd if\n");
@@ -80,13 +80,14 @@ t_struct	*print_s(t_struct *csp)
 	*/
 	//printf("passed the if statements\n");
 	s_len = ft_strlen(tmp);
-	//printf("assigned a proper s_len value\n");
-	//printf("s_len: %d\n", s_len);
+	printf("ft_strlen: %d\n", s_len);
+	s_len = update_len(csp, s_len);
+	printf("s_len: %d\n", s_len);
 	padding = get_padding(csp, s_len);
 	//printf("padding: %d\n", padding);
 	//printf("prec: %ld\n", csp->precision);
 	//printf("width: %ld\n", csp->width);
-	update_len(csp, padding, s_len);
+
 	//printf("length: %d\n", csp->len);
 	align_print(csp, padding, tmp);
 	//free(tmp);
@@ -105,7 +106,7 @@ char	*ft_strndup(char *str, size_t size)
 	{
 		*(new + i) = *(str + i);
 		size--;
-		i++; 
+		i++;
 	}
 	return (new);
 }

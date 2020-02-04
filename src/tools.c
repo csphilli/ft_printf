@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 20:55:36 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/04 14:28:53 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/04 18:23:14 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		get_padding(t_struct *csp, long int s_len)
 		s_len = prec;
 	else if (prec > -1 && prec >= s_len)
 		s_len = prec;
-	
+
 
 	if (csp->width > s_len)
 		padding = csp->width - s_len;
@@ -43,16 +43,15 @@ int		get_padding(t_struct *csp, long int s_len)
 	return (padding);
 }
 
-int		update_len(t_struct *csp, int padding, int s_len)
+int		update_len(t_struct *csp, int s_len)
 {
-	if (csp->width < s_len)
-		csp->len += csp->width;
-	else if (csp->precision != -1 && s_len != 0)
-		csp->len += (csp->precision % s_len) + padding;
-	else if (csp->precision != -1 && s_len == 0)
-		csp->len += csp->width;
-	else
-		csp->len += s_len + padding;
+	int	prec;
+
+	prec = csp->precision;
+	if ((prec > -1 || prec == -1) && (prec > s_len || s_len != 0))
+		s_len = s_len;
+	else if (prec > -1 && prec < s_len)
+		s_len = prec;
 	return (s_len);
 }
 
@@ -136,5 +135,18 @@ int		get_padding(t_struct *csp, int s_len)
 		padding = 0;
 	//printf("stp: %d\n", stp);
 	return (padding);
+}
+
+int		update_len(t_struct *csp, int padding, int s_len)
+{
+	if (csp->width < s_len)
+		csp->len += csp->width;
+	else if (csp->precision > -1 && s_len != 0)
+		csp->len += (csp->precision % s_len) + padding;
+	else if (csp->precision > -1 && s_len == 0)
+		csp->len += csp->width;
+	else
+		csp->len += s_len + padding;
+	return (s_len);
 }
 */

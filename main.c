@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:55 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/04 14:33:20 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/04 18:34:58 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main()
 	setvbuf(stdout, NULL, _IONBF, 0);
 	char	*str;
 	str = "hi low  ";
-	int		p_len;
+	int p_len;
 	p_len = 0;
 
 	printf("FT_PRINTF TESTING\n");
@@ -43,15 +43,16 @@ int	main()
 //------------  START STRING TESTING (VALID PRINTF CONVERSIONS)---------------
 
 printf("[1]\n");
-ft_printf("%-10.8s", NULL);
+ft_printf("%-10.8s", str);
 printf("\n");
-printf("%-10.8s", NULL);
+p_len = printf("%-10.8s", str);
+printf("p_len: %d\n", p_len);
 printf("\n\n");
 
 printf("[2]\n");
-ft_printf(":%-14.15s:", str);
+ft_printf("%-14.15s", str);
 printf("\n");
-printf(":%-14.15s:", str);
+printf("%-14.15s", str);
 printf("\n\n");
 
 printf("[3]\n");
