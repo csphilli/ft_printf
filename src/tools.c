@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 20:55:36 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/04 18:23:14 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/04 19:05:56 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,11 @@
 int		get_padding(t_struct *csp, long int s_len)
 {
 	int			padding;
-	long int	prec;
-	int			j;
-
+	int	j;
+	//long int	prec;
 	j = 0;
-	prec = csp->precision;
-	if (csp->conv_flags[3] == '#')
-		j = 2;
+	//prec = csp->precision;
+/*
 	if (prec == -1 || (prec != -1 && prec > s_len))
 		s_len += j;
 	else if (prec != -1 && prec <= s_len)
@@ -30,28 +28,32 @@ int		get_padding(t_struct *csp, long int s_len)
 		s_len = prec;
 	else if (prec > -1 && prec >= s_len)
 		s_len = prec;
-
-
+*/
+	if (csp->conv_flags[3] == '#')
+		j = 2;
 	if (csp->width > s_len)
-		padding = csp->width - s_len;
+		padding = csp->width - s_len - j;
 	else
 		padding = 0;
-	printf("prec: %ld\n", prec);
-	printf("padding: %d\n", padding);
-	printf("s_len: %ld\n", s_len);
+	//printf("padding: %d\n", padding);
+	//printf("s_len: %ld\n", s_len);
 
 	return (padding);
 }
 
 int		update_len(t_struct *csp, int s_len)
 {
-	int	prec;
+	long int	prec;
+	int	j;
 
+	j = 0;
 	prec = csp->precision;
+	if (csp->conv_flags[3] == '#')
+		j = 2;
 	if ((prec > -1 || prec == -1) && (prec > s_len || s_len != 0))
-		s_len = s_len;
+		s_len = s_len + j;
 	else if (prec > -1 && prec < s_len)
-		s_len = prec;
+		s_len = prec + j;
 	return (s_len);
 }
 
@@ -85,10 +87,10 @@ char	*convert_nbr(long long unsigned int nbr, int base)
 	return (ft_revstr(str));
 }
 
-t_struct	*align_print(t_struct *csp, int padding, char *str)
+t_struct	*align_print(t_struct *csp, int padding, char *str, int s_len)
 {
 	if (csp->conv_flags[0] == '-' && csp->precision != -1 && str)
-		print_s_la_p(csp, padding, str);
+		print_s_la_p(csp, padding, str, s_len);
 	else if (csp->conv_flags[0] == '-' && csp->precision == -1 && str)
 		print_s_la_no_p(csp, padding, str);
 	else if (csp->conv_flags[0] != '-' && csp->precision == -1 && str)
@@ -96,7 +98,7 @@ t_struct	*align_print(t_struct *csp, int padding, char *str)
 	else if (!str)
 		print_blank_s(padding);
 	else
-		print_s_ra_p(csp, padding, str);
+		print_s_ra_p(csp, padding, str, s_len);
 	return (csp);
 }
 

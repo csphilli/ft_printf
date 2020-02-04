@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 09:44:30 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/04 18:23:25 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/04 18:40:47 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ typedef struct	s_struct
 }				t_struct;
 
 void			print_specifiers(t_struct *csp); // remove before submitting.
-void			print_s_la_p(t_struct *csp, int padding, char *tmp);
-void			print_s_ra_p(t_struct *csp, int padding, char *tmp);
+void			print_s_la_p(t_struct *csp, int padding, char *tmp, int s_slen);
+void			print_s_ra_p(t_struct *csp, int padding, char *tmp, int s_slen);
 void			print_s_la_no_p(t_struct *csp, int padding, char *tmp);
 void			print_s_ra_no_p(t_struct *csp, int padding, char *tmp);
 void			print_blank_s(int padding);
@@ -57,7 +57,7 @@ t_struct		*print_c(t_struct *csp);
 t_struct		*print_s(t_struct *csp);
 t_struct		*print_p(t_struct *csp);
 t_struct		*print_x(t_struct *csp);
-t_struct		*align_print(t_struct *csp, int padding, char *str);
+t_struct		*align_print(t_struct *csp, int padding, char *str, int s_len);
 int				ft_printf(const char *format, ...);
 int				parse(t_struct *csp);
 int				pre_staging(t_struct *csp);

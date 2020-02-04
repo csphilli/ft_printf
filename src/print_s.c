@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 14:08:21 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/04 18:27:23 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/04 19:02:15 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,16 +80,16 @@ t_struct	*print_s(t_struct *csp)
 	*/
 	//printf("passed the if statements\n");
 	s_len = ft_strlen(tmp);
-	printf("ft_strlen: %d\n", s_len);
+	//printf("ft_strlen: %d\n", s_len);
 	s_len = update_len(csp, s_len);
-	printf("s_len: %d\n", s_len);
+	//printf("s_len: %d\n", s_len);
 	padding = get_padding(csp, s_len);
 	//printf("padding: %d\n", padding);
 	//printf("prec: %ld\n", csp->precision);
 	//printf("width: %ld\n", csp->width);
 
 	//printf("length: %d\n", csp->len);
-	align_print(csp, padding, tmp);
+	align_print(csp, padding, tmp, s_len);
 	//free(tmp);
 	return (csp);
 }

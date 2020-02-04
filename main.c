@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:55 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/04 18:34:58 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/04 19:10:36 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ int	main()
 //------------  START STRING TESTING (VALID PRINTF CONVERSIONS)---------------
 
 printf("[1]\n");
-ft_printf("%-10.8s", str);
+ft_printf("%-2.8s", NULL);
 printf("\n");
-p_len = printf("%-10.8s", str);
+p_len = printf("%-2.8s", NULL);
 printf("p_len: %d\n", p_len);
 printf("\n\n");
 
@@ -64,6 +64,7 @@ printf("\n\n");
 printf("[4]\n");
 ft_printf(":%s:\n", str);
 printf(":%s:\n\n", str);
+
 printf("[5]\n");
 ft_printf(":%8.5s:\n", str);
 printf(":%8.5s:\n\n", str);
@@ -73,9 +74,11 @@ printf(":%6s:\n\n", str);
 printf("[7]\n");
 ft_printf(":%8s:\n", str);
 printf(":%8s:\n\n", str);
+
 printf("[8]\n");
-ft_printf(":%1.5s:\n", str);
-printf(":%1.5s:\n\n", str);
+ft_printf(":%1.6s:\n", NULL);
+printf(":%1.6s:\n\n", NULL);
+
 printf("[9]\n");
 ft_printf(":%8.2s:\n", str);
 printf(":%8.2s:\n\n", str);

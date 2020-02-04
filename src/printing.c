@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 20:36:59 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/04 16:05:22 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/04 18:39:24 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 //the whole string? I'm currently printing all precision even if s_len < prec which
 // shouldn't be the case. Simply add in a number to count down from instead of using precision.
 
-void		print_s_la_p(t_struct *csp, int padding, char *tmp)
+void		print_s_la_p(t_struct *csp, int padding, char *tmp, int s_len)
 {
 	//printf("1: ");
 	//printf("padding %d\n", padding);
@@ -27,7 +27,7 @@ void		print_s_la_p(t_struct *csp, int padding, char *tmp)
 		ft_putstr("0X");
 	else if (csp->conv_flags[3] == '#' && csp->specifier == 'x')
 		ft_putstr("0x");
-	while (csp->precision--)
+	while (s_len--)
 		ft_putchar(*(tmp++));
 	while ((padding--) > 0)
 	{
@@ -38,7 +38,7 @@ void		print_s_la_p(t_struct *csp, int padding, char *tmp)
 	}
 }
 
-void		print_s_ra_p(t_struct *csp, int padding, char *tmp)
+void		print_s_ra_p(t_struct *csp, int padding, char *tmp, int s_len)
 {
 	//printf("2: ");
 	//printf("padding %d\n", padding);
@@ -53,7 +53,7 @@ void		print_s_ra_p(t_struct *csp, int padding, char *tmp)
 		ft_putstr("0X");
 	else if (csp->conv_flags[3] == '#' && csp->specifier == 'x')
 		ft_putstr("0x");
-	while (csp->precision--)
+	while (s_len--)
 		ft_putchar(*(tmp++));
 }
 
