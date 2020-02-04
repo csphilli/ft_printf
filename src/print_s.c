@@ -6,11 +6,14 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 14:08:21 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/04 14:03:34 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/04 14:41:15 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+// i think i need to update the length first and then pass that to padding function.
+
 
 char	*ft_strndup(char *str, size_t size);
 
