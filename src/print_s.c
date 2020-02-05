@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 14:08:21 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/05 08:08:29 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/05 16:43:13 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // i think i need to update the length first and then pass that to padding function.
 
 
-char	*ft_strndup(char *str, size_t size);
+char	*ft_strndup(char *str, int size);
 
 t_struct	*print_s(t_struct *csp)
 {
@@ -25,62 +25,44 @@ t_struct	*print_s(t_struct *csp)
 	int		padding;
 
 	tmp = va_arg(csp->args, char *);
-	//printf("tmp: %s\n", tmp);
-
+	//printf("tmp1st:%s", tmp);
+	//write(1, "A:", 2);
+	//printf("\n");
+	s_len = tmp == NULL ? 0 : ft_strlen(tmp);
+	
 	if (csp->precision == -1 && tmp)
 	{
-		//printf("1\n");
+		//printf("First\n");
 		tmp = ft_strdup(tmp);
 		//printf("tmp:%s\n", tmp);
 	}
 	else if (csp->precision == -1 && !tmp)
 	{
-		//printf("2\n");
-		tmp = ft_strdup("(null)\0");
+		//printf("Second\n");
+		tmp = ft_strdup("(null)");
 		//printf("tmp:%s\n", tmp);
 	}
 	else if (csp->precision > -1 && tmp)
 	{
-		//printf("3\n");
-		tmp = ft_strndup(tmp, csp->precision);
+		//printf("Third\n");
+		//printf("tmp before:%s", tmp);
+		//write(1, "A:\n", 3);
+		tmp = ft_strndup(tmp, s_len);
 		//printf("tmp:%s\n", tmp);
 	}
 	else if (csp->precision > -1 && !tmp)
 	{
-		//printf("4\n");
-		tmp = ft_strdup("(null)\0");
+		//printf("Fourth\n");
+		tmp = ft_strndup("(null)", 6);
 		//printf("tmp:%s\n", tmp);
 	}
 
-
-
-	/*
-	if (*s == '\0')
-	{
-		tmp = 0;
-		printf("1\n");
-	}
-
-	else if (s == NULL)
-	{
-		printf("2nd if\n");
-		tmp = "(null)";
-		printf("2\n");
-	}
-
-	else if (!s)
-	{
-		tmp = "no string";
-	}
-	else
-	{
-		tmp = ft_strdup(va_arg(csp->args, char *));
-		printf("3\n");
-	}
-	*/
-	//printf("passed the if statements\n");
+	//printf("tmp2nd:%s", tmp);
+	//write(1, "A:", 2);
+	//printf("\n");
+	
 	s_len = ft_strlen(tmp);
-	//printf("ft_strlen: %d\n", s_len);
+	//printf("ft_strlen:%d\n", s_len);
 	s_len = update_len(csp, s_len);
 	//printf("s_len: %d\n", s_len);
 	padding = get_padding(csp, s_len);
@@ -90,22 +72,21 @@ t_struct	*print_s(t_struct *csp)
 
 	//printf("length: %d\n", csp->len);
 	align_print(csp, padding, tmp, s_len);
-	//free(tmp);
+	free(tmp);
 	return (csp);
 }
 
-char	*ft_strndup(char *str, size_t size)
+char	*ft_strndup(char *str, int size)
 {
 	char	*new;
 	int		i;
-
+	
 	i = 0;
-	if(!(new = (char*)malloc(size +1)))
+	if(!(new = ft_strnew(size)))
 		return (NULL);
-	while (*(str + i) && size)
-	{
-		*(new + i) = *(str + i);
-		size--;
+	while (str && i <= size)
+	{		
+		new[i] = str[i];
 		i++;
 	}
 	return (new);

@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 09:44:30 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/04 18:40:47 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/05 13:07:37 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,19 @@ typedef struct	s_struct
 	long int	width;
 	long int	precision;
 	char		len_flags[2];
-	char		conv_flags[5];
+	char		conv_flags[6];
 	char		*format_flags; // (#0-+ )
 	char		*a_flags;// lLh (l ll h hh L)
 	char		*spec_flags; // "cspdiouxXf%"
 }				t_struct;
 
 void			print_specifiers(t_struct *csp); // remove before submitting.
-void			print_s_la_p(t_struct *csp, int padding, char *tmp, int s_slen);
-void			print_s_ra_p(t_struct *csp, int padding, char *tmp, int s_slen);
+void			print_s_la_p(t_struct *csp, int padding, char *tmp, int s_len);
+void			print_s_ra_p(t_struct *csp, int padding, char *tmp, int s_len);
 void			print_s_la_no_p(t_struct *csp, int padding, char *tmp);
 void			print_s_ra_no_p(t_struct *csp, int padding, char *tmp);
 void			print_blank_s(int padding);
+void			print_other(t_struct *csp);
 t_struct		*chk_conv_flags(t_struct *csp);
 t_struct		*initialize(t_struct *csp);
 t_struct		*re_init(t_struct *csp);

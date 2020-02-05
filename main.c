@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:55 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/05 07:34:14 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/05 16:42:56 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ int	main()
 	setvbuf(stdout, NULL, _IONBF, 0);
 	char	*str;
 	str = "hi low  ";
+	char *s_hidden;
+
+	s_hidden = "hi low\0don't print me lol\0";
+
 	int p_len;
 	p_len = 0;
 
@@ -43,27 +47,29 @@ int	main()
 //------------  START STRING TESTING (VALID PRINTF CONVERSIONS)---------------
 
 printf("[1]\n");
-ft_printf("%-2.8s", NULL);
+ft_printf("%-3.s", NULL);
+//write(1, "A", 1);
 printf("\n");
-p_len = printf("%-2.8s", NULL);
-printf("p_len: %d\n", p_len);
+printf("%-3.s", NULL);
 printf("\n\n");
 
 printf("[2]\n");
-ft_printf("%-14.15s", str);
+ft_printf(":%7.7s%3.3s:", "hello", "world");
+//write(1, "A", 1);
 printf("\n");
-printf("%-14.15s", str);
+printf(":%7.7s%3.3s:", "hello", "world");
 printf("\n\n");
 
 printf("[3]\n");
 ft_printf(":%-4.2s:", str);
+//write(1, "A", 1);
 printf("\n");
 printf(":%-4.2s:", str);
 printf("\n\n");
 
 printf("[4]\n");
-ft_printf(":%s:\n", str);
-printf(":%s:\n\n", str);
+ft_printf(":%-10.8s:\n", s_hidden);
+printf(":%-10.8s:\n\n", s_hidden);
 
 printf("[5]\n");
 ft_printf(":%8.5s:\n", str);
@@ -479,6 +485,7 @@ line();
 char *p;
 p = "";
 
+
 printf("[133]\n");
 ft_printf(":%-25p:\n", (void *)p);
 printf(":%-25p:\n\n", (void *)p);
@@ -497,9 +504,9 @@ printf("%10x, %10X, %-10x, %-10X", -55432, -55432, -55432, -55432);
 printf("\n\n");
 
 printf("[136]\n");
-ft_printf(":%10.5x:, :%#017X:, :%#-10X:, :%#20X:", -55432, -55432, -55432, -55432);
+ft_printf("%10.5x, %#017X, %#-10X, %#20X", -55432, -55432, -55432, -55432);
 printf("\n");
-printf(":%10.5x:, :%#017X:, :%#-10X:, :%#20X:", -55432, -55432, -55432, -55432);
+printf("%10.5x, %#017X, %#-10X, %#20X", -55432, -55432, -55432, -55432);
 printf("\n\n");
 
 printf("[138]\n");
@@ -527,17 +534,12 @@ printf("\n");
 printf("%6X %-6x %-20x %20x", -55432, -55432, -55432, -55432);
 printf("\n\n");
 
-printf("[142]\n");
-ft_printf(":%10.5x: :%#-17X: :%#-10X: :%#20X: :%#017X:", -55432, -55432, -55432, -55432, -55432);
-printf("\n");
-printf(":%10.5x: :%#-17X: :%#-10X: :%#20X: :%#017X:", -55432, -55432, -55432, -55432, -55432);
-printf("\n\n");
-
-
 printf("[143]\n");
-ft_printf("%-3.1s", NULL);
+ft_printf(":%105%:", NULL);
+//write(1, "A", 1);
+//ft_printf("%s", NULL);
 printf("\n");
-printf("%-3.1s", NULL);
+printf(":%105%:", NULL);
 printf("\n\n");
 }
 

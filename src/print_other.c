@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_p.c                                          :+:      :+:    :+:   */
+/*   print_other.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/23 14:58:08 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/05 11:28:48 by cphillip         ###   ########.fr       */
+/*   Created: 2020/02/05 12:13:08 by cphillip          #+#    #+#             */
+/*   Updated: 2020/02/05 12:55:51 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-t_struct	*print_p(t_struct *csp)
+t_struct	*print_pcent(t_struct *csp)
 {
-	char		*tmp;
-	int			base;
-	int			s_len;
-	int			padding;
-	uintmax_t	nbr;
+	char	*tmp;
+	int		s_len;
+	int		padding;
 
-// need to have if/else statement here in case value is NULL. TMP will then be '(nil)'
-
-	base = 16;
-	nbr = (unsigned long)va_arg(csp->args, unsigned long int);
-	nbr = (uintmax_t)nbr;
-	tmp = convert_nbr(nbr, base);
-	tmp = ft_strjoin("0x", tmp);
+	tmp = "%";
 	s_len = ft_strlen(tmp);
+	s_len = update_len(csp, s_len);
 	padding = get_padding(csp, s_len);
-	csp->len += ft_strlen(tmp);
 	align_print(csp, padding, tmp, s_len);
 	return (csp);
+}
+
+
+void	print_other(t_struct *csp)
+{
+	if (csp->c_fmt[csp->i] == '%')
+		print_pcent(csp);
+	//printf("%ld", csp->precision);
 }

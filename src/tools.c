@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 20:55:36 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/04 19:05:56 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/05 16:25:50 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,20 @@ int		get_padding(t_struct *csp, long int s_len)
 	//long int	prec;
 	j = 0;
 	//prec = csp->precision;
-/*
-	if (prec == -1 || (prec != -1 && prec > s_len))
-		s_len += j;
-	else if (prec != -1 && prec <= s_len)
-		s_len = prec + j;
-	else if (prec != -1 && s_len == 0)
-		s_len = prec;
-	else if (prec > -1 && prec >= s_len)
-		s_len = prec;
-*/
+
 	if (csp->conv_flags[3] == '#')
 		j = 2;
-	if (csp->width > s_len)
+	if (csp->precision > -1 && csp->precision < s_len)
+		padding = csp->width - csp->precision - j;
+	else if (csp->precision > -1 && csp->precision > s_len)
+		padding = csp->width - s_len - j;
+	else if (csp->precision == -1 && csp->width > s_len)
 		padding = csp->width - s_len - j;
 	else
 		padding = 0;
 	//printf("padding: %d\n", padding);
 	//printf("s_len: %ld\n", s_len);
-
+	csp->len += padding;
 	return (padding);
 }
 
@@ -54,6 +49,8 @@ int		update_len(t_struct *csp, int s_len)
 		s_len = s_len + j;
 	else if (prec > -1 && prec < s_len)
 		s_len = prec + j;
+	csp->len += s_len;
+	//printf("len:%d\n", s_len);
 	return (s_len);
 }
 
@@ -89,6 +86,9 @@ char	*convert_nbr(long long unsigned int nbr, int base)
 
 t_struct	*align_print(t_struct *csp, int padding, char *str, int s_len)
 {
+	//printf("3rd:%s", str);
+	//write(1, "A:", 2);
+	//printf("\n");
 	if (csp->conv_flags[0] == '-' && csp->precision != -1 && str)
 		print_s_la_p(csp, padding, str, s_len);
 	else if (csp->conv_flags[0] == '-' && csp->precision == -1 && str)
