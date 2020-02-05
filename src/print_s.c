@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 14:08:21 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/04 19:02:15 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/05 08:08:29 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ t_struct	*print_s(t_struct *csp)
 	else if (csp->precision > -1 && !tmp)
 	{
 		//printf("4\n");
-		tmp = ft_strndup("(null)\0", csp->precision);
+		tmp = ft_strdup("(null)\0");
 		//printf("tmp:%s\n", tmp);
 	}
 

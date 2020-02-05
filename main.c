@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:55 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/04 19:10:36 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/05 07:34:14 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,33 @@ printf("[7]\n");
 ft_printf(":%8s:\n", str);
 printf(":%8s:\n\n", str);
 
-printf("[8]\n");
-ft_printf(":%1.6s:\n", NULL);
-printf(":%1.6s:\n\n", NULL);
+printf("[no prec]\n");
+ft_printf(":%1s:\n", NULL);
+printf(":%1s:\n\n", NULL);
+
+printf("[w1p1]\n");
+ft_printf(":%2.1s:\n", NULL);
+printf(":%2.1s:\n\n", NULL);
+
+printf("[w1p2]\n");
+ft_printf(":%3.2s:\n", NULL);
+printf(":%3.2s:\n\n", NULL);
+
+printf("[w1p3]\n");
+ft_printf(":%4.3s:\n", NULL);
+printf(":%4.3s:\n\n", NULL);
+
+printf("[w1p4]\n");
+ft_printf(":%5s:\n", NULL);
+printf(":%5s:\n\n", NULL);
+
+printf("[w1p5]\n");
+ft_printf(":%6.5s:\n", NULL);
+printf(":%6.5s:\n\n", NULL);
+
+printf("[w1p5]\n");
+ft_printf(":%6.6s:\n", NULL);
+printf(":%6.6s:\n\n", NULL);
 
 printf("[9]\n");
 ft_printf(":%8.2s:\n", str);
