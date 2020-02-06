@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 14:58:08 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/06 13:23:40 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/06 14:40:43 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,15 @@ t_struct	*print_p(t_struct *csp)
 	int			padding;
 	uintmax_t	nbr;
 
-// need to have if/else statement here in case value is NULL. TMP will then be '(nil)'
 	nbr = (unsigned long)va_arg(csp->args, unsigned long int);
 	nbr = (uintmax_t)nbr;
-	tmp = convert_nbr(nbr, 16);
-	printf("tmp:%s\n", tmp);
-	if (tmp == NULL)
-		tmp = ft_strjoin(tmp, "0");
+	tmp = convert_nbr(nbr, 16);	
 	tmp = ft_strjoin("0x", tmp);
-	s_len = ft_strlen(tmp);
-	
+	if (tmp == NULL || nbr == 0)
+		tmp = ft_strjoin(tmp, "0");
+	s_len = ft_strlen(tmp);	
 	padding = get_padding(csp, s_len);
 	csp->len += ft_strlen(tmp);
-	//align_print(csp, padding, tmp, s_len);
+	align_print(csp, tmp, s_len);
 	return (csp);
 }

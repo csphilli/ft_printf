@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 11:49:10 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/05 11:28:35 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/06 13:33:11 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ t_struct	*print_x(t_struct *csp)
 		tmp = ft_s_toupper(tmp);
 	s_len = ft_strlen(tmp);
 	padding = get_padding(csp, s_len);
-	align_print(csp, padding, tmp, s_len);
+	align_print(csp, tmp, s_len);
 	update_len(csp, s_len);
 	return (csp);
 }

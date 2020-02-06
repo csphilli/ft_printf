@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 20:55:36 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/06 11:00:45 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/06 13:38:57 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,21 +84,21 @@ char	*convert_nbr(long long unsigned int nbr, int base)
 	return (ft_revstr(str));
 }
 
-t_struct	*align_print(t_struct *csp, int padding, char *str, int s_len)
+t_struct	*align_print(t_struct *csp, char *str, int s_len)
 {
 	//printf("3rd:%s", str);
 	//write(1, "A:", 2);
 	//printf("\n");
 	if (csp->conv_flags[0] == '-' && csp->precision != -1 && str)
-		print_s_la_p(csp, padding, str, s_len);
+		print_s_la_p(csp, str, s_len);
 	else if (csp->conv_flags[0] == '-' && csp->precision == -1 && str)
-		print_s_la_no_p(csp, padding, str);
+		print_s_la_no_p(csp, str, s_len);
 	else if (csp->conv_flags[0] != '-' && csp->precision == -1 && str)
-		print_s_ra_no_p(csp, padding, str);
+		print_s_ra_no_p(csp, str, s_len);
 	else if (!str)
-		print_alt(padding, ' ');
+		print_alt(csp, csp->width - s_len, ' ');
 	else
-		print_s_ra_p(csp, padding, str, s_len);
+		print_s_ra_p(csp, str, s_len);
 	return (csp);
 }
 

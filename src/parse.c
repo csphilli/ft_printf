@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:05 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/06 12:02:47 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/06 13:32:53 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,33 +32,3 @@ int	parse(t_struct *csp)
 	}
 	return (csp->len);
 }
-
-/*
-
-OLD VERSION
-
-int	parse(t_struct *csp)
-{
-	while (csp->c_fmt[csp->i] != '\0')
-	{
-		if (csp->c_fmt[csp->i] == '%' && csp->c_fmt[csp->i + 1] == '%')
-		{
-			write(1, &csp->c_fmt[csp->i], 1);
-			csp->len++;
-			csp->i++;
-		}
-		else if (csp->c_fmt[csp->i] == '%')
-		{
-			re_init(csp);
-			pre_staging(csp);
-		}
-		else
-		{
-			write(1, &csp->c_fmt[csp->i], 1);
-			csp->len++;
-		}
-		csp->i++;
-	}
-	return (csp->len);
-}
-*/

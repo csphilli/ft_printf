@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:55 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/06 13:10:21 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/06 14:02:38 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -557,9 +557,9 @@ printf(":%p:", NULL);
 printf("\n\n");
 
 printf("[1289]\n");
-ft_printf(":%5p:", 0);
+ft_printf(":%#5p:", 0);
 printf("\n");
-printf(":%5p:", 0);
+printf(":%#5p:", 0);
 printf("\n\n");
 }
 

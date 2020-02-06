@@ -6,47 +6,37 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 20:36:59 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/05 16:53:16 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/06 14:42:44 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-// if "(null)" and s_len < prec, currently printing parts of "(null)" - should be blank
-// as long as s_len < prec.
 
-// make a strNcmp so that i can use that comparison with the strndup i should use on the print_s
-// file.
 
-void		print_s_la_p(t_struct *csp, int padding, char *tmp, int s_len)
+t_struct		*print_s_la_p(t_struct *csp, char *tmp, int s_len)
 {
-	
 	//printf("1:\n");
 	//printf("padding %d\n", padding);
 	//printf("prec: %ld\n", csp->precision);
 	//printf("4th:%s", tmp);
 	//write(1, "A", 1);
 	//printf("s_len:%d\n", s_len);
-	if (csp->conv_flags[3] == '#' && csp->specifier == 'X')
-		ft_putstr("0X");
-	else if (csp->conv_flags[3] == '#' && csp->specifier == 'x')
-		ft_putstr("0x");
+
 	if (csp->precision < s_len && csp->specifier == 's')
 		while (csp->precision--)
 			ft_putchar(*(tmp++));
 	else
 		while (s_len--)
 			ft_putchar(*(tmp++));
-	while ((padding--) > 0)
-	{
-		if (csp->conv_flags[4] == '0')
-			ft_putchar('0');
-		else
-			ft_putchar(' ');
-	}
+	if (csp->conv_flags[4] == '0')
+		print_alt(csp, csp->width - s_len, '0');
+	else
+		print_alt(csp, csp->width - s_len, ' ');
+	return(csp);
 }
 
-void		print_s_ra_p(t_struct *csp, int padding, char *tmp, int s_len)
+t_struct	*print_s_ra_p(t_struct *csp, char *tmp, int s_len)
 {
 	
 	//printf("2:\n");
@@ -56,74 +46,63 @@ void		print_s_ra_p(t_struct *csp, int padding, char *tmp, int s_len)
 	//write(1, "A", 1);
 	//printf("test cmp: %d\n", ft_strcmp(tmp, "(null)"));
 	
-	while ((padding--) > 0)
-	{
-		if (csp->conv_flags[4] == '0')
-			ft_putchar('0');
-		else
-			ft_putchar(' ');
-	}
-	if (csp->conv_flags[3] == '#' && csp->specifier == 'X')
-		ft_putstr("0X");
-	else if (csp->conv_flags[3] == '#' && csp->specifier == 'x')
-		ft_putstr("0x");
+	if (csp->conv_flags[4] == '0')
+		print_alt(csp, csp->width - s_len, '0');
+	else
+		print_alt(csp, csp->width - s_len, ' ');
+	
 	if (csp->precision < s_len && csp->specifier == 's')
 		while (csp->precision--)
 			ft_putchar(*(tmp++));
 	else
 		while (s_len--)
 			ft_putchar(*(tmp++));
+	return(csp);
 }
 
-void		print_s_la_no_p(t_struct *csp, int padding, char *tmp)
+t_struct	*print_s_la_no_p(t_struct *csp, char *tmp, int s_len)
 {
 	
 	//printf("3:\n");
 	//printf("padding %d\n", padding);
 	
 
-	if (csp->conv_flags[3] == '#' && csp->specifier == 'X')
-		ft_putstr("0X");
-	else if (csp->conv_flags[3] == '#' && csp->specifier == 'x')
-		ft_putstr("0x");
 	while (*tmp)
 		ft_putchar(*(tmp++));
-	while ((padding--) > 0)
-	{
-		if (csp->conv_flags[4] == '0')
-			ft_putchar('0');
-		else
-			ft_putchar(' ');
-	}
+	if (csp->conv_flags[4] == '0')
+		print_alt(csp, csp->width - s_len, '0');
+	else
+		print_alt(csp, csp->width - s_len, ' ');
+	return(csp);
 }
 
-void		print_s_ra_no_p(t_struct *csp, int padding, char *tmp)
+t_struct	*print_s_ra_no_p(t_struct *csp, char *tmp, int s_len)
 {
 	
 	//printf("4:\n");
 	//printf("padding %d\n", padding);
 	
-	char t;
-	char *mod;
-
-	mod = NULL;
-	t = ' ';
-	mod = csp->conv_flags[3] == '#' ? "0x" : mod;
-	mod = csp->conv_flags[3] == '#' && csp->specifier == 'X' ? "0X" : mod;
-	t = csp->conv_flags[4] == '0' ? '0' : t;
-	if (mod != NULL && t == '0')
-		ft_putstr(mod);
-	while ((padding--) > 0)
-		ft_putchar(t);
-	if (mod != NULL && t != '0')
-		ft_putstr(mod);
-	while (*tmp)
-		ft_putchar(*(tmp++));
+	if (csp->conv_flags[4] == '0')
+		print_alt(csp, csp->width - s_len, '0');
+	else
+		print_alt(csp, csp->width - s_len, ' ');
+	ft_putstr(tmp);
+	return (csp);
 }
 
-void	print_blank_s(int padding)
+t_struct	*print_alt(t_struct *csp, int padding, int c)
 {
-	while ((padding--) > 0)
-		ft_putchar(0);
+	char *new;
+
+	if (padding > 0)
+	{
+		if(!(new = ft_strnew(padding)))
+			exit(-1);
+		ft_memset(new, c, padding);
+		write(1, new, padding);
+		csp->len += padding;
+		free(new);
+	}
+	return (csp);
 }
 

@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 09:44:30 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/06 13:26:43 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/06 13:45:48 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,12 @@ typedef struct	s_struct
 }				t_struct;
 
 void			print_specifiers(t_struct *csp); // remove before submitting.
-t_struct		*print_s_la_p(t_struct *csp, int padding, char *tmp, int s_len);
-t_struct		*print_s_ra_p(t_struct *csp, int padding, char *tmp, int s_len);
-t_struct		*print_s_la_no_p(t_struct *csp, int padding, char *tmp, int s_len);
-t_struct		*print_s_ra_no_p(t_struct *csp, int padding, char *tmp, int s_len);
-void			print_alt(int padding, int c);
+t_struct		*print_s_la_p(t_struct *csp, char *tmp, int s_len);
+t_struct		*print_s_ra_p(t_struct *csp, char *tmp, int s_len);
+t_struct		*print_s_la_no_p(t_struct *csp, char *tmp, int s_len);
+t_struct		*print_s_ra_no_p(t_struct *csp, char *tmp, int s_len);
+t_struct		*print_pcent(t_struct *csp);
+t_struct		*print_alt(t_struct *csp, int padding, int c);
 void			print_other(t_struct *csp);
 t_struct		*chk_conv_flags(t_struct *csp);
 t_struct		*initialize(t_struct *csp);
@@ -58,7 +59,7 @@ t_struct		*print_c(t_struct *csp);
 t_struct		*print_s(t_struct *csp);
 t_struct		*print_p(t_struct *csp);
 t_struct		*print_x(t_struct *csp);
-t_struct		*align_print(t_struct *csp, int padding, char *str, int s_len);
+t_struct		*align_print(t_struct *csp, char *str, int s_len);
 int				ft_printf(const char *format, ...);
 int				parse(t_struct *csp);
 int				pre_staging(t_struct *csp);
