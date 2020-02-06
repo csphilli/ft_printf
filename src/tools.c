@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 20:55:36 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/06 13:38:57 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/06 15:50:17 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ char	*convert_nbr(long long unsigned int nbr, int base)
 
 t_struct	*align_print(t_struct *csp, char *str, int s_len)
 {
-	//printf("3rd:%s", str);
+	printf("3rd:%s", str);
 	//write(1, "A:", 2);
 	//printf("\n");
 	if (csp->conv_flags[0] == '-' && csp->precision != -1 && str)

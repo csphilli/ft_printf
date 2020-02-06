@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 11:49:10 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/06 13:33:11 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/06 15:57:05 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,28 @@ t_struct	*print_x(t_struct *csp)
 {
 	char		*tmp;
 	int			s_len;
-	int			padding;
 	uintmax_t	nbr;
-	// correct s_len size?
-	// need another function to handle the signed ints.
+
 	s_len = 0;
 	nbr = get_nbr(csp);
 	tmp = convert_nbr(nbr, 16);
-	if (csp->specifier == 'X')
-		tmp = ft_s_toupper(tmp);
-	s_len = ft_strlen(tmp);
-	padding = get_padding(csp, s_len);
-	align_print(csp, tmp, s_len);
-	update_len(csp, s_len);
+	if (csp->conv_flags[3] == '#')
+		s_len = ft_strlen(tmp) + 2;
+	else
+		s_len = ft_strlen(tmp);
+	if (csp->conv_flags[3] == '#' && csp->conv_flags[0] == '-')
+		write(1, "0x", 2);
+	if (csp->conv_flags[0] == '-' && csp->conv_flags[4] == '0')
+		print_alt(csp, csp->width - s_len, '0');
+	else
+		print_alt(csp, csp->width - s_len, ' ');
+	ft_putstr(tmp);
+	if (csp->conv_flags[0] != '-' && csp->width - s_len > 0)
+		print_alt(csp, csp->width - s_len, ' ');
+		
+	csp->len += s_len;
+	//padding = get_padding(csp, s_len);
+	//align_print(csp, tmp, s_len);
 	return (csp);
 }
 

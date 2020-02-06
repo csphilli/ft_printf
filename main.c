@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:55 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/06 14:02:38 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/06 15:54:40 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -556,10 +556,22 @@ printf("\n");
 printf(":%p:", NULL);
 printf("\n\n");
 
-printf("[1289]\n");
-ft_printf(":%#5p:", 0);
+printf("[1001]\n");
+ft_printf(":%#037lx:", 22337203685477ul);
 printf("\n");
-printf(":%#5p:", 0);
+printf(":%#037lx:", 22337203685477ul);
+printf("\n\n");
+
+printf("[1002]\n");
+ft_printf(":%#37llx:", 522337203685470ull);
+printf("\n");
+printf(":%#37llx:", 522337203685470ull);
+printf("\n\n");
+
+printf("[1012]\n");
+ft_printf(":%-5.0x:", 0);
+printf("\n");
+printf(":%-5.0x:", 0);
 printf("\n\n");
 }
 
