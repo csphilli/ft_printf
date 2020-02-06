@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 11:49:10 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/06 15:57:05 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/06 16:09:32 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,7 @@ t_struct	*print_x(t_struct *csp)
 		s_len = ft_strlen(tmp) + 2;
 	else
 		s_len = ft_strlen(tmp);
-	if (csp->conv_flags[3] == '#' && csp->conv_flags[0] == '-')
-		write(1, "0x", 2);
+	if (csp->conv_flags[0] != '-'
 	if (csp->conv_flags[0] == '-' && csp->conv_flags[4] == '0')
 		print_alt(csp, csp->width - s_len, '0');
 	else
