@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:55 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/05 16:42:56 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/06 13:10:21 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ int	main()
 //------------  START STRING TESTING (VALID PRINTF CONVERSIONS)---------------
 
 printf("[1]\n");
-ft_printf("%-3.s", NULL);
+ft_printf("%.7s", "hello");
 //write(1, "A", 1);
 printf("\n");
-printf("%-3.s", NULL);
+printf("%.7s", "hello");
 printf("\n\n");
 
 printf("[2]\n");
@@ -61,19 +61,23 @@ printf(":%7.7s%3.3s:", "hello", "world");
 printf("\n\n");
 
 printf("[3]\n");
-ft_printf(":%-4.2s:", str);
+ft_printf("%3.3s%3.7s", "hello", "world");
 //write(1, "A", 1);
 printf("\n");
-printf(":%-4.2s:", str);
+printf("%3.3s%3.7s", "hello", "world");
 printf("\n\n");
 
 printf("[4]\n");
-ft_printf(":%-10.8s:\n", s_hidden);
-printf(":%-10.8s:\n\n", s_hidden);
+ft_printf("%3.7s%3.3s", "hello", "world");
+printf("\n");
+printf("%3.7s%3.3s", "hello", "world");
+printf("\n");
 
 printf("[5]\n");
-ft_printf(":%8.5s:\n", str);
-printf(":%8.5s:\n\n", str);
+ft_printf("%.03s", s_hidden);
+printf("\n");
+printf("%.03s", s_hidden);
+printf("\n");
 printf("[6]\n");
 ft_printf(":%6s:\n", str);
 printf(":%6s:\n\n", str);
@@ -534,12 +538,28 @@ printf("\n");
 printf("%6X %-6x %-20x %20x", -55432, -55432, -55432, -55432);
 printf("\n\n");
 
-printf("[143]\n");
-ft_printf(":%105%:", NULL);
-//write(1, "A", 1);
-//ft_printf("%s", NULL);
+printf("[7]\n");
+ft_printf(":%5%:");
 printf("\n");
-printf(":%105%:", NULL);
+printf(":%5%:");
+printf("\n\n");
+
+printf("[9]\n");
+ft_printf(":%05%:");
+printf("\n");
+printf(":%05%:");
+printf("\n\n");
+
+printf("[1284]\n");
+ft_printf(":%p:", NULL);
+printf("\n");
+printf(":%p:", NULL);
+printf("\n\n");
+
+printf("[1289]\n");
+ft_printf(":%5p:", 0);
+printf("\n");
+printf(":%5p:", 0);
 printf("\n\n");
 }
 

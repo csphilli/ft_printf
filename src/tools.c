@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 20:55:36 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/05 16:25:50 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/06 11:00:45 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ t_struct	*align_print(t_struct *csp, int padding, char *str, int s_len)
 	else if (csp->conv_flags[0] != '-' && csp->precision == -1 && str)
 		print_s_ra_no_p(csp, padding, str);
 	else if (!str)
-		print_blank_s(padding);
+		print_alt(padding, ' ');
 	else
 		print_s_ra_p(csp, padding, str, s_len);
 	return (csp);
