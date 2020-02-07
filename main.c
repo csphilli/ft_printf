@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:55 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/06 15:54:40 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/07 18:43:48 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -556,22 +556,40 @@ printf("\n");
 printf(":%p:", NULL);
 printf("\n\n");
 
-printf("[1001]\n");
-ft_printf(":%#037lx:", 22337203685477ul);
+printf("[#037.5]\n");
+ft_printf(":%#037.5lx:", 22337203685477ul);
 printf("\n");
-printf(":%#037lx:", 22337203685477ul);
+printf(":%#37.5lx:", 22337203685477ul);
 printf("\n\n");
 
-printf("[1002]\n");
-ft_printf(":%#37llx:", 522337203685470ull);
+printf("[37.17]\n");
+ft_printf(":%-37.17llx:", 522337203685470ull);
 printf("\n");
-printf(":%#37llx:", 522337203685470ull);
+printf(":%-37.17llx:", 522337203685470ull);
 printf("\n\n");
 
 printf("[1012]\n");
 ft_printf(":%-5.0x:", 0);
 printf("\n");
 printf(":%-5.0x:", 0);
+printf("\n\n");
+
+printf("[037l]\n");
+ft_printf(":%037lx:", 22337203685477ul);
+printf("\n");
+printf(":%037lx:", 22337203685477ul);
+printf("\n\n");
+
+printf(":0#37.10l:\n");
+ft_printf(":%-#37.10lx:", 22337203685477ul);
+printf("\n");
+printf(":%-#37.10lx:", 22337203685477ul);
+printf("\n\n");
+
+printf("[#037.20]\n");
+ft_printf(":%-7x:", 33);
+printf("\n");
+printf(":%-7x:", 33);
 printf("\n\n");
 }
 

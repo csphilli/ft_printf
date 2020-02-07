@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 20:36:59 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/06 15:46:49 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/07 11:10:10 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 t_struct		*print_s_la_p(t_struct *csp, char *tmp, int s_len)
 {
-	printf("1:\n");
+	//printf("1:\n");
 	//printf("padding %d\n", padding);
 	//printf("prec: %ld\n", csp->precision);
 	//printf("4th:%s", tmp);
@@ -39,7 +39,7 @@ t_struct		*print_s_la_p(t_struct *csp, char *tmp, int s_len)
 t_struct	*print_s_ra_p(t_struct *csp, char *tmp, int s_len)
 {
 	
-	printf("2:\n");
+	//printf("2:\n");
 	//printf("padding %d\n", padding);
 	//printf("prec: %ld\n", csp->precision);
 	//printf("tmp: %s", tmp);
@@ -63,7 +63,7 @@ t_struct	*print_s_ra_p(t_struct *csp, char *tmp, int s_len)
 t_struct	*print_s_la_no_p(t_struct *csp, char *tmp, int s_len)
 {
 	
-	printf("3:\n");
+	//printf("3:\n");
 	//printf("padding %d\n", padding);
 	
 
@@ -79,7 +79,7 @@ t_struct	*print_s_la_no_p(t_struct *csp, char *tmp, int s_len)
 t_struct	*print_s_ra_no_p(t_struct *csp, char *tmp, int s_len)
 {
 	
-	printf("4:\n");
+	//printf("4:\n");
 	//printf("padding %d\n", padding);
 	
 	if (csp->conv_flags[4] == '0')
@@ -101,6 +101,7 @@ t_struct	*print_alt(t_struct *csp, int padding, int c)
 		ft_memset(new, c, padding);
 		write(1, new, padding);
 		csp->len += padding;
+		//printf("padding:%d\n", padding);
 		free(new);
 	}
 	return (csp);

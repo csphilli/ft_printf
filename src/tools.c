@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 20:55:36 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/06 15:50:17 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/07 14:25:10 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,17 @@
 int		get_padding(t_struct *csp, long int s_len)
 {
 	int			padding;
-	int	j;
 	//long int	prec;
-	j = 0;
 	//prec = csp->precision;
 
-	if (csp->conv_flags[3] == '#')
-		j = 2;
+	//if (csp->conv_flags[3] == '#')
+		//j = 2;
 	if (csp->precision > -1 && csp->precision < s_len)
-		padding = csp->width - csp->precision - j;
+		padding = csp->width - csp->precision;
 	else if (csp->precision > -1 && csp->precision > s_len)
-		padding = csp->width - s_len - j;
+		padding = csp->width - s_len;
 	else if (csp->precision == -1 && csp->width > s_len)
-		padding = csp->width - s_len - j;
+		padding = csp->width - s_len;
 	else
 		padding = 0;
 	//printf("padding: %d\n", padding);
@@ -86,7 +84,7 @@ char	*convert_nbr(long long unsigned int nbr, int base)
 
 t_struct	*align_print(t_struct *csp, char *str, int s_len)
 {
-	printf("3rd:%s", str);
+	//printf("3rd:%s", str);
 	//write(1, "A:", 2);
 	//printf("\n");
 	if (csp->conv_flags[0] == '-' && csp->precision != -1 && str)
