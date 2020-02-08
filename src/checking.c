@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:16:22 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/06 11:26:55 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/08 10:25:42 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_struct	*chk_conv_flags(t_struct *csp)
 	{
 		while (csp->format_flags[i] == csp->srch_fmt[csp->i])
 		{
+			
 			while (csp->srch_fmt[csp->i] == '-' && csp->i++)
 				csp->conv_flags[0] = '-';
 			while (csp->srch_fmt[csp->i] == '+' && csp->i++)
