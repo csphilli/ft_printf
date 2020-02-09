@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:55 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/08 17:42:48 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/09 14:09:02 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -576,7 +576,7 @@ printf("\n");
 printf(":%037lx:", 22337203685477ul);
 printf("\n\n");
 
-printf(":0#37.10l:\n");
+printf(":-#37.10l:\n");
 ft_printf(":%-#37.10lx:", 22337203685477ul);
 printf("\n");
 printf(":%-#37.10lx:", 22337203685477ul);
@@ -594,20 +594,20 @@ printf("\n");
 printf(":%#037.5lx:", 22337203685477ul);
 printf("\n\n");
 
-ft_printf("1:%010x:\n", 12345);
-printf("1:%010x:\n", 12345);
+ft_printf("1:%#010x:\n", 12345);
+printf("1:%#010x:\n", 12345);
 
 ft_printf("2:%-10x:\n", 12345);
 printf("2:%-10x:\n", 12345);
 
-ft_printf("3:%#015.5x:\n", 12345);
-printf("3:%#015.5x:\n", 12345);
+ft_printf("3:%#015.7x:\n", 12345);
+printf("3:%#015.7x:\n", 12345);
 
 ft_printf("4:%.5x:\n", 12345);
 printf("4:%.5x:\n", 12345);
 
-ft_printf("5:%010x:\n", 12345);
-printf("5:%010x:\n", 12345);
+ft_printf("5:%#010x:\n", 12345);
+printf("5:%#010x:\n", 12345);
 
 ft_printf("6:%10x:\n", 12345);
 printf("6:%10x:\n", 12345);
@@ -623,5 +623,38 @@ printf("9:%#10.5x:\n", 12345);
 
 ft_printf("10:%#0.10x:\n", 12345);
 printf("10:%#0.10x:\n", 12345);
+
+ft_printf("11:%#014x:\n", 12345);
+printf("11:%#014x:\n", 12345);
+
+ft_printf("12:this %x number\n", 0);
+printf("12:this %x number\n", 0);
+
+ft_printf("13:this %#x number\n", 0);
+printf("13:this %#x number\n", 0);
+
+ft_printf("14:%#03x\n", 0);
+printf("14:%#03x\n", 0);
+
+ft_printf("15:%#-3x:\n", 0);
+printf("15:%#-3x:\n", 0);
+
+ft_printf("16:%#8.5x\n", 0);
+printf("16:%#8.5x\n", 0);
+
+ft_printf("17:%#-8.5x\n", 0);
+printf("17:%#-8.5x\n", 0);
+
+ft_printf("18:%#0-8.5x\n", 0);
+printf("18:%#0-8.5x\n", 0);
+
+ft_printf("19:%.0x\n", 0);
+printf("19:%.0x\n", 0);
+
+ft_printf("20:%.x\n", 0);
+printf("20:%.x\n", 0);
+
+ft_printf("21:%5.0x\n", 0);
+printf("21:%5.0x\n", 0);
 }
 
