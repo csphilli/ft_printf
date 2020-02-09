@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 09:44:30 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/06 13:45:48 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/09 14:37:15 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct	s_struct
 	char		conv_flags[6];
 	char		*format_flags; // (#0-+ )
 	char		*a_flags;// lLh (l ll h hh L)
-	char		*spec_flags; // "cspdiouxXf%"
+	char		*spec_flags; // "diouf"
 }				t_struct;
 
 void			print_specifiers(t_struct *csp); // remove before submitting.
