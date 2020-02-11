@@ -6,18 +6,16 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 11:49:10 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/11 10:53:33 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/11 11:15:34 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-t_struct	*print_zero(t_struct *csp, char spec, uintmax_t nbr);
-
-
 static uintmax_t	get_nbr(t_struct *csp)
 {
 	uintmax_t nbr;
+
 	if (ft_strcmp(csp->len_flags, "h") == 0)
 		nbr = (unsigned short)va_arg(csp->args, unsigned int);
 	else if (ft_strcmp(csp->len_flags, "hh") == 0)
@@ -32,7 +30,7 @@ static uintmax_t	get_nbr(t_struct *csp)
 	return (nbr);
 }
 
-t_struct	*print_x(t_struct *csp)
+t_struct			*print_x(t_struct *csp)
 {
 	char		*tmp;
 	uintmax_t	nbr;
@@ -50,20 +48,25 @@ t_struct	*print_x(t_struct *csp)
 	mod = (csp->c_flags[3] == '#' && nbr) ? 2 : 0;
 	csp->s_len = ft_strlen(tmp);
 	m_z = get_mz(csp, nbr, csp->s_len, mod);
-	x_padding(csp, m_z, mod, nbr);	
-	if(csp->c_flags[0] != '-')
+	x_padding(csp, m_z, mod, nbr);
+	do_x(csp, nbr, m_z, tmp);
+	csp->len += csp->s_len;
+	free(tmp);
+	return (csp);
+}
+
+void				do_x(t_struct *csp, uintmax_t nbr, int m_z, char *tmp)
+{
+	if (csp->c_flags[0] != '-')
 		print_alt(csp, csp->padding, ' ');
 	print_zero(csp, csp->specifier, nbr);
 	print_alt(csp, m_z, '0');
 	ft_putstr(tmp);
 	if (csp->c_flags[0] == '-')
 		print_alt(csp, csp->padding, ' ');
-	csp->len += csp->s_len;
-	free(tmp);
-	return (csp);
 }
 
-t_struct	*print_zero(t_struct *csp, char spec, uintmax_t nbr)
+t_struct			*print_zero(t_struct *csp, char spec, uintmax_t nbr)
 {
 	if (nbr && csp->c_flags[3] == '#')
 	{
@@ -73,5 +76,5 @@ t_struct	*print_zero(t_struct *csp, char spec, uintmax_t nbr)
 			write(1, "0x", 2);
 	}
 	csp->len += 2;
-	return(csp);
+	return (csp);
 }

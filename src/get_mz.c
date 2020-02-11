@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 10:34:42 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/11 10:54:27 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/11 11:11:07 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ int		get_mz(t_struct *csp, uintmax_t nbr, int s_len, int mod)
 		m_z = 0;
 	else
 		m_z = prec - s_len - mod;
-	return(m_z = m_z < 0 ? 0 : m_z);
+	return (m_z = m_z < 0 ? 0 : m_z);
 }

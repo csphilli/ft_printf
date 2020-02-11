@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 09:44:30 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/11 10:54:02 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/11 11:13:57 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,7 @@ int				pre_staging(t_struct *csp);
 t_struct		*get_padding(t_struct *csp, long int s_len);
 int				update_len(t_struct *csp, int s_len);
 char			*cvt_nbr(t_struct *csp, long long unsigned int nbr, int base);
+t_struct		*print_zero(t_struct *csp, char spec, uintmax_t nbr);
+void			do_x(t_struct *csp, uintmax_t nbr, int m_z, char *tmp);
 
 #endif
