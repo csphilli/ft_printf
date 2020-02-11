@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 20:36:59 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/10 12:15:56 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/11 10:54:30 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 t_struct	*print_s_la_p(t_struct *csp, char *tmp, int s_len)
 {
-	if (csp->precision < s_len && csp->specifier == 's')
-		while (csp->precision--)
+	if (csp->prec < s_len && csp->specifier == 's')
+		while (csp->prec--)
 			ft_putchar(*(tmp++));
 	else
 		while (s_len--)
 			ft_putchar(*(tmp++));
-	if (csp->conv_flags[4] == '0')
+	if (csp->c_flags[4] == '0')
 		print_alt(csp, csp->width - s_len, '0');
 	else
 		print_alt(csp, csp->width - s_len, ' ');
@@ -29,12 +29,12 @@ t_struct	*print_s_la_p(t_struct *csp, char *tmp, int s_len)
 
 t_struct	*print_s_ra_p(t_struct *csp, char *tmp, int s_len)
 {
-	if (csp->conv_flags[4] == '0')
+	if (csp->c_flags[4] == '0')
 		print_alt(csp, csp->width - s_len, '0');
 	else
 		print_alt(csp, csp->width - s_len, ' ');
-	if (csp->precision < s_len && csp->specifier == 's')
-		while (csp->precision--)
+	if (csp->prec < s_len && csp->specifier == 's')
+		while (csp->prec--)
 			ft_putchar(*(tmp++));
 	else
 		while (s_len--)
@@ -45,7 +45,7 @@ t_struct	*print_s_ra_p(t_struct *csp, char *tmp, int s_len)
 t_struct	*print_s_la_no_p(t_struct *csp, char *tmp, int s_len)
 {
 	ft_putstr(tmp);
-	if (csp->conv_flags[4] == '0')
+	if (csp->c_flags[4] == '0')
 		print_alt(csp, csp->width - s_len, '0');
 	else
 		print_alt(csp, csp->width - s_len, ' ');
@@ -54,7 +54,7 @@ t_struct	*print_s_la_no_p(t_struct *csp, char *tmp, int s_len)
 
 t_struct	*print_s_ra_no_p(t_struct *csp, char *tmp, int s_len)
 {
-	if (csp->conv_flags[4] == '0')
+	if (csp->c_flags[4] == '0')
 		print_alt(csp, csp->width - s_len, '0');
 	else
 		print_alt(csp, csp->width - s_len, ' ');

@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 09:44:30 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/11 10:46:45 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/11 10:54:02 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ typedef struct	s_struct
 	char		specifier;
 	long int	width;
 	int			s_len;
-	long int	precision;
+	long int	prec;
 	char		len_flags[2];
-	char		conv_flags[6];
+	char		c_flags[6];
 	char		*hex_chars;
 	char		*format_flags; // (#0-+ )
 	char		*a_flags;// lLh (l ll h hh L)

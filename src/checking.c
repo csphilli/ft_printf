@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:16:22 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/10 12:28:23 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/11 10:54:21 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,15 @@ t_struct	*chk_conv_flags(t_struct *csp)
 		while (csp->format_flags[i] == csp->srch_fmt[csp->i])
 		{
 			while (csp->srch_fmt[csp->i] == '-' && csp->i++)
-				csp->conv_flags[0] = '-';
+				csp->c_flags[0] = '-';
 			while (csp->srch_fmt[csp->i] == '+' && csp->i++)
-				csp->conv_flags[1] = '+';
+				csp->c_flags[1] = '+';
 			while (csp->srch_fmt[csp->i] == ' ' && csp->i++)
-				csp->conv_flags[2] = ' ';
+				csp->c_flags[2] = ' ';
 			while (csp->srch_fmt[csp->i] == '#' && csp->i++)
-				csp->conv_flags[3] = '#';
+				csp->c_flags[3] = '#';
 			while (csp->srch_fmt[csp->i] == '0' && csp->i++)
-				csp->conv_flags[4] = '0';
+				csp->c_flags[4] = '0';
 			i = 0;
 		}
 		i++;
@@ -53,13 +53,13 @@ t_struct	*chk_precision(t_struct *csp)
 {
 	if (csp->srch_fmt[csp->i] == '.')
 	{
-		csp->precision = 0;
+		csp->prec = 0;
 		csp->i++;
 	}
 	while (ft_isdigit(csp->srch_fmt[csp->i]))
 	{
-		csp->precision *= 10;
-		csp->precision += (csp->srch_fmt[csp->i] - 48);
+		csp->prec *= 10;
+		csp->prec += (csp->srch_fmt[csp->i] - 48);
 		csp->i++;
 	}
 	return (csp);

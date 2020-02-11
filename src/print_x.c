@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 11:49:10 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/11 10:45:08 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/11 10:53:33 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,22 +41,22 @@ t_struct	*print_x(t_struct *csp)
 
 	m_z = 0;
 	nbr = get_nbr(csp);
-	if (nbr == 0 && csp->precision == 0)
+	if (nbr == 0 && csp->prec == 0)
 	{
 		print_alt(csp, csp->width, ' ');
 		return (csp);
 	}
 	tmp = cvt_nbr(csp, nbr, 16);
-	mod = (csp->conv_flags[3] == '#' && nbr) ? 2 : 0;
+	mod = (csp->c_flags[3] == '#' && nbr) ? 2 : 0;
 	csp->s_len = ft_strlen(tmp);
 	m_z = get_mz(csp, nbr, csp->s_len, mod);
 	x_padding(csp, m_z, mod, nbr);	
-	if(csp->conv_flags[0] != '-')
+	if(csp->c_flags[0] != '-')
 		print_alt(csp, csp->padding, ' ');
 	print_zero(csp, csp->specifier, nbr);
 	print_alt(csp, m_z, '0');
 	ft_putstr(tmp);
-	if (csp->conv_flags[0] == '-')
+	if (csp->c_flags[0] == '-')
 		print_alt(csp, csp->padding, ' ');
 	csp->len += csp->s_len;
 	free(tmp);
@@ -65,7 +65,7 @@ t_struct	*print_x(t_struct *csp)
 
 t_struct	*print_zero(t_struct *csp, char spec, uintmax_t nbr)
 {
-	if (nbr && csp->conv_flags[3] == '#')
+	if (nbr && csp->c_flags[3] == '#')
 	{
 		if (spec == 'X')
 			write(1, "0X", 2);

@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:19:47 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/06 13:45:58 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/11 10:54:22 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ void		print_specifiers(t_struct *csp)
 	printf("width: '%ld'\n", csp->width);
 	printf("len flag[0]: '%c'\n", csp->len_flags[0]);
 	printf("len flag[1]: '%c'\n", csp->len_flags[1]);
-	printf("convert flag[0]: '%c'\n", csp->conv_flags[0]);
-	printf("convert flag[1]: '%c'\n", csp->conv_flags[1]);
-	printf("convert flag[2]: '%c'\n", csp->conv_flags[2]);
-	printf("convert flag[3]: '%c'\n", csp->conv_flags[3]);
-	printf("convert flag[4]: '%c'\n", csp->conv_flags[4]);
-	printf("precision: '%ld'\n", csp->precision);
+	printf("convert flag[0]: '%c'\n", csp->c_flags[0]);
+	printf("convert flag[1]: '%c'\n", csp->c_flags[1]);
+	printf("convert flag[2]: '%c'\n", csp->c_flags[2]);
+	printf("convert flag[3]: '%c'\n", csp->c_flags[3]);
+	printf("convert flag[4]: '%c'\n", csp->c_flags[4]);
+	printf("precision: '%ld'\n", csp->prec);
 	printf("specifier: '%c'\n", csp->specifier);
 }
 

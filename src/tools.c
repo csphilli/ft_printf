@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 20:55:36 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/10 12:41:56 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/11 10:54:32 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 t_struct	*get_padding(t_struct *csp, long int s_len)
 {
-	if (csp->precision > -1 && csp->precision < s_len)
-		csp->padding = csp->width - csp->precision;
-	else if (csp->precision > -1 && csp->precision > s_len)
+	if (csp->prec > -1 && csp->prec < s_len)
+		csp->padding = csp->width - csp->prec;
+	else if (csp->prec > -1 && csp->prec > s_len)
 		csp->padding = csp->width - s_len;
-	else if (csp->precision == -1 && csp->width > s_len)
+	else if (csp->prec == -1 && csp->width > s_len)
 		csp->padding = csp->width - s_len;
 	else
 		csp->padding = 0;
@@ -32,8 +32,8 @@ int			update_len(t_struct *csp, int s_len)
 	int			j;
 
 	j = 0;
-	prec = csp->precision;
-	if (csp->conv_flags[3] == '#')
+	prec = csp->prec;
+	if (csp->c_flags[3] == '#')
 		j = 2;
 	if ((prec > -1 || prec == -1) && (prec > s_len || s_len != 0))
 		s_len = s_len + j;
@@ -45,11 +45,11 @@ int			update_len(t_struct *csp, int s_len)
 
 t_struct	*align_print(t_struct *csp, char *str, int s_len)
 {
-	if (csp->conv_flags[0] == '-' && csp->precision != -1 && str)
+	if (csp->c_flags[0] == '-' && csp->prec != -1 && str)
 		print_s_la_p(csp, str, s_len);
-	else if (csp->conv_flags[0] == '-' && csp->precision == -1 && str)
+	else if (csp->c_flags[0] == '-' && csp->prec == -1 && str)
 		print_s_la_no_p(csp, str, s_len);
-	else if (csp->conv_flags[0] != '-' && csp->precision == -1 && str)
+	else if (csp->c_flags[0] != '-' && csp->prec == -1 && str)
 		print_s_ra_no_p(csp, str, s_len);
 	else if (!str)
 		print_alt(csp, csp->width - s_len, ' ');

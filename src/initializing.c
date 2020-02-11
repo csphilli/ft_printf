@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:10:49 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/11 10:31:10 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/11 10:54:28 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ t_struct	*initialize(t_struct *csp)
 t_struct	*re_init(t_struct *csp)
 {
 	csp->specifier = '\0';
-	csp->precision = -1;
+	csp->prec = -1;
 	csp->width = 0;
-	csp->conv_flags[0] = '\0';
-	csp->conv_flags[1] = '\0';
-	csp->conv_flags[2] = '\0';
-	csp->conv_flags[3] = '\0';
-	csp->conv_flags[4] = '\0';
-	csp->conv_flags[5] = '\0';
+	csp->c_flags[0] = '\0';
+	csp->c_flags[1] = '\0';
+	csp->c_flags[2] = '\0';
+	csp->c_flags[3] = '\0';
+	csp->c_flags[4] = '\0';
+	csp->c_flags[5] = '\0';
 	csp->len_flags[0] = '\0';
 	csp->len_flags[1] = '\0';
 	return (csp);
