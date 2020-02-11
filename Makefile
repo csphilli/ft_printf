@@ -6,7 +6,7 @@
 #    By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/17 15:59:38 by cphillip          #+#    #+#              #
-#    Updated: 2020/02/05 12:17:48 by cphillip         ###   ########.fr        #
+#    Updated: 2020/02/11 10:39:24 by cphillip         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ LIB_DIR = includes/
 
 C_FILES =	ft_printf.c initializing.c staging.c \
 			parse.c checking.c print_c.c print_s.c printing.c \
-			tools.c print_p.c print_x.c pre_staging.c print_other.c
+			tools.c print_p.c print_x.c pre_staging.c print_other.c\
+			print_alt.c convert_nbr.c get_mz.c x_padding.c
 
 FIND_C = $(C_FILES:%=$(SRC_DIR)%)
 

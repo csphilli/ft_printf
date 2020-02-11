@@ -1,32 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_p.c                                          :+:      :+:    :+:   */
+/*   convert_nbr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/23 14:58:08 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/10 12:45:06 by cphillip         ###   ########.fr       */
+/*   Created: 2020/02/10 12:17:43 by cphillip          #+#    #+#             */
+/*   Updated: 2020/02/10 12:27:46 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-t_struct	*print_p(t_struct *csp)
+char	*cvt_nbr(t_struct *csp, long long unsigned int nbr, int base)
 {
-	char		*tmp;
-	int			s_len;
-	uintmax_t	nbr;
+	char			*str;
+	unsigned int	i;
+	int				j;
 
-	nbr = (unsigned long)va_arg(csp->args, unsigned long int);
-	nbr = (uintmax_t)nbr;
-	tmp = cvt_nbr(csp, nbr, 16);
-	tmp = ft_strjoin("0x", tmp);
-	if (tmp == NULL || nbr == 0)
-		tmp = ft_strjoin(tmp, "0");
-	s_len = ft_strlen(tmp);
-	get_padding(csp, s_len);
-	csp->len += ft_strlen(tmp);
-	align_print(csp, tmp, s_len);
-	return (csp);
+	j = 0;
+	if (!(str = (char*)malloc(sizeof(ft_nbr_size_base(nbr, base) * (char)+1))))
+		exit(-1);
+	while (nbr != 0)
+	{
+		i = 0;
+		while (csp->hex_chars[i])
+		{
+			if (i == nbr % base)
+			{
+				str[j] = csp->hex_chars[i];
+				j++;
+				break ;
+			}
+			i++;
+		}
+		nbr /= base;
+	}
+	str[j] = '\0';
+	return (ft_revstr(str));
 }

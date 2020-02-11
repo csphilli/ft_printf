@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:10:49 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/06 12:02:36 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/11 10:31:10 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,12 @@ t_struct	*initialize(t_struct *csp)
 {
 	csp->i = 0;
 	csp->len = 0;
+	csp->padding = 0;
+	csp->s_len = 0;
 	csp->format_flags = "#0-+ ";
 	csp->a_flags = "lhL";
 	csp->spec_flags = "cspdiouxXf%";
+	csp->hex_chars = "0123456789abcdef";
 	csp->c_fmt = (char *)csp->fmt;
 	csp->srch_fmt = (char *)csp->fmt;
 	return (csp);

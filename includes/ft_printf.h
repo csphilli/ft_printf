@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 09:44:30 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/09 14:37:15 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/11 10:46:45 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,18 @@ typedef struct	s_struct
 	va_list		args;
 	size_t		i;
 	int			len;
+	int			padding;
 	char		specifier;
 	long int	width;
+	int			s_len;
 	long int	precision;
 	char		len_flags[2];
 	char		conv_flags[6];
+	char		*hex_chars;
 	char		*format_flags; // (#0-+ )
 	char		*a_flags;// lLh (l ll h hh L)
 	char		*spec_flags; // "diouf"
+	
 }				t_struct;
 
 void			print_specifiers(t_struct *csp); // remove before submitting.
@@ -60,11 +64,13 @@ t_struct		*print_s(t_struct *csp);
 t_struct		*print_p(t_struct *csp);
 t_struct		*print_x(t_struct *csp);
 t_struct		*align_print(t_struct *csp, char *str, int s_len);
+t_struct		*x_padding(t_struct *csp, int m_z, int mod, uintmax_t nbr);
+int				get_mz(t_struct *csp, uintmax_t nbr, int s_len, int mod);
 int				ft_printf(const char *format, ...);
 int				parse(t_struct *csp);
 int				pre_staging(t_struct *csp);
-int				get_padding(t_struct *csp, long int s_len);
+t_struct		*get_padding(t_struct *csp, long int s_len);
 int				update_len(t_struct *csp, int s_len);
-char			*convert_nbr(long long unsigned int nbr, int base);
+char			*cvt_nbr(t_struct *csp, long long unsigned int nbr, int base);
 
 #endif

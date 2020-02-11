@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_p.c                                          :+:      :+:    :+:   */
+/*   print_alt.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/23 14:58:08 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/10 12:45:06 by cphillip         ###   ########.fr       */
+/*   Created: 2020/02/10 12:07:57 by cphillip          #+#    #+#             */
+/*   Updated: 2020/02/10 12:16:53 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-t_struct	*print_p(t_struct *csp)
+t_struct	*print_alt(t_struct *csp, int padding, int c)
 {
-	char		*tmp;
-	int			s_len;
-	uintmax_t	nbr;
+	char *new;
 
-	nbr = (unsigned long)va_arg(csp->args, unsigned long int);
-	nbr = (uintmax_t)nbr;
-	tmp = cvt_nbr(csp, nbr, 16);
-	tmp = ft_strjoin("0x", tmp);
-	if (tmp == NULL || nbr == 0)
-		tmp = ft_strjoin(tmp, "0");
-	s_len = ft_strlen(tmp);
-	get_padding(csp, s_len);
-	csp->len += ft_strlen(tmp);
-	align_print(csp, tmp, s_len);
+	if (padding > 0)
+	{
+		if (!(new = ft_strnew(padding)))
+			exit(-1);
+		ft_memset(new, c, padding);
+		write(1, new, padding);
+		csp->len += padding;
+		free(new);
+	}
 	return (csp);
 }
