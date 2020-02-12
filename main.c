@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:55 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/09 14:09:02 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/12 13:28:52 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -650,11 +650,53 @@ printf("18:%#0-8.5x\n", 0);
 
 ft_printf("19:%.0x\n", 0);
 printf("19:%.0x\n", 0);
+printf("------------------\n");
+printf("BEGIN OCTAL TESTS\n");
+printf("------------------\n");
 
-ft_printf("20:%.x\n", 0);
-printf("20:%.x\n", 0);
+ft_printf("20:%.o:\n", 12345);
+printf("20:%.o:\n", 12345);
 
-ft_printf("21:%5.0x\n", 0);
-printf("21:%5.0x\n", 0);
+ft_printf("21:%5o:\n", 12345);
+printf("21:%5o:\n", 12345);
+
+ft_printf("22:%-5.2o:\n", 12345);
+printf("22:%-5.2o:\n", 12345);
+
+ft_printf("23:%5.10o:\n", 12345);
+printf("23:%5.10o:\n", 12345);
+
+ft_printf("24:%010.3o:\n", 12345);
+printf("24:%010.3o:\n", 12345);
+
+ft_printf("25:%-15.3o:\n", 12345);
+printf("25:%-15.3o:\n", 12345);
+
+ft_printf("26:%#2.10o:\n", 12345);
+printf("26:%#2.10o:\n", 12345);
+
+ft_printf("27:%5.0o:\n", 12345);
+printf("27:%5.0o:\n", 12345);
+
+ft_printf("28:%#5.0o:\n", 0);
+   printf("28:%#5.0o:\n", 0);
+
+ft_printf("29:%#5o:\n", 0);
+printf("29:%#5o:\n", 0);
+
+ft_printf("30:%8.5o:\n", 0);
+printf("30:%8.5o:\n", 0);
+
+ft_printf("31:%llo:\n", 522337203685470ull);
+printf("31:%llo:\n", 522337203685470ull);
+
+ft_printf("32:%3o:\n", 0);
+printf("32:%3o:\n", 0);
+
+ft_printf("33:%03o:\n", 0);
+printf("33:%03o:\n", 0);
+
+ft_printf("34:this %o is nothing:\n", 0);
+printf("34:this %o is nothing:\n", 0);
 }
 
