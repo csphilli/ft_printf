@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_o.c                                          :+:      :+:    :+:   */
+/*   print_u.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 10:15:00 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/12 14:22:47 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/12 15:42:09 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static void	print_o_zero(t_struct *csp, uintmax_t nbr)
+static void	print_u_zero(uintmax_t nbr)
 {
-	if (csp->c_flags[3] == '#' && nbr)
-		write(1, "0", 1);
-	else if (nbr == 0)
+	if (nbr && nbr == 0)
 		write(1, "0", 1);
 }
-
 
 static uintmax_t	get_nbr(t_struct *csp)
 {
@@ -39,24 +36,30 @@ static uintmax_t	get_nbr(t_struct *csp)
 	return (nbr);
 }
 
-// HAVEN'T HANDLED TOTAL LENGTH YET
-
-t_struct			*print_o(t_struct *csp)
+t_struct			*print_u(t_struct *csp)
 {
 	char		*tmp;
 	uintmax_t	nbr;
 	int			n_blank;
 
 	nbr = get_nbr(csp);	
-	if (nbr == 0 && csp->prec == 0 && csp->c_flags[3] != '#')
+	if (nbr == 0 && csp->prec == 0)
 	{
 		print_alt(csp, csp->width, ' ');
 		return (csp);
 	}
-	tmp = cvt_nbr(csp, nbr, 8);
+	//printf("\n");
+	//printf("nbr:%ju", nbr);
+	//printf("\n");
+	if (nbr == 0)
+		tmp = ft_strdup("0");
+	else
+		tmp = cvt_nbr(csp, nbr, 10);
+	tmp = nbr == 0 ? ft_strdup("0") : cvt_nbr(csp, nbr, 10);
+	//printf("%s\n", tmp);
 	csp->s_len = nbr == 0 ? 1 : ft_strlen(tmp);
-	if (csp->c_flags[3] == '#' && nbr)
-		csp->s_len++;	
+	
+	//printf("tmp:%s\n", tmp);
 	n_blank = csp->s_len;
 	if (csp->c_flags[4] == '0' && csp->prec == -1 && csp->c_flags[3] != '-')
 		csp->prec = csp->width;	
@@ -64,7 +67,7 @@ t_struct			*print_o(t_struct *csp)
 		n_blank = csp->prec;
 	if (csp->c_flags[0] != '-')
 		print_alt(csp, csp->width - n_blank, ' ');
-	print_o_zero(csp, nbr);
+	print_u_zero(nbr);
 	print_alt(csp, csp->prec - csp->s_len, '0');
 	ft_putstr(tmp);
 	if (csp->c_flags[0] == '-')

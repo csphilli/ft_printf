@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:55 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/12 13:28:52 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/12 15:10:05 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -651,7 +651,7 @@ printf("18:%#0-8.5x\n", 0);
 ft_printf("19:%.0x\n", 0);
 printf("19:%.0x\n", 0);
 printf("------------------\n");
-printf("BEGIN OCTAL TESTS\n");
+printf("BEGIN %%o TESTS\n");
 printf("------------------\n");
 
 ft_printf("20:%.o:\n", 12345);
@@ -679,7 +679,7 @@ ft_printf("27:%5.0o:\n", 12345);
 printf("27:%5.0o:\n", 12345);
 
 ft_printf("28:%#5.0o:\n", 0);
-   printf("28:%#5.0o:\n", 0);
+printf("28:%#5.0o:\n", 0);
 
 ft_printf("29:%#5o:\n", 0);
 printf("29:%#5o:\n", 0);
@@ -698,5 +698,60 @@ printf("33:%03o:\n", 0);
 
 ft_printf("34:this %o is nothing:\n", 0);
 printf("34:this %o is nothing:\n", 0);
+
+printf("------------------\n");
+printf("BEGIN %%u TESTS\n");
+printf("------------------\n");
+
+ft_printf("35:%.u:\n", 12345);
+printf("35:%.u:\n", 12345);
+
+ft_printf("36:%5u:\n", 12345);
+printf("36:%5u:\n", 12345);
+
+ft_printf("37:%-5.2u:\n", 12345);
+printf("37:%-5.2u:\n", 12345);
+
+ft_printf("38:%5.10u:\n", 12345);
+printf("38:%5.10u:\n", 12345);
+
+ft_printf("39:%010.3u:\n", 12345);
+printf("39:%010.3u:\n", 12345);
+
+ft_printf("40:%-15.3u:\n", 12345);
+printf("40:%-15.3u:\n", 12345);
+
+ft_printf("41:%#2.10u:\n", 12345);
+printf("41:%#2.10u:\n", 12345);
+
+ft_printf("42:%5.0u:\n", 12345);
+printf("42:%5.0u:\n", 12345);
+
+ft_printf("43:%#5.0u:\n", 0);
+printf("43:%#5.0u:\n", 0);
+
+ft_printf("44:%5u:\n", 0);
+printf("44:%5u:\n", 0);
+
+ft_printf("45:%8.5u:\n", 0);
+printf("45:%8.5u:\n", 0);
+
+ft_printf("46:%llu:\n", 522337203685470ull);
+printf("46:%llu:\n", 522337203685470ull);
+
+ft_printf("47:%3u:\n", 0);
+printf("47:%3u:\n", 0);
+
+ft_printf("48:%03u:\n", 0);
+printf("48:%03u:\n", 0);
+
+ft_printf("49:this %u is nuthing:\n", 0);
+printf("49:this %u is nuthing:\n", 0);
+
+ft_printf("50:%llu:\n", 9223372036854775807);
+printf("50:llu:\n", 9223372036854775807);
+
+ft_printf("49:this %u is nuthing:\n", 0);
+printf("49:this %u is nuthing:\n", 0);
 }
 

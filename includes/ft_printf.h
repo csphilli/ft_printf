@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 09:44:30 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/12 10:18:53 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/12 14:57:51 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ t_struct		*print_s(t_struct *csp);
 t_struct		*print_p(t_struct *csp);
 t_struct		*print_x(t_struct *csp);
 t_struct		*print_o(t_struct *csp);
+t_struct		*print_u(t_struct *csp);
 t_struct		*align_print(t_struct *csp, char *str, int s_len);
 t_struct		*x_padding(t_struct *csp, int m_z, int mod, uintmax_t nbr);
 int				get_mz(t_struct *csp, uintmax_t nbr, int s_len, int mod);
@@ -72,7 +73,7 @@ int				parse(t_struct *csp);
 int				pre_staging(t_struct *csp);
 t_struct		*get_padding(t_struct *csp, long int s_len);
 int				update_len(t_struct *csp, int s_len);
-char			*cvt_nbr(t_struct *csp, long long unsigned int nbr, int base);
+char			*cvt_nbr(t_struct *csp, uintmax_t nbr, int base);
 t_struct		*print_zero(t_struct *csp, char spec, uintmax_t nbr);
 void			do_x(t_struct *csp, uintmax_t nbr, int m_z, char *tmp);
 
