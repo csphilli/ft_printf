@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:55 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/12 15:10:05 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/12 16:43:40 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -749,9 +749,6 @@ ft_printf("49:this %u is nuthing:\n", 0);
 printf("49:this %u is nuthing:\n", 0);
 
 ft_printf("50:%llu:\n", 9223372036854775807);
-printf("50:llu:\n", 9223372036854775807);
-
-ft_printf("49:this %u is nuthing:\n", 0);
-printf("49:this %u is nuthing:\n", 0);
+printf("50:%llu:\n", 9223372036854775807);
 }
 

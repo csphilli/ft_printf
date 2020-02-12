@@ -1,2 +1,5 @@
 #!/bin/bash
+cd ../libft
+make
+cd ../ft_printf
 cp ../libft/libft.a includes/libft.a

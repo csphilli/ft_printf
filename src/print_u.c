@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 10:15:00 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/12 15:42:09 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/12 16:50:17 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,12 @@ t_struct			*print_u(t_struct *csp)
 		print_alt(csp, csp->width, ' ');
 		return (csp);
 	}
-	//printf("\n");
-	//printf("nbr:%ju", nbr);
-	//printf("\n");
 	if (nbr == 0)
 		tmp = ft_strdup("0");
 	else
 		tmp = cvt_nbr(csp, nbr, 10);
 	tmp = nbr == 0 ? ft_strdup("0") : cvt_nbr(csp, nbr, 10);
-	//printf("%s\n", tmp);
 	csp->s_len = nbr == 0 ? 1 : ft_strlen(tmp);
-	
-	//printf("tmp:%s\n", tmp);
 	n_blank = csp->s_len;
 	if (csp->c_flags[4] == '0' && csp->prec == -1 && csp->c_flags[3] != '-')
 		csp->prec = csp->width;	
