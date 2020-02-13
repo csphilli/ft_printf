@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:55 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/12 16:43:40 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/13 13:34:20 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	main()
 	printf("ENSURING FT_PRINTF MATCHES PRINTF\n");
 	printf("FT_PRINTF IS THE FIRST OUTPUT\n");
 	line();
-	setvbuf(stdout, NULL, _IONBF, 0);
+	//setvbuf(stdout, NULL, _IONBF, 0);
 
 //------------  START STRING TESTING (VALID PRINTF CONVERSIONS)---------------
 
@@ -687,8 +687,8 @@ printf("29:%#5o:\n", 0);
 ft_printf("30:%8.5o:\n", 0);
 printf("30:%8.5o:\n", 0);
 
-ft_printf("31:%llo:\n", 522337203685470ull);
-printf("31:%llo:\n", 522337203685470ull);
+ft_printf("31:%llo:\n", 12345);
+printf("31:%llo:\n", 12345);
 
 ft_printf("32:%3o:\n", 0);
 printf("32:%3o:\n", 0);
@@ -745,10 +745,68 @@ printf("47:%3u:\n", 0);
 ft_printf("48:%03u:\n", 0);
 printf("48:%03u:\n", 0);
 
-ft_printf("49:this %u is nuthing:\n", 0);
-printf("49:this %u is nuthing:\n", 0);
+ft_printf("49:this %u is nuthing:\n", 111);
+printf("49:this %u is nuthing:\n", 111);
 
 ft_printf("50:%llu:\n", 9223372036854775807);
 printf("50:%llu:\n", 9223372036854775807);
+
+printf("------------------\n");
+printf("BEGIN %%d TESTS\n");
+printf("------------------\n");
+
+ft_printf("51:%.d:\n", 12345);
+printf("51:%.d:\n", 12345);
+
+ft_printf("52:%5d:\n", 12345);
+printf("52:%5d:\n", 12345);
+
+ft_printf("53:%-5.2d:\n", 12345);
+printf("53:%-5.2d:\n", 12345);
+
+ft_printf("54:%5.10d:\n", 12345);
+printf("54:%5.10d:\n", 12345);
+
+ft_printf("55:%010.3d:\n", 12345);
+printf("55:%010.3d:\n", 12345);
+
+ft_printf("56:%-15.3d:\n", 12345);
+printf("56:%-15.3d:\n", 12345);
+
+ft_printf("57:%#2.10d:\n", 12345);
+printf("57:%#2.10d:\n", 12345);
+
+ft_printf("58:%5.0d:\n", 12345);
+printf("58:%5.0d:\n", 12345);
+
+ft_printf("59:%#5.0d:\n", 0);
+printf("59:%#5.0d:\n", 0);
+
+ft_printf("60:%5d:\n", 0);
+printf("60:%5d:\n", 0);
+
+ft_printf("61:%8.5d:\n", 0);
+printf("61:%8.5d:\n", 0);
+
+ft_printf("62:%lld:\n", 522337203685470);
+printf("62:%lld:\n", 522337203685470);
+
+ft_printf("63:%3d:\n", 0);
+printf("63:%3d:\n", 0);
+
+ft_printf("64:%03d:\n", 0);
+printf("64:%03d:\n", 0);
+
+ft_printf("65:this %d is ndthing:\n", 111);
+printf("65:this %d is ndthing:\n", 111);
+
+ft_printf("66:%lld:\n", 9223372036854775807);
+printf("66:%lld:\n", 9223372036854775807);
+
+ft_printf("67:%d:\n", -247);
+printf("67:%d:\n", -247);
+
+// 4294967049
+
 }
 

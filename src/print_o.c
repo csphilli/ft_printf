@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 10:15:00 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/12 14:22:47 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/13 12:24:11 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	print_o_zero(t_struct *csp, uintmax_t nbr)
 		write(1, "0", 1);
 }
 
-
+// NBR COULD BE COMBINED WITH U AS WELL
 static uintmax_t	get_nbr(t_struct *csp)
 {
 	uintmax_t nbr;

@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:19:47 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/12 14:06:02 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/13 12:24:33 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ t_struct	*staging(t_struct *csp)
 		print_o(csp);
 	else if (*spec == 'u')
 		print_u(csp);
+	else if (*spec == 'd')
+		print_d(csp);
 	else
 		print_other(csp);
 	return (csp);
