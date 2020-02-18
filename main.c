@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:55 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/13 13:34:20 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/18 13:26:21 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -797,8 +797,8 @@ printf("63:%3d:\n", 0);
 ft_printf("64:%03d:\n", 0);
 printf("64:%03d:\n", 0);
 
-ft_printf("65:this %d is ndthing:\n", 111);
-printf("65:this %d is ndthing:\n", 111);
+ft_printf("65:this %d is nothing:\n", 111);
+printf("65:this %d is nothing:\n", 111);
 
 ft_printf("66:%lld:\n", 9223372036854775807);
 printf("66:%lld:\n", 9223372036854775807);
@@ -806,7 +806,29 @@ printf("66:%lld:\n", 9223372036854775807);
 ft_printf("67:%d:\n", -247);
 printf("67:%d:\n", -247);
 
-// 4294967049
+ft_printf("68:%+-8.5d:\n", 34);
+printf("68:%+-8.5d:\n", 34);
+
+ft_printf("69:%+3.3d:\n", 6983);
+printf("69:%+3.3d:\n", 6983);
+
+ft_printf("70:%0+-3.3d:\n", 6983);
+printf("70:%0+-3.3d:\n", 6983);
+
+ft_printf("71:%+07d:\n", 6983);
+printf("71:%+07d:\n", 6983);
+
+ft_printf("72:% .4d:\n", 6983);
+printf("72:% .4d:\n", 6983);
+
+ft_printf("73:this % d number:\n", -267);
+printf("73:this % d number:\n", -267);
+
+ft_printf("74:% d:\n", -4);
+printf("74:% d:\n", -4);
+
+ft_printf("74:%- 5d:\n", -4);
+printf("74:%- 5d:\n", -4);
 
 }
 
