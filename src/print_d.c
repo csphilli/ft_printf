@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 10:15:00 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/19 11:31:21 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/19 12:16:19 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	print_zeros(uintmax_t nbr)
 // GET NUMBER COULD BE COMBINED WITH O AS WELL
 
 static intmax_t	get_nbr(t_struct *csp)
-{
+{	
 	intmax_t nbr;
 
 	if (ft_strcmp(csp->len_flags, "h") == 0)
@@ -56,6 +56,18 @@ int negativity(t_struct *csp, intmax_t nbr)
 			return (' ');
 	}
 	return ('\0');
+}
+
+static int nbr_size(intmax_t nbr)
+{
+	int len;
+
+	if (nbr < 0)
+		nbr *= -1;
+	len = 1;
+	while ((nbr /= 10) > 0)
+		len++;
+	return (len);
 }
 
 // HAVENT HANDLED LENGTH YET
@@ -93,7 +105,7 @@ t_struct			*print_d(t_struct *csp)
 		return (csp);
 	}
 
-
+csp->s_len = nbr == 0 ? 1 : nbr_size(nbr); // correctly working.
 	nbr *= (is_neg && nbr != (-9223372036854775807 -1)) ? -1 : 1;
 	if (nbr == 9223372036854775807)
 		tmp = ft_strdup("9223372036854775807");
@@ -102,8 +114,9 @@ t_struct			*print_d(t_struct *csp)
 // printf("nbr:\n:%s:\n", tmp);
 	// WHAT IMPACTS THE N_BLANK?
 	// print_specifiers(csp);
-	csp->s_len = nbr == 0 ? 1 : ft_strlen(tmp);
+	
 	n_blank = csp->s_len;
+// printf("nbr size: %d\n", csp->s_len);
 // printf("n_blank1:%d\n", n_blank);
 	if (csp->c_flags[4] == '0' && csp->prec == -1 && csp->c_flags[3] != '-')
 	{
@@ -135,7 +148,7 @@ t_struct			*print_d(t_struct *csp)
 	if (get_negative != '\0')
 		write(1, &get_negative, 1);
 	print_alt(csp, csp->prec - csp->s_len, '0');
-	ft_putstr(tmp);
+	ft_putnbr(nbr);
 	if (csp->c_flags[0] == '-')
 		print_alt(csp, csp->width - n_blank, ' ');
 	free(tmp);
