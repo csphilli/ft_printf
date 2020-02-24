@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:10:49 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/13 12:15:38 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/24 15:56:05 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ t_struct	*re_init(t_struct *csp)
 	csp->c_flags[5] = '\0';
 	csp->len_flags[0] = '\0';
 	csp->len_flags[1] = '\0';
+	csp->len_flags[2] = '\0';
 	return (csp);
 }

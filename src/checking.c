@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:16:22 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/11 10:54:21 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/24 15:57:43 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,18 @@ t_struct	*chk_conv_flags(t_struct *csp)
 	{
 		while (csp->format_flags[i] == csp->srch_fmt[csp->i])
 		{
-			while (csp->srch_fmt[csp->i] == '-' && csp->i++)
+			if (csp->srch_fmt[csp->i] == '-')
 				csp->c_flags[0] = '-';
-			while (csp->srch_fmt[csp->i] == '+' && csp->i++)
+			else if (csp->srch_fmt[csp->i] == '+')
 				csp->c_flags[1] = '+';
-			while (csp->srch_fmt[csp->i] == ' ' && csp->i++)
+			else if (csp->srch_fmt[csp->i] == ' ')
 				csp->c_flags[2] = ' ';
-			while (csp->srch_fmt[csp->i] == '#' && csp->i++)
+			else if (csp->srch_fmt[csp->i] == '#')
 				csp->c_flags[3] = '#';
-			while (csp->srch_fmt[csp->i] == '0' && csp->i++)
+			else if (csp->srch_fmt[csp->i] == '0')
 				csp->c_flags[4] = '0';
 			i = 0;
+			csp->i++;
 		}
 		i++;
 	}
@@ -78,8 +79,8 @@ t_struct	*chk_arg_flags(t_struct *csp)
 		{
 			csp->len_flags[j] = csp->srch_fmt[csp->i];
 			csp->len_flags[j + 1] = '\0';
-			csp->i++;
 			j++;
+			csp->i++;
 		}
 		i++;
 	}
