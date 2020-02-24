@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 10:15:00 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/24 16:02:33 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/24 16:10:03 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ t_struct			*print_d(t_struct *csp)
 {
 	intmax_t	nbr;
 	int			n_blank;
-	int		is_neg;
-	int	get_negative;
+	int			is_neg;
+	int			get_negative;
 
 	nbr = get_nbr(csp);
 	is_neg = (nbr < 0) ? 1 : 0;
