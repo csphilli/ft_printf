@@ -6,20 +6,11 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 10:15:00 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/19 12:16:19 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/24 14:04:12 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-/*
-static void	print_zeros(uintmax_t nbr);
-
-static void	print_zeros(uintmax_t nbr)
-{
-	if (nbr && nbr == 0)
-		write(1, "0", 1);
-}
-*/
 
 
 
@@ -74,7 +65,7 @@ static int nbr_size(intmax_t nbr)
 
 t_struct			*print_d(t_struct *csp)
 {
-	char		*tmp;
+	// char		*tmp;
 	intmax_t	nbr;
 	int			n_blank;
 	int		is_neg;
@@ -85,6 +76,7 @@ t_struct			*print_d(t_struct *csp)
 
 	// toggle = 0;
 	nbr = get_nbr(csp);
+	// printf("nbr after grabber:%jd\n", nbr);
 	is_neg = (nbr < 0) ? 1 : 0;
 	get_negative = negativity(csp, nbr);
 	
@@ -105,40 +97,37 @@ t_struct			*print_d(t_struct *csp)
 		return (csp);
 	}
 
-csp->s_len = nbr == 0 ? 1 : nbr_size(nbr); // correctly working.
+	csp->s_len = nbr == 0 ? 1 : nbr_size(nbr); // correctly working.
 	nbr *= (is_neg && nbr != (-9223372036854775807 -1)) ? -1 : 1;
-	if (nbr == 9223372036854775807)
-		tmp = ft_strdup("9223372036854775807");
-	else
-		tmp = nbr == 0 ? ft_strdup("0") : ft_itoa(nbr);
+// printf("nbr after sign change:%jd\n", nbr);
 // printf("nbr:\n:%s:\n", tmp);
 	// WHAT IMPACTS THE N_BLANK?
-	// print_specifiers(csp);
+	print_specifiers(csp);
 	
 	n_blank = csp->s_len;
-// printf("nbr size: %d\n", csp->s_len);
-// printf("n_blank1:%d\n", n_blank);
+// printf("\nnbr size: %d\n", csp->s_len);
+// printf("\nn_blank1:%d", n_blank);
 	if (csp->c_flags[4] == '0' && csp->prec == -1 && csp->c_flags[3] != '-')
 	{
 		csp->prec = csp->width;
-		// printf("prec1:%ld\n", csp->prec);
+		// printf("\nprec1:%ld\n", csp->prec);
 
-		if (nbr < 0 || csp->c_flags[1] == '+' || csp->c_flags[2] == ' ')// && csp->prec == -1)
+		if (is_neg || csp->c_flags[1] == '+' || csp->c_flags[2] == ' ')// && csp->prec == -1)
 		{		
 			csp->prec--;
-			// printf("prec2:%ld\n", csp->prec);
+			// printf("\nprec2:%ld\n", csp->prec);
 		}
 	}
 
-
+// printf("\nn_blank2:%d\n", n_blank);
+// printf("\nwidth:%ld", csp->width);
 	if (csp->s_len <= csp->prec && csp->prec > 0)
 		n_blank = csp->prec;
 	if (is_neg || get_negative != '\0')
 		n_blank++;
 
-
 // printf("negativity:\n:%c:\n", get_negative);
-// printf("n_blank2:%d\n", n_blank);
+// printf("\nn_blank3:%d\n", n_blank);
 	// PRINTING
 	if (csp->c_flags[0] != '-')
 		print_alt(csp, csp->width - n_blank, ' ');
@@ -148,9 +137,12 @@ csp->s_len = nbr == 0 ? 1 : nbr_size(nbr); // correctly working.
 	if (get_negative != '\0')
 		write(1, &get_negative, 1);
 	print_alt(csp, csp->prec - csp->s_len, '0');
-	ft_putnbr(nbr);
+	// if (nbr == 9223372036854775807)
+		// write(1, "9223372036854775807", 19);
+	// else
+	ft_putnbrmax(nbr);
 	if (csp->c_flags[0] == '-')
 		print_alt(csp, csp->width - n_blank, ' ');
-	free(tmp);
+	// free(tmp);
 	return (csp);
 }
