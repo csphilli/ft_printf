@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 09:44:30 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/24 15:56:09 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/27 10:14:45 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ t_struct		*print_x(t_struct *csp);
 t_struct		*print_o(t_struct *csp);
 t_struct		*print_u(t_struct *csp);
 t_struct		*print_d(t_struct *csp);
+t_struct		*print_f(t_struct *csp);
 t_struct		*align_print(t_struct *csp, char *str, int s_len);
 t_struct		*x_padding(t_struct *csp, int m_z, int mod, uintmax_t nbr);
 int				get_mz(t_struct *csp, uintmax_t nbr, int s_len, int mod);

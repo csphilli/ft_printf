@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:55 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/24 16:15:33 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/02/27 14:58:36 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	main()
 	//setvbuf(stdout, NULL, _IONBF, 0);
 
 //------------  START STRING TESTING (VALID PRINTF CONVERSIONS)---------------
-
+/*
 printf("[1]\n");
 ft_printf("%.7s", "hello");
 //write(1, "A", 1);
@@ -128,7 +128,7 @@ printf(":%6s:\n\n", str);
 printf("[13]\n");
 ft_printf(":%-2s:\n", str);
 printf(":%-2s:\n\n", str);
-/*
+
 
 printf("[14]\n");
 ft_printf(":%-.5s:\n", str);
@@ -427,7 +427,7 @@ ft_printf(":%#24.6s:\n\n", str);
 printf("[124]\n");
 ft_printf("0\n", str);
 
-*/
+
 //----------  START CHAR TESTING (VALID PRINTF CONVERSIONS)---------------
 
 
@@ -856,5 +856,14 @@ printf("81:%+-37lld:\n", -522337203685470ll);
 
 ft_printf("82:%+-37lli:\n", -522337203685470ll);
 printf("82:%+-37lli:\n", -522337203685470ll);
+*/
+printf("------------------\n");
+printf("BEGIN %%f TESTS\n");
+printf("------------------\n");
+
+ft_printf("83:%.3f:\n", -123452.015511115);
+printf("83:%.3f:\n", -123452.015511115);
+printf("83 :%f:\n", -123452.111115);
+
 }
 
