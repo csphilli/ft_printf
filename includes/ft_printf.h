@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 09:44:30 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/27 10:14:45 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/03/02 13:27:02 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct	s_struct
 }				t_struct;
 
 void			print_specifiers(t_struct *csp); // remove before submitting.
+long double		get_float(t_struct *csp);
 t_struct		*print_s_la_p(t_struct *csp, char *tmp, int s_len);
 t_struct		*print_s_ra_p(t_struct *csp, char *tmp, int s_len);
 t_struct		*print_s_la_no_p(t_struct *csp, char *tmp, int s_len);
