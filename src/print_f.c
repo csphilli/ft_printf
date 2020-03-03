@@ -6,31 +6,11 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 10:15:00 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/02 13:33:04 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/03/03 09:47:35 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-
-
-char	*ft_itoa_uintmax(uintmax_t n)
-{
-	char			*new;
-	int		len;
-
-	len = ft_intlen_max(n) + 1;
-	if (!(new = ft_strnew(len + 1)))
-		return (NULL);
-	new[len] = '\0';
-	len--;
-	while (n >= 10)
-	{
-		new[--len] = (char)(n % 10 + '0');
-		n /= 10;
-	}
-	new[--len] = (char)(n + '0');
-	return (new);
-}
 
 static void	do_f(long double nbr, t_struct *csp, int not_blank, int zeroes)
 {

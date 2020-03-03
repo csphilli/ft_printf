@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 09:44:30 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/02 13:27:02 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/03/02 14:41:57 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,5 @@ int				update_len(t_struct *csp, int s_len);
 char			*cvt_nbr(t_struct *csp, uintmax_t nbr, int base);
 t_struct		*print_zero(t_struct *csp, char spec, uintmax_t nbr);
 void			do_x(t_struct *csp, uintmax_t nbr, int m_z, char *tmp);
-void			ft_putnbrmax(intmax_t nbr);
 
 #endif
