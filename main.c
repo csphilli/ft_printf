@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:55 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/02 14:44:13 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/03/03 10:37:48 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -929,5 +929,14 @@ printf("104:%.20f\n", 1.025978542436587568678);
 
 ft_printf("105:%f\n", 23.00041);
 printf("105:%f\n", 23.00041);
+
+ft_printf("106: this %X number\n", 3);
+printf("106: this %X number\n", 3);
+
+ft_printf("106: this %x number\n", 3);
+printf("106: this %x number\n", 3);
+
+ft_printf("107:%37llo:\n", 522337203685470);
+printf("107:%37llo:\n", 522337203685470);
 }
 

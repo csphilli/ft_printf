@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 11:49:10 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/12 12:28:16 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/03/03 10:52:11 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,10 @@ void				do_x(t_struct *csp, uintmax_t nbr, int m_z, char *tmp)
 		print_alt(csp, csp->padding, ' ');
 	print_zero(csp, csp->specifier, nbr);
 	print_alt(csp, m_z, '0');
-	ft_putstr(tmp);
+	if (csp->specifier == 'X')
+		ft_putstr(ft_s_toupper(tmp));
+	else
+		ft_putstr(tmp);
 	if (csp->c_flags[0] == '-')
 		print_alt(csp, csp->padding, ' ');
 }
