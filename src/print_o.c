@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 10:15:00 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/03 10:52:02 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/03/03 12:01:33 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ t_struct			*print_o(t_struct *csp)
 		print_alt(csp, csp->width, ' ');
 		return (csp);
 	}
-	tmp = cvt_nbr(csp, nbr, 8);
+	// tmp = cvt_nbr(csp, nbr, 8);
+	tmp = ft_itoa_base(nbr, 8);
 	csp->s_len = nbr == 0 ? 1 : ft_strlen(tmp);
 	if (csp->c_flags[3] == '#' && nbr)
 		csp->s_len++;	
