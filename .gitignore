@@ -1,5 +1,4 @@
-clib.sh
-main.exe
+*.exe
+*.sh
 main.c
-x.sh
 /pft
