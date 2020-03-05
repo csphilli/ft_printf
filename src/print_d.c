@@ -6,7 +6,7 @@
 /*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 10:15:00 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/05 08:45:43 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/05 08:59:56 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@ int negativity(t_struct *csp, intmax_t nbr)
 	}
 	return ('\0');
 }
+
+// CHANGE THIS TO MY LIB NBRSIZE AND CHECK FUNCTIONALITY STILL PERFORMS CORRECTLY.
+
 
 static int nbr_size(intmax_t nbr)
 {
@@ -106,7 +109,7 @@ t_struct			*print_d(t_struct *csp)
 	if (csp->c_flags[0] != '-')
 		print_alt(csp, csp->width - n_blank, ' ');
 	if (is_neg)
-		write(1, "-", 1);
+		print_alt(csp, 1, '-');
 	if (get_negative != '\0')
 		write(1, &get_negative, 1);
 	print_alt(csp, csp->prec - csp->s_len, '0');
