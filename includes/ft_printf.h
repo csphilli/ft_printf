@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 09:44:30 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/06 10:28:43 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/03/06 12:02:56 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ t_struct		*chk_width(t_struct *csp);
 t_struct		*chk_precision(t_struct *csp);
 t_struct		*chk_arg_flags(t_struct *csp);
 t_struct		*chk_specifier(t_struct *csp);
-t_struct		*staging(t_struct *csp);
+void			staging(t_struct *csp);
 t_struct		*print_c(t_struct *csp);
 t_struct		*print_s(t_struct *csp);
 t_struct		*print_p(t_struct *csp);
@@ -79,5 +79,6 @@ int				update_len(t_struct *csp, int s_len);
 char			*cvt_nbr(t_struct *csp, uintmax_t nbr, int base);
 t_struct		*print_zero(t_struct *csp, char spec, uintmax_t nbr);
 void			do_x(t_struct *csp, uintmax_t nbr, int m_z, char *tmp);
+int				chk_is_valid(t_struct *csp);
 
 #endif

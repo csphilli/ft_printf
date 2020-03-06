@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:16:22 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/24 15:57:43 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/03/06 11:47:49 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ t_struct	*chk_arg_flags(t_struct *csp)
 
 t_struct	*chk_specifier(t_struct *csp)
 {
-	size_t i;
+	int i;
 
 	i = 0;
 	while (csp->spec_flags[i] != '\0')

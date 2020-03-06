@@ -6,13 +6,13 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:55 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/06 10:29:27 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/03/06 12:39:01 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/ft_printf.h"
 
-
+/*
 void	line()
 {
 	int nbr;
@@ -23,10 +23,11 @@ void	line()
 		printf("%c", dash);
 	printf("\n");
 }
-
+*/
 int	main()
 {
 	setvbuf(stdout, NULL, _IONBF, 0);
+/*
 	char	*str;
 	str = "hi low  ";
 	char *s_hidden;
@@ -45,7 +46,7 @@ int	main()
 	//setvbuf(stdout, NULL, _IONBF, 0);
 
 //------------  START STRING TESTING (VALID PRINTF CONVERSIONS)---------------
-/*
+
 printf("[1]\n");
 ft_printf("%.7s", "hello");
 //write(1, "A", 1);
@@ -856,7 +857,6 @@ printf("81:%+-37lld:\n", -522337203685470ll);
 
 ft_printf("82:%+-37lli:\n", -522337203685470ll);
 printf("82:%+-37lli:\n", -522337203685470ll);
-*/
 printf("------------------\n");
 printf("BEGIN %%f TESTS\n");
 printf("------------------\n");
@@ -929,9 +929,14 @@ printf("104:%.20f\n", 1.025978542436587568678);
 
 ft_printf("105:%f\n", 23.00041);
 printf("105:%f\n", 23.00041);
+*/
+ft_printf("106:%5");
+// printf("a");
+// printf("\n");
 
-ft_printf("106: this %X number\n", 3);
-// printf("106: this %X number\n", 3);
+printf("106:%5");
+// printf("a");
+// printf("\n");
 
 // ft_printf("106: this %x number\n", 3);
 // printf("106: this %x number\n", 3);
@@ -939,10 +944,6 @@ ft_printf("106: this %X number\n", 3);
 // ft_printf("107:%37llo:\n", 522337203685470);
 // printf("107:%37llo:\n", 522337203685470);
 
-while (1)
-{
-
-}
 
 }
 
