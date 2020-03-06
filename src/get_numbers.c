@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_numbers.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 13:25:08 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/02 13:27:13 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/03/06 20:48:15 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,23 @@ long double	get_float(t_struct *csp)
 		nbr = (long double)va_arg(csp->args, long double);
 	else
 		nbr = (double)va_arg(csp->args, double);
+	return (nbr);
+}
+
+intmax_t	get_d_nbr(t_struct *csp)
+{	
+	intmax_t nbr;
+
+	if (ft_strcmp(csp->len_flags, "h") == 0)
+		nbr = (short)va_arg(csp->args, long long int);
+	else if (ft_strcmp(csp->len_flags, "hh") == 0)
+		nbr = (signed char)va_arg(csp->args, long long int);
+	else if (ft_strcmp(csp->len_flags, "l") == 0)
+		nbr = (long)va_arg(csp->args, long long int);
+	else if (ft_strcmp(csp->len_flags, "ll") == 0)
+		nbr = (long long)va_arg(csp->args, long long int);
+	else
+		nbr = (int)va_arg(csp->args, long long int);
+	nbr = (intmax_t)nbr;
 	return (nbr);
 }

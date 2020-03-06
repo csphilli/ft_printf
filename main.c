@@ -6,7 +6,7 @@
 /*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:55 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/06 19:17:12 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/06 20:43:02 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	line()
 int	main()
 {
 	setvbuf(stdout, NULL, _IONBF, 0);
-/*
+
 	char	*str;
 	str = "hi low  ";
 	char *s_hidden;
@@ -37,12 +37,6 @@ int	main()
 	int p_len;
 	p_len = 0;
 
-	printf("FT_PRINTF TESTING\n");
-	line();
-	printf("VALID STRINGS\n");
-	printf("ENSURING FT_PRINTF MATCHES PRINTF\n");
-	printf("FT_PRINTF IS THE FIRST OUTPUT\n");
-	line();
 	//setvbuf(stdout, NULL, _IONBF, 0);
 
 //------------  START STRING TESTING (VALID PRINTF CONVERSIONS)---------------
@@ -318,14 +312,6 @@ printf(":%-10.8s:\n\n", str);
 
 //----------  START STRING TESTING (IN-VALID PRINTF CONVERSIONS)---------------
 
-
-
-	line();
-	printf("INVALID PRINTF STRINGS\n");
-	printf("CHECKING TO SEE IF PROGRAM QUITS\n");
-	line();
-
-
 setvbuf(stdout, NULL, _IONBF, 0);
 printf("[75]\n");
 ft_printf(":%020s:\n\n", str);
@@ -432,11 +418,6 @@ ft_printf("0\n", str);
 //----------  START CHAR TESTING (VALID PRINTF CONVERSIONS)---------------
 
 
-line();
-printf("TESTING CHAR\n");
-printf("ENSURING FT_PRINTF MATCHES PRINTF\n");
-line();
-
 char c;
 c = 'a';
 printf("[125]\n");
@@ -462,10 +443,6 @@ printf(":testing %%25s and %%5c:\n\n:");
  //----------  START CHAR TESTING (IN-VALID PRINTF CONVERSIONS)---------------
 
 
-line();
-printf("TESTING INVALID CHAR MODIFIERS\n");
-printf("CHECKING TO SEE IF PROGRAM QUITS\n");
-line();
 
 printf("[129]\n");
 ft_printf(":testing %#3c:\n\n", c);
@@ -481,11 +458,6 @@ ft_printf(":testing %-25s and %0#-5.5c:\n\n", str, c);
 
 
 //----------  START POINTER TESTING (VALID PRINTF CONVERSIONS)---------------
-
-line();
-printf("TESTING POINTERS\n");
-printf("ENSURING FT_PRINTF MATCHES PRINTF\n");
-line();
 
 char *p;
 p = "";
@@ -857,7 +829,7 @@ printf("81:%+-37lld:\n", -522337203685470ll);
 
 ft_printf("82:%+-37lli:\n", -522337203685470ll);
 printf("82:%+-37lli:\n", -522337203685470ll);
-*/
+
 printf("------------------\n");
 printf("BEGIN %%f TESTS\n");
 printf("------------------\n");
