@@ -6,7 +6,7 @@
 /*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 09:44:30 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/06 21:12:01 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/06 22:29:04 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,13 @@ typedef struct	s_struct
 void			print_specifiers(t_struct *csp); // remove before submitting.
 long double		get_float(t_struct *csp);
 intmax_t		get_d_nbr(t_struct *csp);
+uintmax_t		get_ou_nbr(t_struct *csp);
 t_struct		*print_s_la_p(t_struct *csp, char *tmp, int s_len);
 t_struct		*print_s_ra_p(t_struct *csp, char *tmp, int s_len);
 t_struct		*print_s_la_no_p(t_struct *csp, char *tmp, int s_len);
 t_struct		*print_s_ra_no_p(t_struct *csp, char *tmp, int s_len);
 t_struct		*print_pcent(t_struct *csp);
-t_struct		*print_alt(t_struct *csp, int padding, int c);
+t_struct		*print_alt(t_struct *csp, int amount, int c);
 void			print_other(t_struct *csp);
 t_struct		*chk_conv_flags(t_struct *csp);
 t_struct		*initialize(t_struct *csp);

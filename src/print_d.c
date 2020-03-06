@@ -6,7 +6,7 @@
 /*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 10:15:00 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/06 21:45:06 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/06 21:49:21 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,4 +94,3 @@ t_struct	*print_d(t_struct *csp)
 		print_alt(csp, csp->width - n_blank, ' ');
 	return (csp);
 }
-

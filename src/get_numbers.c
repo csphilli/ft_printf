@@ -6,7 +6,7 @@
 /*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 13:25:08 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/06 20:48:15 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/06 22:20:13 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,3 +40,23 @@ intmax_t	get_d_nbr(t_struct *csp)
 	nbr = (intmax_t)nbr;
 	return (nbr);
 }
+
+uintmax_t	get_ou_nbr(t_struct *csp)
+{
+	uintmax_t nbr;
+
+	if (ft_strcmp(csp->len_flags, "h") == 0)
+		nbr = (unsigned short)va_arg(csp->args, unsigned int);
+	else if (ft_strcmp(csp->len_flags, "hh") == 0)
+		nbr = (unsigned char)va_arg(csp->args, unsigned int);
+	else if (ft_strcmp(csp->len_flags, "l") == 0)
+		nbr = (unsigned long)va_arg(csp->args, unsigned long int);
+	else if (ft_strcmp(csp->len_flags, "ll") == 0)
+		nbr = (unsigned long long)va_arg(csp->args, unsigned long long int);
+	else
+		nbr = (unsigned int)va_arg(csp->args, unsigned int);
+	nbr = (uintmax_t)nbr;
+	return (nbr);
+}
+
+
