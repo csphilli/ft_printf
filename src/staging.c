@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:19:47 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/06 12:42:39 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/03/06 14:16:12 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	staging(t_struct *csp)
 	spec = &csp->specifier;
 	if (ft_strchr("cspxXdDioufF%", (int)csp->srch_fmt[csp->i]))
 	{
-		// printf("\nspec:%c:\n", csp->specifier);
+		// printf("inside printing\n");
 		if (*spec == 'c')
 			print_c(csp);
 		else if (*spec == 's')

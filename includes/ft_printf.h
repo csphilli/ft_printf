@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 09:44:30 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/06 12:02:56 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/03/06 13:35:32 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct	s_struct
 	char		*format_flags; // (#0-+ )
 	char		*a_flags;// lLh (l ll h hh L)
 	char		*spec_flags; // "dif"
+	int			null_toggle;
 	
 }				t_struct;
 
