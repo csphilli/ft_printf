@@ -6,7 +6,7 @@
 /*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 13:25:08 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/06 22:20:13 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/06 22:42:30 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ intmax_t	get_d_nbr(t_struct *csp)
 	return (nbr);
 }
 
-uintmax_t	get_ou_nbr(t_struct *csp)
+uintmax_t	get_oux_nbr(t_struct *csp)
 {
 	uintmax_t nbr;
 
@@ -58,5 +58,3 @@ uintmax_t	get_ou_nbr(t_struct *csp)
 	nbr = (uintmax_t)nbr;
 	return (nbr);
 }
-
-

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_f.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 10:15:00 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/06 09:55:58 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/03/06 23:11:07 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,17 @@ static void	do_f(long double nbr, t_struct *csp, int not_blank, int zeroes)
 		print_alt(csp, zeroes, '0');	
 }
 
+static int	collect_f(t_struct *csp, long double nbr, int not_blank)
+{
+	if (csp->prec == 0 && csp->c_flags[3] == '#')
+		not_blank++;
+	if (csp->c_flags[2] == ' ' && nbr >= 0)
+		not_blank++;
+	if (nbr < 0 || (csp->c_flags[1] == '+' && nbr >= 0))
+		not_blank++;
+	return (not_blank);
+}
+
 t_struct			*print_f(t_struct *csp)
 {
 	long double	nbr;
@@ -37,12 +48,7 @@ t_struct			*print_f(t_struct *csp)
 	nbr = get_float(csp);
 	flt = ft_ftoa(nbr, csp->prec, '.');
 	not_blank = ft_strlen(flt);
-	if (csp->prec == 0 && csp->c_flags[3] == '#')
-		not_blank++;
-	if (csp->c_flags[2] == ' ' && nbr >= 0)
-		not_blank++;
-	if (nbr < 0 || (csp->c_flags[1] == '+' && nbr >= 0))
-		not_blank++;	
+	not_blank = collect_f(csp, nbr, not_blank);
 	if (!csp->c_flags[0] && csp->width > csp->prec && csp->width > not_blank)
 		zeroes = csp->width - not_blank;
 	do_f(nbr, csp, not_blank, zeroes);

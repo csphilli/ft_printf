@@ -6,7 +6,7 @@
 /*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 10:15:00 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/06 22:19:55 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/06 22:41:22 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_struct			*print_o(t_struct *csp)
 	uintmax_t	nbr;
 	int			n_blank;
 
-	nbr = get_ou_nbr(csp);	
+	nbr = get_oux_nbr(csp);	
 	if (nbr == 0 && csp->prec == 0 && csp->c_flags[3] != '#')
 	{
 		print_alt(csp, csp->width, ' ');
