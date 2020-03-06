@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:55 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/06 14:39:42 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/03/06 19:17:12 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -857,6 +857,7 @@ printf("81:%+-37lld:\n", -522337203685470ll);
 
 ft_printf("82:%+-37lli:\n", -522337203685470ll);
 printf("82:%+-37lli:\n", -522337203685470ll);
+*/
 printf("------------------\n");
 printf("BEGIN %%f TESTS\n");
 printf("------------------\n");
@@ -929,11 +930,11 @@ printf("104:%.20f\n", 1.025978542436587568678);
 
 ft_printf("105:%f\n", 23.00041);
 printf("105:%f\n", 23.00041);
-*/
-ft_printf("mine:106:%1");
-// printf("\n");
 
-// printf("notm:106:%1");
+ft_printf("mine:106:%1");
+printf("\n");
+
+printf("notm:106:%1");
 // printf("\n");
 
 // ft_printf("106: this %x number\n", 3);

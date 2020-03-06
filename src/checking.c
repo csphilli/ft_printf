@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checking.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:16:22 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/06 14:43:24 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/03/06 19:31:35 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ t_struct	*chk_conv_flags(t_struct *csp)
 	size_t	i;
 
 	i = 0;
-	printf("conv flags\n");
 	while (csp->format_flags[i] != '\0')
 	{
 		while (csp->format_flags[i] == csp->srch_fmt[csp->i])
@@ -42,7 +41,6 @@ t_struct	*chk_conv_flags(t_struct *csp)
 
 t_struct	*chk_width(t_struct *csp)
 {
-	printf("width\n");
 	while (ft_isdigit(csp->srch_fmt[csp->i]))
 	{
 		csp->width *= 10;
@@ -54,7 +52,6 @@ t_struct	*chk_width(t_struct *csp)
 
 t_struct	*chk_precision(t_struct *csp)
 {
-	printf("precision\n");
 	if (csp->srch_fmt[csp->i] == '.')
 	{
 		csp->prec = 0;
@@ -76,7 +73,6 @@ t_struct	*chk_arg_flags(t_struct *csp)
 
 	i = 0;
 	j = 0;
-	printf("arguments\n");
 	while (csp->a_flags[i] != '\0')
 	{
 		while (csp->a_flags[i] == csp->srch_fmt[csp->i])
@@ -96,7 +92,6 @@ t_struct	*chk_specifier(t_struct *csp)
 	int i;
 
 	i = 0;
-	printf("specifiers\n");
 	while (csp->spec_flags[i] != '\0')
 	{
 		if (csp->srch_fmt[csp->i] == csp->spec_flags[i])
