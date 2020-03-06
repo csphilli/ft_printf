@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 10:15:00 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/03 09:47:35 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/03/06 09:55:58 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ t_struct			*print_f(t_struct *csp)
 	if (csp->c_flags[0] == '-')
 		print_alt(csp, csp->width - not_blank, ' ');
 	csp->len += not_blank;
+	free(flt);
 	return (csp);
 }
 

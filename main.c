@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:55 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/04 13:38:23 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/06 10:29:27 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -931,13 +931,18 @@ ft_printf("105:%f\n", 23.00041);
 printf("105:%f\n", 23.00041);
 
 ft_printf("106: this %X number\n", 3);
-printf("106: this %X number\n", 3);
+// printf("106: this %X number\n", 3);
 
-ft_printf("106: this %x number\n", 3);
-printf("106: this %x number\n", 3);
+// ft_printf("106: this %x number\n", 3);
+// printf("106: this %x number\n", 3);
 
-ft_printf("107:%37llo:\n", 522337203685470);
-printf("107:%37llo:\n", 522337203685470);
+// ft_printf("107:%37llo:\n", 522337203685470);
+// printf("107:%37llo:\n", 522337203685470);
+
+while (1)
+{
+
+}
 
 }
 

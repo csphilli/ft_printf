@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_d.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 10:15:00 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/05 08:59:56 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/06 09:51:45 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static int nbr_size(intmax_t nbr)
 
 // HAVENT HANDLED LENGTH YET
 
-t_struct		*do_basic_d(t_struct *csp, intmax_t nbr, int get_negative)
+void		do_basic_d(t_struct *csp, intmax_t nbr, int get_negative)
 {
 	if (nbr == 0 && csp->prec == 0)
 	{
@@ -73,13 +73,14 @@ t_struct		*do_basic_d(t_struct *csp, intmax_t nbr, int get_negative)
 		if (csp->c_flags[0] != '-')
 			print_alt(csp, csp->width, ' ');
 		if (csp->c_flags[1] == '+')
-			write(1, "+", 1);
+			print_alt(csp, 1, '+');
 		else if (csp->c_flags[2] == ' ')
-			write(1, " ", 1);
+			print_alt(csp, 1, ' ');
 		if (csp->c_flags[0] == '-')
 			print_alt(csp, csp->width, ' ');
+		//return (csp);
 	}
-	return (csp);
+	//return (csp);
 }
 
 t_struct			*print_d(t_struct *csp)
@@ -90,9 +91,31 @@ t_struct			*print_d(t_struct *csp)
 	int			get_negative;
 
 	nbr = get_nbr(csp);
-	is_neg = (nbr < 0) ? 1 : 0;
 	get_negative = negativity(csp, nbr);
-	do_basic_d(csp, nbr, get_negative);
+	if (nbr == 0 && csp->prec == 0)
+	{
+		do_basic_d(csp, nbr, get_negative);
+		return (csp);
+	}
+	/*
+	if (nbr == 0 && csp->prec == 0)
+	{
+		if (get_negative != '\0')
+			csp->width--;
+		if (csp->c_flags[0] != '-')
+			print_alt(csp, csp->width, ' ');
+		if (csp->c_flags[1] == '+')
+			print_alt(csp, 1, '+');
+		else if (csp->c_flags[2] == ' ')
+			print_alt(csp, 1, ' ');
+		if (csp->c_flags[0] == '-')
+			print_alt(csp, csp->width, ' ');
+		return (csp);
+	}
+	*/
+	is_neg = (nbr < 0) ? 1 : 0;
+	
+
 	csp->s_len = nbr == 0 ? 1 : nbr_size(nbr);
 	nbr *= (is_neg && nbr != (-9223372036854775807 -1)) ? -1 : 1;	
 	n_blank = csp->s_len;
