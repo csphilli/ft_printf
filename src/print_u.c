@@ -6,7 +6,7 @@
 /*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 10:15:00 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/06 22:41:16 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/07 00:39:39 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,13 @@ t_struct			*print_u(t_struct *csp)
 	if (nbr == 9223372036854775807)
 		tmp = ft_strdup("9223372036854775807");
 	else
-		tmp = nbr == 0 ? ft_strdup("0") : cvt_nbr(csp, nbr, 10);
+		tmp = nbr == 0 ? ft_strdup("0") : ft_itoa_base(nbr, 10);
 	csp->s_len = nbr == 0 ? 1 : ft_strlen(tmp);
 	n_blank = collect_u(csp);	
 	print_u_zero(csp, nbr);
 	print_alt(csp, csp->prec - csp->s_len, '0');
 	ft_putstr(tmp);
+	csp->len += ft_strlen(tmp);
 	if (csp->c_flags[0] == '-')
 		print_alt(csp, csp->width - n_blank, ' ');
 	free(tmp);

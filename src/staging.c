@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   staging.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:19:47 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/06 14:16:12 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/03/06 23:19:50 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	staging(t_struct *csp)
 	spec = &csp->specifier;
 	if (ft_strchr("cspxXdDioufF%", (int)csp->srch_fmt[csp->i]))
 	{
-		// printf("inside printing\n");
 		if (*spec == 'c')
 			print_c(csp);
 		else if (*spec == 's')

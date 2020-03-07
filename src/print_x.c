@@ -6,12 +6,26 @@
 /*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 11:49:10 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/06 22:51:32 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/07 08:46:31 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
+static char				*do_x(t_struct *csp, uintmax_t nbr, int m_z, char *tmp)
+{
+	if (csp->c_flags[0] != '-')
+		print_alt(csp, csp->padding, ' ');
+	print_zero(csp, csp->specifier, nbr);
+	print_alt(csp, m_z, '0');
+	if (csp->specifier == 'X')
+		ft_s_toupper(tmp);
+	else
+		ft_putstr(tmp);
+	if (csp->c_flags[0] == '-')
+		print_alt(csp, csp->padding, ' ');
+	return(0);
+}
 
 t_struct			*print_x(t_struct *csp)
 {
@@ -27,7 +41,7 @@ t_struct			*print_x(t_struct *csp)
 		print_alt(csp, csp->width, ' ');
 		return (csp);
 	}
-	tmp = cvt_nbr(csp, nbr, 16);
+	tmp = ft_itoa_base(nbr, 16);//cvt_nbr(csp, nbr, 16);
 	mod = (csp->c_flags[3] == '#' && nbr) ? 2 : 0;
 	csp->s_len = ft_strlen(tmp);
 	m_z = get_mz(csp, nbr, csp->s_len, mod);
@@ -38,19 +52,7 @@ t_struct			*print_x(t_struct *csp)
 	return (csp);
 }
 
-void				do_x(t_struct *csp, uintmax_t nbr, int m_z, char *tmp)
-{
-	if (csp->c_flags[0] != '-')
-		print_alt(csp, csp->padding, ' ');
-	print_zero(csp, csp->specifier, nbr);
-	print_alt(csp, m_z, '0');
-	if (csp->specifier == 'X')
-		ft_putstr(ft_s_toupper(tmp));
-	else
-		ft_putstr(tmp);
-	if (csp->c_flags[0] == '-')
-		print_alt(csp, csp->padding, ' ');
-}
+
 
 t_struct			*print_zero(t_struct *csp, char spec, uintmax_t nbr)
 {

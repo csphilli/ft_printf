@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_p.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 14:58:08 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/11 10:54:31 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/03/07 00:29:48 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,22 @@
 
 t_struct	*print_p(t_struct *csp)
 {
-	char		*tmp;
+	char		*tmp_s;
+	char		*tmp_n;
 	int			s_len;
 	uintmax_t	nbr;
 
 	nbr = (unsigned long)va_arg(csp->args, unsigned long int);
 	nbr = (uintmax_t)nbr;
-	tmp = cvt_nbr(csp, nbr, 16);
-	tmp = ft_strjoin("0x", tmp);
-	if (tmp == NULL || nbr == 0)
-		tmp = ft_strjoin(tmp, "0");
-	s_len = ft_strlen(tmp);
+	tmp_n = ft_itoa_base(nbr, 16);
+	tmp_s = ft_strjoin("0x", tmp_n);
+	if (tmp_s == NULL || nbr == 0)
+		tmp_s = ft_strjoin(tmp_s, "0");
+	s_len = ft_strlen(tmp_s);
 	get_padding(csp, s_len);
-	csp->len += ft_strlen(tmp);
-	align_print(csp, tmp, s_len);
+	csp->len += ft_strlen(tmp_s);
+	align_print(csp, tmp_s, s_len);
+	free(tmp_s);
+	free(tmp_n);
 	return (csp);
 }

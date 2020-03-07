@@ -6,7 +6,7 @@
 /*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:55 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/06 20:43:02 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/07 09:08:45 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,8 @@ int	main()
 	int p_len;
 	p_len = 0;
 
-	//setvbuf(stdout, NULL, _IONBF, 0);
-
 //------------  START STRING TESTING (VALID PRINTF CONVERSIONS)---------------
-
+/*
 printf("[1]\n");
 ft_printf("%.7s", "hello");
 //write(1, "A", 1);
@@ -456,7 +454,9 @@ ft_printf(":testing %##25c and %s:\n\n", c, str);
 printf("[132]\n");
 ft_printf(":testing %-25s and %0#-5.5c:\n\n", str, c);
 
+*/
 
+/*
 //----------  START POINTER TESTING (VALID PRINTF CONVERSIONS)---------------
 
 char *p;
@@ -511,6 +511,7 @@ printf("\n");
 printf("%6X %-6x %-20x %20x", -55432, -55432, -55432, -55432);
 printf("\n\n");
 
+
 printf("[7]\n");
 ft_printf(":%5%:");
 printf("\n");
@@ -522,14 +523,16 @@ ft_printf(":%05%:");
 printf("\n");
 printf(":%05%:");
 printf("\n\n");
-
+*/
 printf("[1284]\n");
 ft_printf(":%p:", NULL);
 printf("\n");
 printf(":%p:", NULL);
 printf("\n\n");
-
-
+/*
+printf("------------------\n");
+printf("BEGIN %%x TESTS\n");
+printf("------------------\n");
 
 printf("[-37.17]\n");
 ft_printf(":%-37.17lx:", 522337203685470);
@@ -623,6 +626,7 @@ printf("18:%#0-8.5x\n", 0);
 
 ft_printf("19:%.0x\n", 0);
 printf("19:%.0x\n", 0);
+
 printf("------------------\n");
 printf("BEGIN %%o TESTS\n");
 printf("------------------\n");
@@ -915,6 +919,28 @@ printf("notm:106:%1");
 // ft_printf("107:%37llo:\n", 522337203685470);
 // printf("107:%37llo:\n", 522337203685470);
 
+printf("------------------\n");
+printf("LEAK TESTING\n");
+printf("------------------\n");
 
+ft_printf("%c\n", 'c'); // no leaks
+ft_printf("%s\n", "Hello"); // no leaks
+ft_printf("%p\n", 111); // no leak
+ft_printf("%i\n", 222); // no leak
+ft_printf("%d\n", 333); // no leak
+ft_printf("%o\n", 444); // no leak
+ft_printf("%u\n", 555); // no leak
+ft_printf("%x\n", 666); // no leak
+ft_printf("%X\n", 777); // no leaks
+ft_printf("%i\n", 888); // no leak
+ft_printf("%f\n", 999.999);// no leak
+ft_printf("%F\n", 100.000); // no leak
+ft_printf("%D\n", 1111);
+
+*/
+while (1)
+{
+	
+}
 }
 
