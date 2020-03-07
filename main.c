@@ -6,7 +6,7 @@
 /*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:55 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/07 09:08:45 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/07 13:15:41 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -456,79 +456,66 @@ ft_printf(":testing %-25s and %0#-5.5c:\n\n", str, c);
 
 */
 
-/*
+
 //----------  START POINTER TESTING (VALID PRINTF CONVERSIONS)---------------
 
 char *p;
 p = "";
 
 
-printf("[133]\n");
-ft_printf(":%-25p:\n", (void *)p);
-printf(":%-25p:\n\n", (void *)p);
+
+ft_printf("133:%-25p:\n", (void *)p);
+printf("133:%-25p:\n", (void *)p);
+
+ft_printf("134:%p: :%%p: :%p:\n", -55432, 77777777777777);
+printf("134:%p: :%%p: :%p:\n", -55432, 77777777777777);
 
 
-printf("[134]\n");
-ft_printf("%X, %%x, %lx", -55432, 77777777777777);
-printf("\n");
-printf("%X, %%x, %lx", -55432, 77777777777777);
-printf("\n\n");
-
-printf("[135]\n");
-ft_printf("%10x, %10X, %-10x, %-10X", -55432, -55432, -55432, -55432);
-printf("\n");
-printf("%10x, %10X, %-10x, %-10X", -55432, -55432, -55432, -55432);
-printf("\n\n");
-
-printf("[136]\n");
-ft_printf(":%#017.12X:", -55432);
-printf("\n");
-printf(":%#017.12X:", -55432);
-printf("\n\n");
-
-printf("[138]\n");
-ft_printf(":%016X:", -55432);
-printf("\n");
-printf(":%016X:", -55432);
-printf("\n\n");
-
-printf("[139]\n");
-ft_printf("%lx %lX", 3000000000, 4000000000);
-printf("\n");
-printf("%lx %lX", 3000000000, 4000000000);
-printf("\n\n");
-
-printf("[140]\n");
-ft_printf("24. %p %.p %.2p %.x X %.X\n", NULL, NULL, NULL, 0 , 0);
-printf("\n");
-//printf("24. %p %.p %.2p %.x X %.X\n", NULL, NULL, NULL, 0, 0);
-printf("\n\n");
+ft_printf("135:%10p: :%10p: :%-10p: :%-10p:\n", -55432, -55432, -55432, -55432);
+printf("135:%10p: :%10p: :%-10p: :%-10p:\n", -55432, -55432, -55432, -55432);
 
 
-printf("[141]\n");
-ft_printf("%6X %-6x %-20x %20x", -55432, -55432, -55432, -55432);
-printf("\n");
-printf("%6X %-6x %-20x %20x", -55432, -55432, -55432, -55432);
-printf("\n\n");
+ft_printf("136:%#017.12p:\n", -55432);
+printf("136:%#017.12p:\n", -55432);
+
+ft_printf("137:%016p:\n", -55432);
+printf("137:%016p:\n", -55432);
+
+ft_printf("138:%p: :%p:\n", 3000000000, 4000000000);
+printf("138:%p: :%p:\n", 3000000000, 4000000000);
+
+ft_printf("139:24.: :%p: :%.p: :%.2p: :%p: :%p:\n", NULL, NULL, NULL, 0 , 0);
+printf("139:24.: :%p: :%.p: :%.2p: :%p: :%p:\n", NULL, NULL, NULL, 0 , 0);
+
+ft_printf("140:%6p: :%-6p: :%-20p: :%20p:\n", -55432, -55432, -55432, -55432);
+printf("140:%6p: :%-6p: :%-20p: :%20p:\n", -55432, -55432, -55432, -55432);
+
+ft_printf("141:%5%:\n");
+printf("141:%5%:\n");
+
+ft_printf("142:%05%:\n");
+printf("142:%05%:\n");
+
+ft_printf("143:%p:\n", NULL);
+printf("143:%p:\n", NULL);
+
+ft_printf("144:%p:\n", NULL);
+printf("144:%p:\n", NULL);
 
 
-printf("[7]\n");
-ft_printf(":%5%:");
-printf("\n");
-printf(":%5%:");
-printf("\n\n");
+ft_printf("145:%p:\n", 0);
+printf("145:%p:\n", 0);
+ft_printf("146:%p:\n", 0);
+printf("146:%p:\n", 0);
+ft_printf("147:%.p:\n", 0);
+printf("147:%.p:\n", 0);
+ft_printf("148:%.2p:\n", 0);
+printf("148:%.2p:\n", 0);
 
-printf("[9]\n");
-ft_printf(":%05%:");
-printf("\n");
-printf(":%05%:");
-printf("\n\n");
-*/
-printf("[1284]\n");
-ft_printf(":%p:", NULL);
-printf("\n");
-printf(":%p:", NULL);
-printf("\n\n");
+while (1)
+{
+	
+}
 /*
 printf("------------------\n");
 printf("BEGIN %%x TESTS\n");
@@ -935,12 +922,19 @@ ft_printf("%X\n", 777); // no leaks
 ft_printf("%i\n", 888); // no leak
 ft_printf("%f\n", 999.999);// no leak
 ft_printf("%F\n", 100.000); // no leak
-ft_printf("%D\n", 1111);
 
+// ft_printf(":%p:\n", NULL); // leaks
+// ft_printf("%p\n", NULL);
+// ft_printf("%.p\n", NULL);
+// ft_printf("%.2p\n", NULL);
 */
-while (1)
-{
+
+
+
+// while (1)
+// {
 	
-}
+// }
+
 }
 
