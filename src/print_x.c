@@ -6,7 +6,7 @@
 /*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 11:49:10 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/07 08:46:31 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/08 13:00:23 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static char				*do_x(t_struct *csp, uintmax_t nbr, int m_z, char *tmp)
 		ft_putstr(tmp);
 	if (csp->c_flags[0] == '-')
 		print_alt(csp, csp->padding, ' ');
-	return(0);
+	return (0);
 }
 
 t_struct			*print_x(t_struct *csp)
@@ -41,13 +41,19 @@ t_struct			*print_x(t_struct *csp)
 		print_alt(csp, csp->width, ' ');
 		return (csp);
 	}
-	tmp = ft_itoa_base(nbr, 16);//cvt_nbr(csp, nbr, 16);
+	tmp = ft_itoa_base(nbr, 16);
+	// printf("tmp:%s\n", tmp);
 	mod = (csp->c_flags[3] == '#' && nbr) ? 2 : 0;
-	csp->s_len = ft_strlen(tmp);
+	csp->s_len = ft_strlen(tmp); // += mod?
+	// printf("s_len1:%d\n", csp->s_len);
 	m_z = get_mz(csp, nbr, csp->s_len, mod);
 	x_padding(csp, m_z, mod, nbr);
 	do_x(csp, nbr, m_z, tmp);
-	csp->len += csp->s_len;
+	// printf("s_len2:%d\n", csp->s_len);
+	// printf("len2:%d\n", csp->len);
+	csp->len += update_len(csp, csp->s_len);
+	// printf("csp->len:%d\n", csp->len);
+	// printf("csp->s_len:%d\n", csp->s_len);
 	free(tmp);
 	return (csp);
 }

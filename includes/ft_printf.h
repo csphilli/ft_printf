@@ -6,7 +6,7 @@
 /*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 09:44:30 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/07 00:47:15 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/08 12:39:12 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,13 @@ t_struct		*chk_width(t_struct *csp);
 t_struct		*chk_precision(t_struct *csp);
 t_struct		*chk_arg_flags(t_struct *csp);
 t_struct		*chk_specifier(t_struct *csp);
-void			staging(t_struct *csp);
+t_struct		*staging(t_struct *csp);
+// int				staging(t_struct *csp);
 t_struct		*print_c(t_struct *csp);
 t_struct		*print_s(t_struct *csp);
 t_struct		*print_p(t_struct *csp);
 t_struct		*print_x(t_struct *csp);
+// int				*print_x(t_struct *csp);//
 t_struct		*print_o(t_struct *csp);
 t_struct		*print_u(t_struct *csp);
 t_struct		*print_d(t_struct *csp);
@@ -76,7 +78,7 @@ t_struct		*x_padding(t_struct *csp, int m_z, int mod, uintmax_t nbr);
 int				get_mz(t_struct *csp, uintmax_t nbr, int s_len, int mod);
 int				ft_printf(const char *format, ...);
 int				parse(t_struct *csp);
-int				pre_staging(t_struct *csp);
+t_struct		*pre_staging(t_struct *csp);
 t_struct		*get_padding(t_struct *csp, long int s_len);
 int				update_len(t_struct *csp, int s_len);
 char			*cvt_nbr(t_struct *csp, uintmax_t nbr, int base);

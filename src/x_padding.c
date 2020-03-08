@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   x_padding.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/11 10:38:49 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/12 11:00:21 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/03/08 13:03:56 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ t_struct	*x_padding(t_struct *csp, int m_z, int mod, uintmax_t nbr)
 	else
 		csp->padding = 0;
 	csp->len += csp->padding;
+	// printf("padding:%d\n", csp->padding);
 	return (csp);
 }

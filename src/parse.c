@@ -6,7 +6,7 @@
 /*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:05 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/07 00:19:47 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/08 12:38:54 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	test_validity(t_struct *csp)
 	return (0);
 }
 
-int	parse(t_struct *csp)
+int			parse(t_struct *csp)
 {
 	int valid;
 

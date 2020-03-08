@@ -6,7 +6,7 @@
 /*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:19:47 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/06 23:19:50 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/08 20:22:09 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,23 @@
 
 
 
-// void		print_specifiers(t_struct *csp)
-// {
-// 	printf("width: '%ld'\n", csp->width);
-// 	printf("len flag[0]: '%c'\n", csp->len_flags[0]);
-// 	printf("len flag[1]: '%c'\n", csp->len_flags[1]);
-// 	printf("convert flag[0]: '%c'\n", csp->c_flags[0]);
-// 	printf("convert flag[1]: '%c'\n", csp->c_flags[1]);
-// 	printf("convert flag[2]: '%c'\n", csp->c_flags[2]);
-// 	printf("convert flag[3]: '%c'\n", csp->c_flags[3]);
-// 	printf("convert flag[4]: '%c'\n", csp->c_flags[4]);
-// 	printf("precision: '%ld'\n", csp->prec);
-// 	printf("specifier: '%c'\n", csp->specifier);
-// }
+void		print_specifiers(t_struct *csp)
+{
+	printf("\n");
+	printf("width: '%ld'\n", csp->width);
+	printf("len flag[0]: '%c'\n", csp->len_flags[0]);
+	printf("len flag[1]: '%c'\n", csp->len_flags[1]);
+	printf("convert flag[0]: '%c'\n", csp->c_flags[0]);
+	printf("convert flag[1]: '%c'\n", csp->c_flags[1]);
+	printf("convert flag[2]: '%c'\n", csp->c_flags[2]);
+	printf("convert flag[3]: '%c'\n", csp->c_flags[3]);
+	printf("convert flag[4]: '%c'\n", csp->c_flags[4]);
+	printf("precision: '%ld'\n", csp->prec);
+	printf("specifier: '%c'\n", csp->specifier);
+	printf("s_len: '%d'\n", csp->s_len);
+}
 
-void	staging(t_struct *csp)
+t_struct 	*staging(t_struct *csp)
 {
 	char	*spec;
 	
@@ -55,4 +57,5 @@ void	staging(t_struct *csp)
 		else
 			print_other(csp);
 	}
+	return (csp);
 }

@@ -6,13 +6,13 @@
 /*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 12:11:29 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/06 19:33:11 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/08 12:37:18 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int			pre_staging(t_struct *csp)
+t_struct		*pre_staging(t_struct *csp)
 {
 	csp->i++;
 	if (csp->srch_fmt[csp->i] != '\0')
@@ -27,5 +27,5 @@ int			pre_staging(t_struct *csp)
 		chk_specifier(csp);
 	if (csp->srch_fmt[csp->i] != '\0')
 		staging(csp);
-	return (csp->len);
+	return (csp);
 }
