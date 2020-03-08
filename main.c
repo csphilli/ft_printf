@@ -6,7 +6,7 @@
 /*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:55 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/07 13:15:41 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/08 11:39:50 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main()
 	p_len = 0;
 
 //------------  START STRING TESTING (VALID PRINTF CONVERSIONS)---------------
-/*
+
 printf("[1]\n");
 ft_printf("%.7s", "hello");
 //write(1, "A", 1);
@@ -454,7 +454,7 @@ ft_printf(":testing %##25c and %s:\n\n", c, str);
 printf("[132]\n");
 ft_printf(":testing %-25s and %0#-5.5c:\n\n", str, c);
 
-*/
+
 
 
 //----------  START POINTER TESTING (VALID PRINTF CONVERSIONS)---------------
@@ -512,11 +512,8 @@ printf("147:%.p:\n", 0);
 ft_printf("148:%.2p:\n", 0);
 printf("148:%.2p:\n", 0);
 
-while (1)
-{
-	
-}
-/*
+
+
 printf("------------------\n");
 printf("BEGIN %%x TESTS\n");
 printf("------------------\n");
@@ -923,18 +920,27 @@ ft_printf("%i\n", 888); // no leak
 ft_printf("%f\n", 999.999);// no leak
 ft_printf("%F\n", 100.000); // no leak
 
-// ft_printf(":%p:\n", NULL); // leaks
-// ft_printf("%p\n", NULL);
-// ft_printf("%.p\n", NULL);
-// ft_printf("%.2p\n", NULL);
-*/
+ft_printf(":%p:\n", NULL); // leaks
+ft_printf("%p\n", NULL);
+ft_printf("%.p\n", NULL);
+ft_printf("%.2p\n", NULL);
+
+ft_printf(":%x:\n", NULL); // leaks
+ft_printf("%x\n", NULL);
+ft_printf("%.x\n", NULL);
+ft_printf("%.2x\n", NULL);
+
+ft_printf(":%X:\n", NULL); // leaks
+ft_printf("%X\n", NULL);
+ft_printf("%.X\n", NULL);
+ft_printf("%.2X\n", NULL);
 
 
 
-// while (1)
-// {
+while (1)
+{
 	
-// }
+}
 
 }
 
