@@ -6,7 +6,7 @@
 /*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 11:49:10 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/09 12:07:42 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/09 22:03:48 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,29 @@ static char				*do_x(t_struct *csp, uintmax_t nbr, int m_z, char *tmp)
 		print_alt(csp, csp->padding, ' ');
 	return (0);
 }
+
+t_struct			*print_zero(t_struct *csp, char spec, uintmax_t nbr)
+{
+	if (nbr && csp->c_flags[3] == '#')
+	{
+		if (spec == 'X')
+		{
+			write(1, "0X", 2);
+			csp->len += 2;
+		}
+		else if (spec == 'x')
+		{
+			write(1, "0x", 2);
+			csp->len += 2;
+		}
+	}
+	return (csp);
+}
+
+/*
+**	Nastly little function, m_z is to obtain the middle zero value. This is
+**	the zero which will fill when prec -1 or when prec > s_len.
+*/
 
 static int		get_mz(t_struct *csp, uintmax_t nbr, int s_len, int mod)
 {
@@ -52,6 +75,9 @@ static int		get_mz(t_struct *csp, uintmax_t nbr, int s_len, int mod)
 	return (m_z = m_z < 0 ? 0 : m_z);
 }
 
+/*
+**	Mod is the value if a # is specified. It adds 2 to the strlen
+*/
 
 t_struct			*print_x(t_struct *csp)
 {
@@ -68,39 +94,12 @@ t_struct			*print_x(t_struct *csp)
 		return (csp);
 	}
 	tmp = ft_itoa_base(nbr, 16);
-	// printf("\ncsp->len:%d\n", csp->len);
-	// printf("tmp:%s\n", tmp);
 	mod = (csp->c_flags[3] == '#' && nbr) ? 2 : 0;
-	csp->s_len = ft_strlen(tmp); // += mod?
-	// printf("s_len1:%d\n", csp->s_len);
+	csp->s_len = ft_strlen(tmp);
 	m_z = get_mz(csp, nbr, csp->s_len, mod);
 	x_padding(csp, m_z, mod, nbr);
 	do_x(csp, nbr, m_z, tmp);
-	// printf("s_len2:%d\n", csp->s_len);
-	// printf("len2:%d\n", csp->len);
-	// csp->len += update_len(csp, csp->s_len);
-	// printf("\ncsp->len:%d\n", csp->len);
 	csp->len += csp->s_len;
 	free(tmp);
-	return (csp);
-}
-
-
-
-t_struct			*print_zero(t_struct *csp, char spec, uintmax_t nbr)
-{
-	if (nbr && csp->c_flags[3] == '#')
-	{
-		if (spec == 'X')
-		{
-			write(1, "0X", 2);
-			csp->len += 2;
-		}
-		else if (spec == 'x')
-		{
-			write(1, "0x", 2);
-			csp->len += 2;
-		}
-	}
 	return (csp);
 }

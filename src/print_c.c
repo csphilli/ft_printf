@@ -6,11 +6,15 @@
 /*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 20:38:27 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/09 12:57:01 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/09 21:44:53 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+**	Handles the printing of char values
+*/
 
 t_struct	*print_c(t_struct *csp)
 {

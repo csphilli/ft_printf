@@ -3,14 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   print_other.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 12:13:08 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/11 10:56:12 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/03/09 21:57:35 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+** Printing the % with whitespaces or zero fillers
+*/
 
 t_struct	*print_pcent(t_struct *csp)
 {
@@ -29,6 +33,11 @@ t_struct	*print_pcent(t_struct *csp)
 	csp->len += 1;
 	return (csp);
 }
+
+/*
+**	I thought there might be more "others" to print here but it ended up
+**	just being a stager for printing a % sign or white space
+*/
 
 void		print_other(t_struct *csp)
 {

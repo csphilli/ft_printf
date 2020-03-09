@@ -6,11 +6,15 @@
 /*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 10:15:00 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/09 17:24:47 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/09 21:51:13 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+**	Handles the ' ' and '+' value provided the nbr >= 0. Else return \0
+*/
 
 t_struct 		*negativity(t_struct *csp, intmax_t nbr)
 {
@@ -25,6 +29,10 @@ t_struct 		*negativity(t_struct *csp, intmax_t nbr)
 	}
 	return (csp);
 }
+
+/*
+**	This function handles the output for numbers == 0 with no precision
+*/
 
 void		do_basic_d(t_struct *csp, intmax_t nbr)
 {
@@ -43,18 +51,24 @@ void		do_basic_d(t_struct *csp, intmax_t nbr)
 	}
 }
 
+/*
+**	Takes care of the printing of whitespace and filler values
+*/
+
 void		do_d(t_struct *csp, int zeroes, int is_neg)
 {
 	if (csp->c_flags[0] != '-')
 		print_alt(csp, csp->width - zeroes - csp->s_len, ' ');
 	if (is_neg)
 		write(1, "-", 1);
-		// print_alt(csp, 1, '-');
 	if (csp->get_plus != '\0')
 		write(1, &csp->get_plus, 1);
-		// print_alt(csp, 1, csp->get_plus);
 	print_alt(csp, zeroes, '0');
 }
+
+/*
+**	Handles zero counting. Many bandaid fixes resulting in nasty if/else
+*/
 
 int		get_zeroes(t_struct *csp, int is_neg)
 {
@@ -85,9 +99,12 @@ int		get_zeroes(t_struct *csp, int is_neg)
 	return (zeroes);
 }
 
+/*
+**	Handles the obtainment of the nbr as well as final printing.
+*/
+
 t_struct	*print_d(t_struct *csp)
 {
-	// intmax_t	nbr;
 	long long	nbr;
 	int			zeroes;
 	int			is_neg;
@@ -99,17 +116,10 @@ t_struct	*print_d(t_struct *csp)
 		do_basic_d(csp, nbr);
 		return (csp);
 	}
-	// printf("\nnbr size ONE:%d\n", csp->s_len);
-	// printf("\ncsp len ONE:%d\n", csp->len);
 	is_neg = (nbr < 0) ? 1 : 0;
 	csp->s_len = nbr == 0 ? 1 : ft_nbr_size(nbr);
-	// printf("\nnbr size TWO:%d\n", csp->s_len);
-	// printf("\ncsp len TWO:%d\n", csp->len);
-	
 	nbr *= (is_neg && nbr != (-9223372036854775807 -1)) ? -1 : 1;
-	// printf("\nnbr:%lld\n", nbr);
 	zeroes = get_zeroes(csp, is_neg);
-	// printf("\nnbr size TWO:%d\n", csp->s_len);
 	csp->s_len += csp->get_plus != '\0' || is_neg ? 1 : 0;	
 	do_d(csp, zeroes, is_neg);
 	if (nbr == -9223372036854775807 - 1)
@@ -121,8 +131,6 @@ t_struct	*print_d(t_struct *csp)
 		ft_putnbrmax(nbr);	
 	if (csp->c_flags[0] == '-')
 		print_alt(csp, csp->width - zeroes - csp->s_len, ' ');
-	// printf("\nnbr size THREE:%d\n", csp->s_len);
-	// printf("\ncsp len THREE:%d\n", csp->len);
 	csp->len += csp->s_len;
 	return (csp);
 }

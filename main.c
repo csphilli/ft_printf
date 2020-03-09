@@ -6,7 +6,7 @@
 /*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:55 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/09 17:21:10 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/09 22:05:32 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main()
 {
 	
 	setvbuf(stdout, NULL, _IONBF, 0);
-/*
+
 	char	*str;
 	str = "hi low  ";
 	char *s_hidden;
@@ -914,47 +914,45 @@ printf("104:%.20f\n", 1.025978542436587568678);
 
 ft_printf("105:%f\n", 23.00041);
 printf("105:%f\n", 23.00041);
-// printf("\n");
+printf("\n");
 
-// ft_printf("106: this %x number\n", 3);
-// printf("106: this %x number\n", 3);
+ft_printf("106: this %x number\n", 3);
+printf("106: this %x number\n", 3);
 
-// ft_printf("107:%37llo:\n", 522337203685470);
-// printf("107:%37llo:\n", 522337203685470);
+ft_printf("107:%37llo:\n", 522337203685470);
+printf("107:%37llo:\n", 522337203685470);
 
-// printf("------------------\n");
-// printf("LEAK TESTING\n");
-// printf("------------------\n");
+printf("------------------\n");
+printf("LEAK TESTING\n");
+printf("------------------\n");
 
-// ft_printf("%c\n", 'c'); // no leaks
-// ft_printf("%s\n", "Hello"); // no leaks
-// ft_printf("%p\n", 111); // no leak
-// ft_printf("%i\n", 222); // no leak
-// ft_printf("%d\n", 333); // no leak
-// ft_printf("%o\n", 444); // no leak
-// ft_printf("%u\n", 555); // no leak
-// ft_printf("%x\n", 666); // no leak
-// ft_printf("%X\n", 777); // no leaks
-// ft_printf("%i\n", 888); // no leak
-// ft_printf("%f\n", 999.999);// no leak
-// ft_printf("%F\n", 100.000); // no leak
+ft_printf("%c\n", 'c'); // no leaks
+ft_printf("%s\n", "Hello"); // no leaks
+ft_printf("%p\n", 111); // no leak
+ft_printf("%i\n", 222); // no leak
+ft_printf("%d\n", 333); // no leak
+ft_printf("%o\n", 444); // no leak
+ft_printf("%u\n", 555); // no leak
+ft_printf("%x\n", 666); // no leak
+ft_printf("%X\n", 777); // no leaks
+ft_printf("%i\n", 888); // no leak
+ft_printf("%f\n", 999.999);// no leak
+ft_printf("%F\n", 100.000); // no leak
 
-// ft_printf(":%p:\n", NULL); // leaks
-// ft_printf("%p\n", NULL);
-// ft_printf("%.p\n", NULL);
-// ft_printf("%.2p\n", NULL);
+ft_printf(":%p:\n", NULL); // leaks
+ft_printf("%p\n", NULL);
+ft_printf("%.p\n", NULL);
+ft_printf("%.2p\n", NULL);
 
-// ft_printf(":%x:\n", NULL); // leaks
-// ft_printf("%x\n", NULL);
-// ft_printf("%.x\n", NULL);
-// ft_printf("%.2x\n", NULL);
+ft_printf(":%x:\n", NULL); // leaks
+ft_printf("%x\n", NULL);
+ft_printf("%.x\n", NULL);
+ft_printf("%.2x\n", NULL);
 
-// ft_printf(":%X:\n", NULL); // leaks
-// ft_printf("%X\n", NULL);
-// ft_printf("%.X\n", NULL);
-// ft_printf("%.2X\n", NULL);
-
-*/
+ft_printf(":%X:\n", NULL); // leaks
+ft_printf("%X\n", NULL);
+ft_printf("%.X\n", NULL);
+ft_printf("%.2X\n", NULL);
 
 
 printf("------------------\n");
@@ -1077,5 +1075,3 @@ n_mine = printf("%lld", -9223372036854775808);
 printf("\t\tn_mine\t:%d\n", n_mine);
 
 }
-
-

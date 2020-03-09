@@ -6,11 +6,15 @@
 /*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 10:15:00 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/06 23:11:07 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/09 21:54:09 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+**	Handles the pre-printing of filler values
+*/
 
 static void	do_f(long double nbr, t_struct *csp, int not_blank, int zeroes)
 {
@@ -26,6 +30,10 @@ static void	do_f(long double nbr, t_struct *csp, int not_blank, int zeroes)
 		print_alt(csp, zeroes, '0');	
 }
 
+/*
+**	not_blank is used to help facilitate what to actually print
+*/
+
 static int	collect_f(t_struct *csp, long double nbr, int not_blank)
 {
 	if (csp->prec == 0 && csp->c_flags[3] == '#')
@@ -36,6 +44,11 @@ static int	collect_f(t_struct *csp, long double nbr, int not_blank)
 		not_blank++;
 	return (not_blank);
 }
+
+/*
+**	Handles the initial formatting/number collection as well as printing
+**	the final value for floats.
+*/
 
 t_struct			*print_f(t_struct *csp)
 {
@@ -61,4 +74,3 @@ t_struct			*print_f(t_struct *csp)
 	free(flt);
 	return (csp);
 }
-

@@ -6,7 +6,7 @@
 #    By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/17 15:59:38 by cphillip          #+#    #+#              #
-#    Updated: 2020/03/09 17:43:24 by csphilli         ###   ########.fr        #
+#    Updated: 2020/03/09 22:23:30 by csphilli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,14 +17,13 @@ INCLUDES = -I includes/
 
 SRC_DIR = src/
 O_DIR = obj/
-LIB_DIR = includes/
+LIB_DIR = src/libft/
 
-C_FILES =	ft_printf.c initializing.c staging.c \
-			parse.c checking.c print_c.c print_s.c printing.c \
-			tools.c print_p.c print_x.c pre_staging.c print_other.c\
-			print_alt.c x_padding.c print_o.c\
-			print_u.c print_d.c print_f.c get_numbers.c convert_nbr.c\
-			do_max.c
+C_FILES =	ft_printf.c initializing.c staging.c\
+			parse.c checking.c print_c.c print_s.c\
+			print_p.c print_x.c pre_staging.c print_other.c\
+			print_alt.c x_padding.c print_o.c print_u.c print_d.c\
+			print_f.c get_numbers.c do_max.c
 
 FIND_C = $(C_FILES:%=$(SRC_DIR)%)
 
@@ -35,7 +34,9 @@ OBJ = $(addprefix $(O_DIR), $(O_FILES))
 all: $(O_DIR) $(NAME)
 
 $(NAME): $(OBJ) $(O_DIR)
-	@cp $(LIB_DIR)$(LIBFT_A) $(NAME)
+	@make -C $(LIB_DIR)
+	@cp $(LIB_DIR)$(LIBFT_A) .
+	@mv	$(LIBFT_A) $(NAME)
 	@ar rc $(NAME) $(addprefix $(O_DIR), $(O_FILES))
 	@ranlib $(NAME)
 
@@ -55,6 +56,7 @@ clean:
 fclean: clean
 	@echo "Deleting binary: $(NAME)"
 	rm -rf $(NAME)
+	rm -rf $(addprefix $(LIB_DIR), $(LIBFT_A))
 
 re: fclean all
 

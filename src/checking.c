@@ -6,11 +6,15 @@
 /*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:16:22 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/06 19:31:35 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/09 21:28:34 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+**	Obtaining the conversion flags
+*/
 
 t_struct	*chk_conv_flags(t_struct *csp)
 {
@@ -39,6 +43,10 @@ t_struct	*chk_conv_flags(t_struct *csp)
 	return (csp);
 }
 
+/*
+**	Obtaining the width
+*/
+
 t_struct	*chk_width(t_struct *csp)
 {
 	while (ft_isdigit(csp->srch_fmt[csp->i]))
@@ -49,6 +57,10 @@ t_struct	*chk_width(t_struct *csp)
 	}
 	return (csp);
 }
+
+/*
+**	Obtaining precision
+*/
 
 t_struct	*chk_precision(t_struct *csp)
 {
@@ -65,6 +77,10 @@ t_struct	*chk_precision(t_struct *csp)
 	}
 	return (csp);
 }
+
+/*
+**	Obtaining the length arguments
+*/
 
 t_struct	*chk_arg_flags(t_struct *csp)
 {
@@ -86,6 +102,10 @@ t_struct	*chk_arg_flags(t_struct *csp)
 	}
 	return (csp);
 }
+
+/*
+**	Obtaining the specifier
+*/
 
 t_struct	*chk_specifier(t_struct *csp)
 {

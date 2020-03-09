@@ -6,11 +6,15 @@
 /*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 14:58:08 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/08 11:35:37 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/09 21:59:45 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+/*
+**	Handles the alt printing of whitespaces and zero fillers
+*/
 
 static void		do_p(t_struct *csp, int s_len, int zeroes)
 {
@@ -24,6 +28,10 @@ static void		do_p(t_struct *csp, int s_len, int zeroes)
 	print_alt(csp, zeroes, '0');
 }
 
+/*
+**	Printing P
+*/
+
 t_struct	*print_p(t_struct *csp)
 {
 	char		*tmp;
@@ -34,7 +42,7 @@ t_struct	*print_p(t_struct *csp)
 	zeroes = 0;
 	nbr = (unsigned long)va_arg(csp->args, unsigned long int);
 	nbr = (uintmax_t)nbr;
-	tmp = ft_itoa_base(nbr, 16);	
+	tmp = ft_itoa_base(nbr, 16);
 	s_len = ft_strlen(tmp);
 	s_len += (tmp == NULL || nbr == 0) ? 1 : 0;
 	if (!csp->prec && !csp->c_flags[0] && csp->c_flags[4] == '0')
