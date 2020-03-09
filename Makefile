@@ -6,13 +6,12 @@
 #    By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/17 15:59:38 by cphillip          #+#    #+#              #
-#    Updated: 2020/03/09 17:16:21 by csphilli         ###   ########.fr        #
+#    Updated: 2020/03/09 17:43:24 by csphilli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 LIBFT_A = libft.a
-# need to move a copy of libft.h to includes
 COMP = gcc -Wall -Wextra -Werror $(INCLUDES) -c -o
 INCLUDES = -I includes/
 
@@ -39,7 +38,6 @@ $(NAME): $(OBJ) $(O_DIR)
 	@cp $(LIB_DIR)$(LIBFT_A) $(NAME)
 	@ar rc $(NAME) $(addprefix $(O_DIR), $(O_FILES))
 	@ranlib $(NAME)
-	@rm -rf $(addprefix $(O_DIR), $(O_FILES))
 
 $(O_DIR):
 	@mkdir -p obj
