@@ -6,7 +6,7 @@
 /*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 20:38:27 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/06 19:33:22 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/09 12:15:47 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ t_struct	*print_c(t_struct *csp)
 		(csp->c_flags[4] == 0 || csp->c_flags[4] != '\0'))
 	{
 		ft_putchar(va_arg(csp->args, int));
+		csp->len += 1;
 		while ((csp->width--) - 1 >= 1)
 			ft_putchar(32);
 	}
@@ -27,6 +28,7 @@ t_struct	*print_c(t_struct *csp)
 		while ((csp->width--) - 1 > 0)
 			ft_putchar(32);
 		ft_putchar(va_arg(csp->args, int));
+		csp->len += 1;
 	}
 	return (csp);
 }

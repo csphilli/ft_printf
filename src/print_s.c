@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_s.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 14:08:21 by cphillip          #+#    #+#             */
-/*   Updated: 2020/02/11 10:54:29 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/03/09 12:12:43 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ t_struct	*print_s(t_struct *csp)
 	ft_putstr(tmp);
 	if (csp->c_flags[0] == '-')
 		print_alt(csp, csp->width - s_len, ' ');
+	csp->len += ft_strlen(tmp);
 	free(tmp);
 	return (csp);
 }
