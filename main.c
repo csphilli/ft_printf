@@ -6,7 +6,7 @@
 /*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:55 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/09 12:18:11 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/09 17:21:10 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -652,6 +652,9 @@ printf("33:%03o:\n", 0);
 ft_printf("34:this %o is nothing:\n", 0);
 printf("34:this %o is nothing:\n", 0);
 
+ft_printf("35:%-05o:\n", 2500);
+printf("35:%-05o:\n", 2500);
+
 printf("------------------\n");
 printf("BEGIN %%u TESTS\n");
 printf("------------------\n");
@@ -835,6 +838,10 @@ printf("88:% +05d:\n", 432);
 ft_printf("89:% +04d:\n", 0);
 printf("89:% +04d:\n", 0);
 
+ft_printf("90:%lld:\n", -9223372036854775808);
+printf("90:%lld:\n", -9223372036854775808);
+
+
 printf("------------------\n");
 printf("BEGIN %%f TESTS\n");
 printf("------------------\n");
@@ -948,6 +955,8 @@ printf("105:%f\n", 23.00041);
 // ft_printf("%.2X\n", NULL);
 
 */
+
+
 printf("------------------\n");
 printf("LEN TESTING\n");
 printf("------------------\n");
@@ -1002,9 +1011,9 @@ printf("\t\tmine\t:%d\n", mine);
 n_mine = printf("%s%s%s%s%s", "this", "is", "a", "multi", "string");
 printf("\t\tn_mine\t:%d\n", n_mine);
 
-mine = ft_printf("%.2c", NULL);
+mine = ft_printf(":%5c:", 42);
 printf("\t\tmine\t:%d\n", mine);
-n_mine = printf("%.2c", NULL);
+n_mine = printf(":%5c:", 42);
 printf("\t\tn_mine\t:%d\n", n_mine);
 
 mine = ft_printf("@moulitest: %c", 0);
@@ -1016,5 +1025,57 @@ mine = ft_printf("null %c and text", 0);
 printf("\t\tmine\t:%d\n", mine);
 n_mine = printf("null %c and text", 0);
 printf("\t\tn_mine\t:%d\n", n_mine);
+
+mine = ft_printf("05o", 42);
+printf("\t\tmine\t:%d\n", mine);
+n_mine = printf("05o", 42);
+printf("\t\tn_mine\t:%d\n", n_mine);
+
+mine = ft_printf("%-5.10o", 2500);
+printf("\t\tmine\t:%d\n", mine);
+n_mine = printf("%-5.10o", 2500);
+printf("\t\tn_mine\t:%d\n", n_mine);
+
+mine = ft_printf("@moulitest: %.10o", 42);
+printf("\t\tmine\t:%d\n", mine);
+n_mine = printf("@moulitest: %.10o", 42);
+printf("\t\tn_mine\t:%d\n", n_mine);
+
+mine = ft_printf("@moulitest: %o", 0);
+printf("\t\tmine\t:%d\n", mine);
+n_mine = printf("@moulitest: %o", 0);
+printf("\t\tn_mine\t:%d\n", n_mine);
+
+mine = ft_printf("%d", 2147483648);
+printf("\t\tmine\t:%d\n", mine);
+n_mine = printf("%d", 2147483648);
+printf("\t\tn_mine\t:%d\n", n_mine);
+
+mine = ft_printf("% d", 42);
+printf("\t\tmine\t:%d\n", mine);
+n_mine = printf("% d", 42);
+printf("\t\tn_mine\t:%d\n", n_mine);
+
+mine = ft_printf("%   +d", -42);
+printf("\t\tmine\t:%d\n", mine);
+n_mine = printf("%   +d", -42);
+printf("\t\tn_mine\t:%d\n", n_mine);
+
+mine = ft_printf("%#6o", 2500);
+printf("\t\tmine\t:%d\n", mine);
+n_mine = printf("%#6o", 2500);
+printf("\t\tn_mine\t:%d\n", n_mine);
+
+mine = ft_printf("%-#6o", 2500);
+printf("\t\tmine\t:%d\n", mine);
+n_mine = printf("%-#6o", 2500);
+printf("\t\tn_mine\t:%d\n", n_mine);
+
+mine = ft_printf("%lld", -9223372036854775808);
+printf("\t\tmine\t:%d\n", mine);
+n_mine = printf("%lld", -9223372036854775808);
+printf("\t\tn_mine\t:%d\n", n_mine);
+
 }
+
 

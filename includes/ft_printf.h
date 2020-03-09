@@ -6,7 +6,7 @@
 /*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 09:44:30 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/09 12:07:55 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/09 17:15:57 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,6 @@ char			*cvt_nbr(t_struct *csp, uintmax_t nbr, int base);
 t_struct		*print_zero(t_struct *csp, char spec, uintmax_t nbr);
 // void			do_x(t_struct *csp, uintmax_t nbr, int m_z, char *tmp);
 int				chk_is_valid(t_struct *csp);
+void    		do_max();
 
 #endif
