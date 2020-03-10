@@ -1,6 +1,0 @@
-*.exe
-x.sh
-main.c
-/pft
-/42checker
-.DS_Store

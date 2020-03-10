@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 09:44:30 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/10 10:52:20 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/03/10 14:50:00 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # include "../src/libft/header/libft.h"
 # include <ctype.h>
 # include <stdarg.h>
-# include <stdio.h> // REMOVE BEFORE SUBMISSION
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdint.h>
@@ -41,17 +40,12 @@ typedef struct	s_struct
 	char		*a_flags;
 	char		*spec_flags;
 	char		get_plus;
-	
 }				t_struct;
 
 long double		get_float(t_struct *csp);
 intmax_t		get_d_nbr(t_struct *csp);
 uintmax_t		get_oux_nbr(t_struct *csp);
 void			handle_max(t_struct *csp);
-// t_struct		*print_s_la_p(t_struct *csp, char *tmp, int s_len);
-// t_struct		*print_s_ra_p(t_struct *csp, char *tmp, int s_len);
-// t_struct		*print_s_la_no_p(t_struct *csp, char *tmp, int s_len);
-// t_struct		*print_s_ra_no_p(t_struct *csp, char *tmp, int s_len);
 t_struct		*print_pcent(t_struct *csp);
 t_struct		*print_alt(t_struct *csp, int amount, int c);
 void			print_other(t_struct *csp);
@@ -71,7 +65,6 @@ t_struct		*print_o(t_struct *csp);
 t_struct		*print_u(t_struct *csp);
 t_struct		*print_d(t_struct *csp);
 t_struct		*print_f(t_struct *csp);
-// t_struct		*align_print(t_struct *csp, char *str, int s_len);
 t_struct		*x_padding(t_struct *csp, int m_z, int mod, uintmax_t nbr);
 int				ft_printf(const char *format, ...);
 int				parse(t_struct *csp);
@@ -80,6 +73,6 @@ t_struct		*get_padding(t_struct *csp, long int s_len);
 int				update_len(t_struct *csp, int s_len);
 t_struct		*print_zero(t_struct *csp, char spec, uintmax_t nbr);
 int				chk_is_valid(t_struct *csp);
-void    		do_max();
+void			do_max();
 
 #endif
