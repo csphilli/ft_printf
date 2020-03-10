@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_p.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 14:58:08 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/09 21:59:45 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/10 10:53:52 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void		do_p(t_struct *csp, int s_len, int zeroes)
 **	Printing P
 */
 
-t_struct	*print_p(t_struct *csp)
+t_struct		*print_p(t_struct *csp)
 {
 	char		*tmp;
 	int			s_len;

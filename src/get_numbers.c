@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_numbers.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 13:25:08 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/09 21:24:18 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/10 10:42:08 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ long double	get_float(t_struct *csp)
 */
 
 intmax_t	get_d_nbr(t_struct *csp)
-{	
+{
 	intmax_t nbr;
 
 	if (ft_strcmp(csp->len_flags, "h") == 0)

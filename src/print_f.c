@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_f.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 10:15:00 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/09 21:54:09 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/10 10:44:53 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 **	Handles the pre-printing of filler values
 */
 
-static void	do_f(long double nbr, t_struct *csp, int not_blank, int zeroes)
+static void			do_f(long double nbr, t_struct *csp, int not_blank,\
+					int zeroes)
 {
 	if (!csp->c_flags[0] && !csp->c_flags[4])
 		print_alt(csp, csp->width - not_blank, ' ');
@@ -27,14 +28,14 @@ static void	do_f(long double nbr, t_struct *csp, int not_blank, int zeroes)
 	if (nbr >= 0 && csp->c_flags[1] == '+')
 		print_alt(csp, 1, '+');
 	if (csp->c_flags[4] == '0' && zeroes >= 1)
-		print_alt(csp, zeroes, '0');	
+		print_alt(csp, zeroes, '0');
 }
 
 /*
 **	not_blank is used to help facilitate what to actually print
 */
 
-static int	collect_f(t_struct *csp, long double nbr, int not_blank)
+static int			collect_f(t_struct *csp, long double nbr, int not_blank)
 {
 	if (csp->prec == 0 && csp->c_flags[3] == '#')
 		not_blank++;

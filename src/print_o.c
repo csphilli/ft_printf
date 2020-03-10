@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   print_o.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 10:15:00 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/09 21:56:12 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/10 10:56:00 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static void	print_o_zero(t_struct *csp, uintmax_t nbr)
+static void			print_o_zero(t_struct *csp, uintmax_t nbr)
 {
 	if (csp->c_flags[3] == '#' && nbr)
 		write(1, "0", 1);
@@ -22,16 +22,17 @@ static void	print_o_zero(t_struct *csp, uintmax_t nbr)
 **	Handles the not_blank value which is to assist with the final printing
 */
 
-static int		collect_o(t_struct *csp, uintmax_t nbr)
+static int			collect_o(t_struct *csp, uintmax_t nbr)
 {
-	int n_blank;
+	int	n_blank;
 
 	if (csp->c_flags[3] == '#' && nbr)
-		csp->s_len++;	
+		csp->s_len++;
 	n_blank = csp->s_len;
 	if (csp->c_flags[4] == '0' && csp->prec == -1 && csp->c_flags[0] != '-')
 		csp->prec = csp->width;
-	else if (csp->c_flags[0] == '-' && csp->c_flags[4] == '0' && csp->prec == -1)
+	else if (csp->c_flags[0] == '-' && csp->c_flags[4] == '0'\
+			&& csp->prec == -1)
 		csp->prec = csp->s_len;
 	if (csp->s_len <= csp->prec && csp->prec > 0)
 		n_blank = csp->prec;

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   print_x.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 11:49:10 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/09 22:03:48 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/10 10:55:36 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static char				*do_x(t_struct *csp, uintmax_t nbr, int m_z, char *tmp)
+static char		*do_x(t_struct *csp, uintmax_t nbr, int m_z, char *tmp)
 {
 	if (csp->c_flags[0] != '-')
 		print_alt(csp, csp->padding, ' ');
@@ -27,7 +27,7 @@ static char				*do_x(t_struct *csp, uintmax_t nbr, int m_z, char *tmp)
 	return (0);
 }
 
-t_struct			*print_zero(t_struct *csp, char spec, uintmax_t nbr)
+t_struct		*print_zero(t_struct *csp, char spec, uintmax_t nbr)
 {
 	if (nbr && csp->c_flags[3] == '#')
 	{
@@ -79,7 +79,7 @@ static int		get_mz(t_struct *csp, uintmax_t nbr, int s_len, int mod)
 **	Mod is the value if a # is specified. It adds 2 to the strlen
 */
 
-t_struct			*print_x(t_struct *csp)
+t_struct		*print_x(t_struct *csp)
 {
 	char		*tmp;
 	uintmax_t	nbr;

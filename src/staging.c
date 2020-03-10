@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   staging.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:19:47 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/09 22:15:49 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/10 10:56:47 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-t_struct 	*staging(t_struct *csp)
+t_struct	*staging(t_struct *csp)
 {
 	char	*spec;
-	
+
 	spec = &csp->specifier;
 	if (ft_strchr("cspxXdDioufF%", (int)csp->srch_fmt[csp->i]))
 	{

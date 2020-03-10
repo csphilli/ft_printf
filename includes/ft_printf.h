@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 09:44:30 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/09 22:14:22 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/10 10:52:20 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct	s_struct
 long double		get_float(t_struct *csp);
 intmax_t		get_d_nbr(t_struct *csp);
 uintmax_t		get_oux_nbr(t_struct *csp);
+void			handle_max(t_struct *csp);
 // t_struct		*print_s_la_p(t_struct *csp, char *tmp, int s_len);
 // t_struct		*print_s_ra_p(t_struct *csp, char *tmp, int s_len);
 // t_struct		*print_s_la_no_p(t_struct *csp, char *tmp, int s_len);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   do_max.c                                           :+:      :+:    :+:   */
+/*   handle_max.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 17:13:08 by csphilli          #+#    #+#             */
-/*   Updated: 2020/03/09 21:26:54 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/10 10:51:27 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,13 @@
 **  is handled in the respective function. In this case, it's only print_d.c
 */
 
-void    do_max()
+void	handle_max(t_struct *csp)
 {
-    write(1, "9223372036854775808", 19);
+	do_max();
+	csp->s_len += 18;
+}
+
+void	do_max(void)
+{
+	write(1, "9223372036854775808", 19);
 }

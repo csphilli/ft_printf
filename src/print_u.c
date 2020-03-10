@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_u.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 10:15:00 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/09 22:01:11 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/10 10:45:25 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void			print_u_zero(t_struct *csp, uintmax_t nbr)
 
 static int			collect_u(t_struct *csp)
 {
-	int 		n_blank;
+	int			n_blank;
 
 	n_blank = csp->s_len;
 	if (csp->c_flags[4] == '0' && csp->prec == -1 && csp->c_flags[3] != '-')

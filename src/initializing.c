@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initializing.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:10:49 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/09 21:22:13 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/10 10:41:30 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_struct	*initialize(t_struct *csp)
 }
 
 t_struct	*re_init(t_struct *csp)
-{	
+{
 	csp->get_plus = '\0';
 	csp->specifier = '\0';
 	csp->prec = -1;

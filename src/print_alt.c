@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_alt.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 12:07:57 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/09 21:44:21 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/10 11:04:05 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_struct	*print_alt(t_struct *csp, int amount, int c)
 
 	if (amount > 0)
 	{
-		if (!(new = ft_strnew(amount))) // Try subbing in just malloc here to see if speed improves.
+		if (!(new = (char*)malloc(sizeof(char) * amount + 1)))
 			exit(-1);
 		ft_memset(new, c, amount);
 		write(1, new, amount);
