@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:55 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/09 22:05:32 by csphilli         ###   ########.fr       */
+/*   Updated: 2020/03/10 12:08:51 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -296,157 +296,11 @@ ft_printf(":%-10.8s:\n", str);
 printf(":%-10.8s:\n\n", str);
 
 
-//----------  START STRING TESTING (IN-VALID PRINTF CONVERSIONS)---------------
-
-setvbuf(stdout, NULL, _IONBF, 0);
-printf("[75]\n");
-ft_printf(":%020s:\n\n", str);
-printf("[76]\n");
-ft_printf(":%04.1s:\n\n", str);
-printf("[77]\n");
-ft_printf(":%#7.18s:\n\n", str);
-printf("[78]\n");
-ft_printf(":%03.11s:\n\n", str);
-printf("[79]\n");
-ft_printf(":%+3s:\n\n", str);
-printf("[80]\n");
-ft_printf(":%-16.13s:\n\n", str);
-printf("[81]\n");
-ft_printf(":%-25s:\n\n", str);
-printf("[82]\n");
-ft_printf(":%018s:\n\n", str);
-printf("[83]\n");
-ft_printf(":%-22s:\n\n", str);
-printf("[84]\n");
-ft_printf(":%07s:\n\n", str);
-printf("[85]\n");
-ft_printf(":%019.14s:\n\n", str);
-printf("[86]\n");
-ft_printf(":%-23.15s:\n\n", str);
-printf("[87]\n");
-ft_printf(":%024.23s:\n\n", str);
-printf("[88]\n");
-ft_printf(":%#18.2s:\n\n", str);
-printf("[89]\n");
-ft_printf(":%+3.22s:\n\n", str);
-printf("[90]\n");
-ft_printf(":%-25s:\n\n", str);
-printf("[91]\n");
-ft_printf(":%011.10s:\n\n", str);
-printf("[92]\n");
-ft_printf(":%+17s:\n\n", str);
-printf("[93]\n");
-ft_printf(":%+20s:\n\n", str);
-printf("[94]\n");
-ft_printf(":%07s:\n\n", str);
-printf("[95]\n");
-ft_printf(":%-11.20s:\n\n", str);
-printf("[96]\n");
-ft_printf(":%013s:\n\n", str);
-printf("[97]\n");
-ft_printf(":%#17s:\n\n", str);
-printf("[98]\n");
-ft_printf(":%-17s:\n\n", str);
-printf("[99]\n");
-ft_printf(":%+.24s:\n\n", str);
-printf("[100]\n");
-ft_printf(":%#22.9s:\n\n", str);
-printf("[101]\n");
-ft_printf(":%#5s:\n\n", str);
-printf("[102]\n");
-ft_printf(":%020.2s:\n\n", str);
-printf("[103]\n");
-ft_printf(":%+23s:\n\n", str);
-printf("[104]\n");
-ft_printf(":%-20s:\n\n", str);
-printf("[105]\n");
-ft_printf(":%+21s:\n\n", str);
-printf("[106]\n");
-ft_printf(":%-s:\n\n", str);
-printf("[107]\n");
-ft_printf(":%-15s:\n\n", str);
-printf("[108]\n");
-ft_printf(":%+23s:\n\n", str);
-printf("[109]\n");
-ft_printf(":%-7.16s:\n\n", str);
-printf("[110]\n");
-ft_printf(":%#22s:\n\n", str);
-printf("[111]\n");
-ft_printf(":%#19s:\n\n", str);
-printf("[112]\n");
-ft_printf(":%#9s:\n\n", str);
-printf("[113]\n");
-ft_printf(":%+14.7s:\n\n", str);
-printf("[114]\n");
-ft_printf(":%-20.24s:\n\n", str);
-printf("[115]\n");
-ft_printf(":%04.8s:\n\n", str);
-printf("[116]\n");
-ft_printf(":%-3s:\n\n", str);
-printf("[117]\n");
-ft_printf(":%+21.7s:\n\n", str);
-printf("[118]\n");
-ft_printf(":%-3s:\n\n", str);
-printf("[119]\n");
-ft_printf(":%+10.13s:\n\n", str);
-printf("[120]\n");
-ft_printf(":%-22s:\n\n", str);
-printf("[121]\n");
-ft_printf(":%-12.17s:\n\n", str);
-printf("[122]\n");
-ft_printf(":%-16s:\n\n", str);
-printf("[123]\n");
-ft_printf(":%#24.6s:\n\n", str);
-printf("[124]\n");
-ft_printf("0\n", str);
 
 
-//----------  START CHAR TESTING (VALID PRINTF CONVERSIONS)---------------
-
-
-char c;
-c = 'a';
-printf("[125]\n");
-ft_printf("!%34lc!", c);
-printf("\n");
-printf("!%34lc!", c);
-printf("\n\n");
-
-printf("[126]\n");
-ft_printf("^.^/%40lc^.^/", '`');
-printf("\n");
-printf("^.^/%40lc^.^/", '`');
-printf("\n\n");
-
-printf("[127]\n");
-ft_printf(":testing %25c and %s:\n", c, str);
-printf(":testing %25c and %s:\n\n:", c, str);
-
-printf("[128]\n");
-ft_printf(":testing %%25s and %%5c:\n", str, c);
-printf(":testing %%25s and %%5c:\n\n:");
-
- //----------  START CHAR TESTING (IN-VALID PRINTF CONVERSIONS)---------------
-
-
-
-printf("[129]\n");
-ft_printf(":testing %#3c:\n\n", c);
-
-printf("[130]\n");
-ft_printf(":testing %0-3c and %s:\n\n", c, str);
-
-printf("[131]\n");
-ft_printf(":testing %##25c and %s:\n\n", c, str);
-
-printf("[132]\n");
-ft_printf(":testing %-25s and %0#-5.5c:\n\n", str, c);
-
-
-
-
-//----------  START POINTER TESTING (VALID PRINTF CONVERSIONS)---------------
-
+printf("------------------\n");
+printf("BEGIN %%p TESTS\n");
+printf("------------------\n");
 char *p;
 p = "";
 
@@ -1072,6 +926,26 @@ printf("\t\tn_mine\t:%d\n", n_mine);
 mine = ft_printf("%lld", -9223372036854775808);
 printf("\t\tmine\t:%d\n", mine);
 n_mine = printf("%lld", -9223372036854775808);
+printf("\t\tn_mine\t:%d\n", n_mine);
+
+mine = ft_printf("%p", 0);
+printf("\t\tmine\t:%d\n", mine);
+n_mine = printf("%p", 0);
+printf("\t\tn_mine\t:%d\n", n_mine);
+
+mine = ft_printf("{%5p}", 0);
+printf("\t\tmine\t:%d\n", mine);
+n_mine = printf("{%5p}", 0);
+printf("\t\tn_mine\t:%d\n", n_mine);
+
+mine = ft_printf("%.0p", 0);
+printf("\t\tmine\t:%d\n", mine);
+n_mine = printf("%.0p", 0);
+printf("\t\tn_mine\t:%d\n", n_mine);
+
+mine = ft_printf("%.p", 0);
+printf("\t\tmine\t:%d\n", mine);
+n_mine = printf("%.p", 0);
 printf("\t\tn_mine\t:%d\n", n_mine);
 
 }
