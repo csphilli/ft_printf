@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 10:15:00 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/10 10:44:53 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/03/10 14:29:34 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ t_struct			*print_f(t_struct *csp)
 
 	zeroes = 0;
 	nbr = get_float(csp);
+	nbr < 0 ? csp->len-- : csp->len;
 	flt = ft_ftoa(nbr, csp->prec, '.');
 	not_blank = ft_strlen(flt);
 	not_blank = collect_f(csp, nbr, not_blank);

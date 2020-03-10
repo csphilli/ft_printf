@@ -6,7 +6,7 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:23:55 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/10 12:08:51 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/03/10 14:21:24 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,17 @@ int	main()
 
 	int p_len;
 	p_len = 0;
+	int mine;
+	int n_mine;
+	mine = 0;
+	n_mine = 0;
 
+	int		*i;
+	char	*simple;
+
+	i = 42;
+	simple = "test";
+/*
 printf("[1]\n");
 ft_printf("%.7s", "hello");
 //write(1, "A", 1);
@@ -295,7 +305,7 @@ printf("[74]\n");
 ft_printf(":%-10.8s:\n", str);
 printf(":%-10.8s:\n\n", str);
 
-
+*/
 
 
 printf("------------------\n");
@@ -303,7 +313,6 @@ printf("BEGIN %%p TESTS\n");
 printf("------------------\n");
 char *p;
 p = "";
-
 
 
 ft_printf("133:%-25p:\n", (void *)p);
@@ -347,15 +356,75 @@ printf("144:%p:\n", NULL);
 
 ft_printf("145:%p:\n", 0);
 printf("145:%p:\n", 0);
+
 ft_printf("146:%p:\n", 0);
 printf("146:%p:\n", 0);
+
 ft_printf("147:%.p:\n", 0);
 printf("147:%.p:\n", 0);
+
 ft_printf("148:%.2p:\n", 0);
 printf("148:%.2p:\n", 0);
 
+ft_printf("149:{%5p}:\n", 0);
+printf("149:{%5p}:\n", 0);
 
+ft_printf("150:%p:\n", &i);
+printf("150:%p:\n", &i);
 
+ft_printf("151:%.17p:\n", &i);
+printf("151:%.17p:\n", &i);
+
+printf("1002:");
+mine = ft_printf("%.17p", &i);
+printf("\t\tmine\t:%d\n", mine);
+printf("1002:");
+n_mine = printf("%.17p", &i);
+printf("\t\tn_mine\t:%d\n", n_mine);
+
+printf("1003:");
+mine = ft_printf("%17p", &i);
+printf("\t\tmine\t:%d\n", mine);
+printf("1003:");
+n_mine = printf("%17p", &i);
+printf("\t\tn_mine\t:%d\n", n_mine);
+
+printf("1004:");
+mine = ft_printf("%017p", &i);
+printf("\t\tmine\t:%d\n", mine);
+printf("1004:");
+n_mine = printf("%017p", &i);
+printf("\t\tn_mine\t:%d\n", n_mine);
+
+printf("1004:");
+mine = ft_printf("%017.14p", &i);
+printf("\t\tmine\t:%d\n", mine);
+printf("1004:");
+n_mine = printf("%017.14p", &i);
+printf("\t\tn_mine\t:%d\n", n_mine);
+
+printf("1004:");
+mine = ft_printf("%.0p, %.p", 0, 0);
+printf("\t\tmine\t:%d\n", mine);
+printf("1004:");
+n_mine = printf("%.0p, %.p", 0, 0);
+printf("\t\tn_mine\t:%d\n", n_mine);
+
+printf("1004:");
+mine = ft_printf("%.p, %.0p", 0, 0);
+printf("\t\tmine\t:%d\n", mine);
+printf("1004:");
+n_mine = printf("%.p, %.0p", 0, 0);
+printf("\t\tn_mine\t:%d\n", n_mine);
+
+printf("1004:");
+mine = ft_printf("{%f}{%lf}{%Lf}", -1.42, -1.42, -1.42l);
+printf("\t\tmine\t:%d\n", mine);
+printf("1004:");
+n_mine = printf("{%f}{%lf}{%Lf}", -1.42, -1.42, -1.42l);
+printf("\t\tn_mine\t:%d\n", n_mine);
+
+/*
 printf("------------------\n");
 printf("BEGIN %%x TESTS\n");
 printf("------------------\n");
@@ -813,10 +882,7 @@ printf("------------------\n");
 printf("LEN TESTING\n");
 printf("------------------\n");
 
-int mine;
-int n_mine;
-mine = 0;
-n_mine = 0;
+
 
 mine = ft_printf("%x", 42);
 printf("\t\tmine\t:%d\n", mine);
@@ -943,9 +1009,29 @@ printf("\t\tmine\t:%d\n", mine);
 n_mine = printf("%.0p", 0);
 printf("\t\tn_mine\t:%d\n", n_mine);
 
-mine = ft_printf("%.p", 0);
+printf("1000:");
+mine = ft_printf(":%p:", &i);
 printf("\t\tmine\t:%d\n", mine);
-n_mine = printf("%.p", 0);
+printf("1000:");
+n_mine = printf(":%p:", &i);
 printf("\t\tn_mine\t:%d\n", n_mine);
 
+printf("1001:");
+mine = ft_printf("%s", "a string");
+printf("\t\tmine\t:%d\n", mine);
+printf("1001:");
+n_mine = printf("%s", "a string");
+printf("\t\tn_mine\t:%d\n", n_mine);
+
+printf("1002:");
+mine = ft_printf("%p", &i);
+printf("\t\tmine\t:%d\n", mine);
+printf("1002:");
+n_mine = printf("%p", &i);
+printf("\t\tn_mine\t:%d\n", n_mine);
+*/
+while (1)
+{
+	
+}
 }
