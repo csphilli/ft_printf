@@ -5,58 +5,46 @@
 #                                                     +:+ +:+         +:+      #
 #    By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/10/17 15:59:38 by cphillip          #+#    #+#              #
-#    Updated: 2020/12/16 13:58:11 by cphillip         ###   ########.fr        #
+#    Created: 2020/12/16 14:26:38 by cphillip          #+#    #+#              #
+#    Updated: 2020/12/16 15:57:04 by cphillip         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
-LIBFT_A = libft.a
-COMP = gcc -Wall -Wextra -Werror $(INCLUDES) -c -o
-INCLUDES = -I includes/
+NAME = libft_printf.a
+
+FLAGS = -Wall -Wextra -Werror
+
+LIBFT = ./libft
 
 SRC_DIR = ./src/
-O_DIR = ./obj/
-LIB_DIR = ./libft/
 
-C_FILES =	ft_printf.c initializing.c staging.c\
-			parse.c checking.c print_c.c print_s.c\
-			print_p.c print_x.c pre_staging.c print_other.c\
-			print_alt.c x_padding.c print_o.c print_u.c print_d.c\
-			print_f.c get_numbers.c handle_max.c
+SRC = 	checking.c ft_printf.c get_numbers.c handle_max.c initializing.c\
+		parse.c pre_staging.c print_alt.c print_c.c print_d.c print_f.c\
+		print_o.c print_other.c print_p.c print_s.c print_u.c print_x.c\
+		staging.c x_padding.c
 
-FIND_C = $(C_FILES:%=$(SRC_DIR)%)
+SRC_FILES = $(addprefix $(SRC_DIR), $(SRC))
 
-O_FILES = $(C_FILES:%.c=%.o)
+OBJ_FILES = $(SRC:.c=.o)
 
-OBJ = $(addprefix $(O_DIR), $(O_FILES))
+INC = ./includes
 
-all: $(O_DIR) $(NAME)
+all: $(NAME)
 
-$(NAME): $(OBJ) $(O_DIR)
-	@make -C $(LIB_DIR)
-	@cp $(LIB_DIR)$(LIBFT_A) .
-	@mv	$(LIBFT_A) $(NAME)
-	@ar rc $(NAME) $(addprefix $(O_DIR), $(O_FILES))
+$(NAME): $(SRC_FILES) $(INC)/ft_printf.h
+	@echo "Compiling ft_printf..."
+	@make -C $(LIBFT)
+	@gcc $(FLAGS) -c $(SRC_FILES) -I$(INC) -I ./libft/includes
+	@ar rc $(NAME) $(OBJ_FILES)
 	@ranlib $(NAME)
 
-$(O_DIR):
-	@mkdir -p obj
-
-$(OBJ): $(FIND_C)
-	@$(MAKE) $(O_FILES)
-
-$(O_FILES):
-	@$(COMP) $(O_DIR)$@ $(SRC_DIR)$(@:%.o=%.c)
-
 clean:
-	@echo "Cleaning Object Files..."
-	rm -rf $(addprefix $(O_DIR), $(O_FILES))
+	@rm -rf $(OBJ_FILES)
+	@rm -rf $(LIBFT)/obj
 
 fclean: clean
-	@echo "Deleting binary: $(NAME)"
-	rm -rf $(NAME)
-	rm -rf $(addprefix $(LIB_DIR), $(LIBFT_A))
+	@rm -rf $(NAME)
+	@rm -rf $(LIBFT)/libft.a
 
 re: fclean all
 
