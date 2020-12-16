@@ -6,11 +6,11 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 13:10:49 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/10 10:41:30 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/12/16 13:54:43 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 /*
 **	These functions "set the table" for the struct.

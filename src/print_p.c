@@ -6,11 +6,11 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 14:58:08 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/10 14:52:55 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/12/16 13:54:43 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 /*
 **	Handles the alt printing of whitespaces and zero fillers

@@ -6,11 +6,11 @@
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 10:15:00 by cphillip          #+#    #+#             */
-/*   Updated: 2020/03/10 14:29:34 by cphillip         ###   ########.fr       */
+/*   Updated: 2020/12/16 13:54:43 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 /*
 **	Handles the pre-printing of filler values

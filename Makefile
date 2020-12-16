@@ -6,7 +6,7 @@
 #    By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/17 15:59:38 by cphillip          #+#    #+#              #
-#    Updated: 2020/03/10 10:49:53 by cphillip         ###   ########.fr        #
+#    Updated: 2020/12/16 13:58:11 by cphillip         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,9 @@ LIBFT_A = libft.a
 COMP = gcc -Wall -Wextra -Werror $(INCLUDES) -c -o
 INCLUDES = -I includes/
 
-SRC_DIR = src/
-O_DIR = obj/
-LIB_DIR = src/libft/
+SRC_DIR = ./src/
+O_DIR = ./obj/
+LIB_DIR = ./libft/
 
 C_FILES =	ft_printf.c initializing.c staging.c\
 			parse.c checking.c print_c.c print_s.c\
