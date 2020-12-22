@@ -6,7 +6,7 @@
 #    By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/16 14:26:38 by cphillip          #+#    #+#              #
-#    Updated: 2020/12/22 13:15:15 by cphillip         ###   ########.fr        #
+#    Updated: 2020/12/22 13:28:20 by cphillip         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,9 +32,9 @@ INC = ./includes
 all: $(NAME)
 
 $(NAME): $(SRC_FILES) $(INC)/ft_printf.h
-	@if git submodule status | egrep -q '^[-] | ^[ ]' ; then \
+	@if git submodule status | egrep -q '^[-]' ; then \
 		echo "INFO: Initializing git submodules"; \
-		git submodule update --init; \
+		git submodule update --init --recursive; \
 	fi
 	@echo "Compiling ft_printf..."
 	@make -C $(LIBFT)
