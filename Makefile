@@ -6,7 +6,7 @@
 #    By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/16 14:26:38 by cphillip          #+#    #+#              #
-#    Updated: 2020/12/22 13:28:20 by cphillip         ###   ########.fr        #
+#    Updated: 2021/01/03 22:15:41 by cphillip         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRC = 	checking.c ft_printf.c get_numbers.c handle_max.c initializing.c\
 SRC_FILES = $(addprefix $(SRC_DIR), $(SRC))
 
 OBJ_FILES = $(SRC:.c=.o)
+OBJ_DIR = obj/
 
 INC = ./includes
 
@@ -37,13 +38,15 @@ $(NAME): $(SRC_FILES) $(INC)/ft_printf.h
 		git submodule update --init --recursive; \
 	fi
 	@echo "Compiling ft_printf..."
+	@mkdir -p $(OBJ_DIR)
 	@make -C $(LIBFT)
 	@gcc $(FLAGS) -c $(SRC_FILES) -I$(INC) -I ./libft/includes
 	@ar rc $(NAME) $(OBJ_FILES)
 	@ranlib $(NAME)
+	@mv $(OBJ_FILES) $(OBJ_DIR)
 
 clean:
-	@rm -rf $(OBJ_FILES)
+	@rm -rf $(OBJ_DIR)
 	@rm -rf $(LIBFT)/obj
 
 fclean: clean
