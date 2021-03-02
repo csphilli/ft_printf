@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/12 18:33:46 by cphillip          #+#    #+#             */
-/*   Updated: 2020/12/16 13:54:46 by cphillip         ###   ########.fr       */
+/*   Created: 2019/10/22 16:59:41 by cphillip          #+#    #+#             */
+/*   Updated: 2019/11/01 23:41:22 by cphillip         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-int		ft_printf(const char *format, ...)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	t_struct	*csp;
+	int i;
 
-	if (!(csp = (t_struct*)malloc(sizeof(t_struct))))
-		return (-1);
-	csp->fmt = format;
-	csp = initialize(csp);
-	if (format)
-	{
-		va_start(csp->args, format);
-		csp->len = parse(csp);
-		va_end(csp->args);
-	}
-	free(csp);
-	return (csp->len);
+	i = 0;
+	while (s1[i] == s2[i] && (s1[i] != '\0' && s2[i] != '\0'))
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
