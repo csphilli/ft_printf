@@ -6,7 +6,7 @@
 #    By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/16 14:26:38 by cphillip          #+#    #+#              #
-#    Updated: 2021/03/02 07:56:18 by csphilli         ###   ########.fr        #
+#    Updated: 2021/03/02 12:30:23 by csphilli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,7 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@echo "#\c"
 
 $(NAME): $(SRC_FILES) $(INC)/ft_printf.h $(TARGET_DIR) $(PRINTF_OBJ) $(LIBFT_OBJ)
-	@echo "\nDone!"
+	@echo "\nDone!\n"
 	@ar rc $(NAME) $(PRINTF_OBJ) $(LIBFT_OBJ)
 	@ranlib $(NAME)
 
