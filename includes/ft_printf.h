@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cphillip <cphillip@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: csphilli <csphilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/12 09:44:30 by cphillip          #+#    #+#             */
-/*   Updated: 2020/12/16 15:48:34 by cphillip         ###   ########.fr       */
+/*   Updated: 2021/03/02 07:34:10 by csphilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-# include "libft.h"
+// # include "libft.h"
 # include <ctype.h>
 # include <stdarg.h>
 # include <unistd.h>
@@ -74,5 +74,33 @@ int				update_len(t_struct *csp, int s_len);
 t_struct		*print_zero(t_struct *csp, char spec, uintmax_t nbr);
 int				chk_is_valid(t_struct *csp);
 void			do_max();
+
+/*
+**	LIBRARY FUNCS
+*/
+
+char			*ft_ftoa(long double nbr, int prec, char dot);
+int				ft_isdigit(int c);
+char			*ft_itoa_base(uintmax_t nbr, int base);
+void			*ft_memset(void *b, int c, size_t len);
+int				ft_nbr_size(intmax_t nbr);
+void			ft_putchar(char c);
+void			ft_putnbrmax(intmax_t nbr);
+void			ft_putstr(char const *str);
+void			ft_s_toupper(char *str);
+char			*ft_strchr(const char *s, int c);
+int				ft_strcmp(const char *s1, const char *s2);
+char			*ft_strdup(const char *s1);
+size_t			ft_strlen(const char *str);
+char			*ft_strndup(char *str, int size);
+char			*ft_strjoin(char const *s1, char const *s2);
+void			ft_bzero(void *s, size_t n);
+char			*ft_itoa_uintmax(uintmax_t n);
+char			*ft_strnew(size_t size);
+void			*ft_memalloc(size_t size);
+int				ft_nbr_size_base(uintmax_t nbr, int base);
+int				ft_isalpha(int c);
+int				ft_toupper(int c);
+int				ft_intlen_max(uintmax_t nbr);
 
 #endif
